@@ -1,0 +1,31 @@
+{
+  "error_only_number"             : "Card Format Data Must be a Number",
+
+	"error_facility_start_range"		: "Facility Code Start bit must be in the range of 1 to %d",
+	"error_totalbit_less_then_equal_64"	: "Total Bit Length must be less than or equal to 64",
+	"error_facility_start_range"		: "Facility Code Start bit must be in the range of 1 to %d",
+	"error_facility_length_range"		: "Facility Code Length can be 1 to %d",
+	"error_cardnumber_length_range"		: "Card Number Length can be 1 to %d",
+	"error_cardnumber_start_duplicate"	: "Card Number Start bit can not be %d to %d",
+
+	"error_facility_code_out_of_bounds"	: "Facility Code is out of bounds",
+
+	"No"		:"No",
+	"name"		:"Card Format Name",
+	"mean"		:"Description",
+	"Name"		:"Card Format Name",
+	"Mean"		:"Description",
+	"IsDefault"	:"Default",
+	"FacilityCode"		:"Facility Code",
+	"TotalBitLength"		:"Total Bit Length",
+	"FacilityBitLength"		:"Facility Code Length",
+	"EvenParityBitLength"	:"Even Parity Bit Length",
+	"FacilityStartBit"	:"Facility Code Start Bit",
+	"EvenParityStartBit"	:"Even Parity Start Bit",
+	"CardNumberLength"		:"Card Number Length",
+	"OddParityBitLength"	:"Odd parity Bit Length",
+	"CardNumberStartBit"	:"Card Number Start Bit",
+	"OddParityStartBit"	:"Odd Parity Start Bit",
+	"error_name_required"	:"Card Format Name Required",
+	"card_format_default"   : "Default Card Format"
+}

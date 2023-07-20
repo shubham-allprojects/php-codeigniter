@@ -1,0 +1,554 @@
+﻿@CHARSET "UTF-8";
+
+/*
+Cross Browsing을 위해 Browser별로 상이한 기본 Style을 일치 시킴
+*/
+html {overflow: scroll; overflow-x: auto;
+scrollbar-shadow-color: white; scrollbar-highlight-color: 
+white; scrollbar-face-color: #d9d9d9; scrollbar-3dlight-color: #d9d9d9; scrollbar-darkshadow-color: 
+#d9d9d9; scrollbar-track-color: white; scrollbar-arrow-color: white;}
+
+/* 마진과 패딩의 초기화 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td, select
+{ margin : 0; padding : 0; }
+
+/* 헤더 폰트 사이즈 초기화 */
+h1, h2, h3, h4, h5, h6
+{ font-size : 100%; }
+
+/* 리스트의 스타일 제거 */
+ol, ul
+{ list-style : none; }
+
+/* 폰트 강조 특성 초기화 */
+address, caption, cite, code, dfn, em, strong, th, var
+{ font-style : normal; font-weight : normal; }
+
+/* 테이블 스타일 초기화 */
+table
+{ border-collapse : collapse; border-spacing : 0; }
+
+/* 이미지 및 필드셋에서 보더 표시 초기화 */
+fieldset, img
+{ border : 0; }
+
+/* 캡션과 테이블헤더 텍스트 정렬 초기화 */
+caption, th
+{ text-align : left; }
+
+/* 인용구 표시 초기화 */
+q:before, q:after
+{ content : ''; }
+
+
+.truncate {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+
+/*
+사이트 전체에서 사용되는 공통 Style 정의
+*/
+
+body, th, td, p, select, input, textarea, h1, h2, h3, h4
+{ font-family:Arial,Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:9.5pt; line-height:160%;  color:#000000; }
+
+th.floor
+{ font-family:Arial,Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:9.5pt; line-height:160%;  color:#ffffff; }
+td.floor
+{ font-family:Arial,Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:9.5pt; line-height:160%;  color:#ffffff; }
+
+td.td_small
+{ font-family:Arial,Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:8pt; line-height:160%;  color:#000000; }
+td.td_small2
+{ font-family:Arial,Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:8pt; line-height:160%;  color:#ffffff; }
+
+html, body {
+	height:100%;
+	margin:0;
+	padding:0;
+}
+
+/* body	{ background: url(../img/loading.gif) center center; } */
+
+a	{ color: #000000; }
+a:hover	{ color: #a0a0a4; }
+
+img { border:0; vertical-align:middle }
+
+table { width:100%; }
+th, td { vertical-align:top; }
+
+input, select, button { vertical-align:middle; }
+/*button ,input[type=button]{ font-family:Arial,Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:8pt; line-height:160%;background:url("../img/btn.png");
+border:1px solid #929292;
+color:#FF0000;
+cursor:pointer; }*/
+button ,input[type=button]{ font-family:Arial,Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:8pt; line-height:160%; width:75px; height:19px; background:url("../img/menu/button_black_large.jpg");
+font-weight:bold;
+border:0;
+color:#b0b0b0;
+cursor:pointer; }
+label { cursor:pointer; }
+
+input[type=button].btn_tiny,
+button.btn_tiny			{ width:25px; height:19px; background:url(../img/menu/button_black_small.jpg) repeat-x; }
+input[type=button].btn_small,
+button.btn_small		{ width:50px; height:19px; background:url(../img/menu/button_black_small.jpg) repeat-x; }
+button.btn_clear		{ width:94px; height:19px; background:url(../img/clearaction_btn.jpg) repeat-x; }
+button.btn_login		{ width:198px; height:33px; background:url(../img/login_window_button_n.jpg) no-repeat; }
+button.btn_login:hover	{ width:198px; height:33px; background:url(../img/login_window_button_c.jpg) no-repeat; }
+button.btn_large		{ width:160px; height:22px; background:black; }
+button.btn_large3		{ width:110px; height:19px; background:url(../img/menu/button_black_large4.jpg) repeat-x; }
+button.btn_large4		{ width:151px; height:19px; background:url(../img/menu/button_black_large4.jpg) repeat-x; }
+button.btn_char			{ width:19px; height:19px; background-color:url(../img/menu/button_black_large4.jpg) repeat-x; color:white; text-align:center; }
+button.btn_help	{ float:right; width:50px; height:19px; background:url(../img/menu/button_black_small.jpg) repeat-x; }
+
+/*h2 { color:#c4c4c4; padding:4px 7px; font-weight:bold; background:url('../img/detailarea_bg.png'); }*/
+h2 { display:none; }
+h3 { background-color:#a8a8a8; color:#fff; padding:4px 10px; margin:0; }
+h4 { background-color:#a8a8a8; color:#fff; padding:4px 7px; }
+
+
+#wrap {  min-height:100%; background:url("../img/menu/bg.jpg"); }
+
+/*
+#top { clear:both; width:1101px; height=67px; margin:0 auto; }
+#gnb { clear:both; width:980px; height:19px; margin:0 auto; }
+#wrap_contents { clear:both; width:980px; margin:0 auto; }
+
+#lnb { width:280px; float:left; border:0; }
+*/
+#wrap_contents { width:1017px; height:100%; margin:0 auto; }
+#lnb { width:294px; height:100%; border:0; background:url("../img/menu/sidebar_bg.jpg"); }
+#contents { border:0; margin:5px 9px 16px 5px; border:1px solid #a8a8a8; background-color:#525252; }
+
+#bottom { clear:both; width:1101px; height:42px; margin:0 auto; }
+#copyright { margin:0 auto; width:980px; text-align:right; font:9pt 'Tahoma'; padding-top:10px; padding-bottom:6px; color:#fff }
+
+#location { color:#c4c4c4; padding:4px 7px 5px 7px; margin-bottom:10px; font-weight:bold; background:url('../img/menu/window_table_bg.jpg'); }
+
+
+
+/*
+자주 사용하는 Style 정의
+*/
+
+.space { clear:both; }
+.left { float:left; }
+.right { float:right; }
+.text_left { text-align:left; }
+.text_right { text-align:right; }
+.text_center { text-align:center; }
+.show { display:inline; }
+.hide { display:none; }
+.bold { font-weight: bold; }
+
+.progressbar-outline { display:block; height:15px; border:1px solid gray; -moz-border-radius: 4px; -webkit-border-radius: 4px; -khtml-border-radius: 4px; border-radius: 4px; }
+.progressbar-fill { display:block; height:15px; background:orange; -moz-border-radius: 2px; -webkit-border-radius: 2px; -khtml-border-radius: 2px; border-radius: 2px; }
+.progressbar-fill-left { display:block; height:15px; background:orange; -moz-border-top-left-radius: 2px; -webkit-border-top-left-radius: 2px; -khtml-border-top-left-radius: 2px; border-top-left-radius: 2px; -moz-border-bottom-left-radius: 2px; -webkit-border-bottom-left-radius: 2px; -khtml-border-bottom-left-radius: 2px; border-bottom-left-radius: 2px; }
+.progressbar-fill-center { display:block; height:15px; background:orange; }
+.progressbar-fill-right { display:block; height:15px; background:orange; -moz-border-top-right-radius: 2px; -webkit-border-top-right-radius: 2px; -khtml-border-top-right-radius: 2px; border-top-right-radius: 2px; -moz-border-bottom-right-radius: 2px; -webkit-border-bottom-right-radius: 2px; -khtml-border-bottom-right-radius: 2px; border-bottom-right-radius: 2px; }
+
+
+
+
+/*.box01 { border:1px solid #a8a8a8; padding:5px; margin-bottom:10px; background-color:#525252; }*/
+/*.box02 { border:0px; padding:0; margin:0; }*/
+
+.box03 {  border:1px solid #a8a8a8; background-color:#525252; }
+
+#list_section { padding:0 10px; }
+#view_section { padding:0 10px; }
+#new_section { padding:0 10px; }
+#edit_section { padding:0 10px; }
+#search_section { padding:0 10px; }
+#decoder_section { padding:0 10px; }
+
+.tbl_view { margin:0; width:100%; background-color:#fff; }
+.tbl_view th { padding:5px; border-bottom:1px solid #d4d4d4; }
+.tbl_view td { padding:5px; border-bottom:1px solid #d4d4d4; vertical-align:middle; }
+
+.tbl_list th { padding:5px; text-align:center; background-color:#000000; color:#fff; }
+.tbl_list td { padding:2px; border-bottom:1px solid #e3e3e3; text-align:center; }
+
+.tbl_list2 th { padding:5px; text-align:center; background-color:#000000; color:#fff; }
+.tbl_list2 td { padding:2px; border-bottom:1px solid #e3e3e3; text-align:center; }
+
+.user_picture { width:110px; height:130px; }
+.button_set { padding:5px; text-align:center; }
+
+.top_text { text-align:right; vertical-align:middle; font:bold 8pt 'Verdana'; color:#fff; }
+.top_text1 { text-align:right; vertical-align:middle; font:9pt 'Tahoma'; color:#fff; }
+
+.sitemap_main { height:11px; text-align:left; vertical-align:middle; font:bold 11pt 'Arial'; color:#165597; }
+.sitemap_sub { width:200px; height:14px; padding-left:28px; text-align:left; vertical-align:middle; font: 9pt 'Arial'; color:#787878; }
+
+.list_button_set {  }
+.list_button_set td { padding:5px 0; }
+.pagination { text-align:center; padding:10px 0; }
+
+.ov { padding-left:5px; cursor:pointer; background-color:#ffffff; }
+.ov:hover { background-color:#01c8ff; }
+/*.on { background-color:#ffeeee; }*/
+.on { background-color:#c4f2ff; }
+.on:hover { background-color:#01c8ff; }
+/*.on:hover { background-color:#ffffee; }*/
+
+
+.time_h, .time_m	{ width:20px; }
+
+input[type=text]{ height:18px;}
+
+input[type=button].btn_find,
+button.btn_find	{ width:18px; height:18px; background:url(../img/menu/button_blue_open.png) repeat-x; }
+
+input[type=button].btn_push,
+button.btn_push	{ width:23px; height:23px; background:url(../img/menu/button_blue_add.png) repeat-x; }
+input[type=button].btn_pop,
+button.btn_pop	{ width:23px; height:23px; background:url(../img/menu/button_blue_remove.png) repeat-x; }
+
+input[type=button].btn_up,
+button.btn_up	{ width:23px; height:23px; background:url(../img/menu/button_blue_up.png) repeat-x; }
+input[type=button].btn_down,
+button.btn_down	{ width:23px; height:23px; background:url(../img/menu/button_blue_down.png) repeat-x; }
+
+
+/* GNB */
+#gnb { clear:both; width:100%; height:68px; background:url(../img/menu/topmenu_bg.jpg) repeat-x; }
+
+.topmenu	{ display:block; cursor:pointer; }
+.topmenubg	{ width:1017px; height:68px; margin:0 auto; }
+.topmenuline	{ display:block; width:3px; height:68px; background:url(../img/menu/topmenu_line.png) no-repeat; }
+.topmenulogo	{ display:block; width:115px; height:68px; background:url(../img/menu/topmenu_logo.png) no-repeat; }
+.topmenu.menu01			{ width:47px; height:68px; background:url(../img/menu/topmenu_01_n.png) no-repeat; }
+.topmenu.menu01.hover	{ width:47px; height:68px; background:url(../img/menu/topmenu_01_s.png) no-repeat; }
+.topmenu.menu02			{ width:47px; height:68px; background:url(../img/menu/topmenu_02_n.png) no-repeat; }
+.topmenu.menu02.hover	{ width:47px; height:68px; background:url(../img/menu/topmenu_02_s.png) no-repeat; }
+.topmenu.menu03			{ width:47px; height:68px; background:url(../img/menu/topmenu_03_n.png) no-repeat; }
+.topmenu.menu03.hover	{ width:47px; height:68px; background:url(../img/menu/topmenu_03_s.png) no-repeat; }
+.topmenu.menu04			{ width:45px; height:68px; background:url(../img/menu/topmenu_04_n.png) no-repeat; }
+.topmenu.menu04.hover	{ width:45px; height:68px; background:url(../img/menu/topmenu_04_s.png) no-repeat; }
+.topmenu.menu05			{ width:45px; height:68px; background:url(../img/menu/topmenu_05_n.png) no-repeat; }
+.topmenu.menu05.hover	{ width:45px; height:68px; background:url(../img/menu/topmenu_05_s.png) no-repeat; }
+.topmenu.menu06			{ width:48px; height:68px; background:url(../img/menu/topmenu_06_n.png) no-repeat; }
+.topmenu.menu06.hover	{ width:48px; height:68px; background:url(../img/menu/topmenu_06_s.png) no-repeat; }
+.topmenu.menu07			{ width:47px; height:68px; background:url(../img/menu/topmenu_07_n.png) no-repeat; }
+.topmenu.menu07.hover	{ width:47px; height:68px; background:url(../img/menu/topmenu_07_s.png) no-repeat; }
+.topmenu.menu08			{ width:47px; height:68px; background:url(../img/menu/topmenu_08_n.png) no-repeat; }
+.topmenu.menu08.hover	{ width:47px; height:68px; background:url(../img/menu/topmenu_08_s.png) no-repeat; }
+.topmenu.menu09			{ width:45px; height:68px; background:url(../img/menu/topmenu_09_n.png) no-repeat; }
+.topmenu.menu09.hover	{ width:45px; height:68px; background:url(../img/menu/topmenu_09_s.png) no-repeat; }
+.topmenu.menu10			{ width:45px; height:68px; background:url(../img/menu/topmenu_10_n.png) no-repeat; }
+.topmenu.menu10.hover	{ width:45px; height:68px; background:url(../img/menu/topmenu_10_s.png) no-repeat; }
+.topmenu.menu11			{ width:48px; height:68px; background:url(../img/menu/topmenu_11_n.png) no-repeat; }
+.topmenu.menu11.hover	{ width:48px; height:68px; background:url(../img/menu/topmenu_11_s.png) no-repeat; }
+.topmenu.menu12			{ width:47px; height:68px; background:url(../img/menu/topmenu_12_n.png) no-repeat; }
+.topmenu.menu12.hover	{ width:47px; height:68px; background:url(../img/menu/topmenu_12_s.png) no-repeat; }
+.topmenu.menu13			{ width:45px; height:68px; background:url(../img/menu/topmenu_13_n.png) no-repeat; }
+.topmenu.menu13.hover	{ width:45px; height:68px; background:url(../img/menu/topmenu_13_s.png) no-repeat; }
+.topmenu.menu14			{ width:48px; height:68px; background:url(../img/menu/topmenu_14_n.png) no-repeat; }
+.topmenu.menu14.hover	{ width:48px; height:68px; background:url(../img/menu/topmenu_14_s.png) no-repeat; }
+.topmenu.menu15			{ width:47px; height:68px; background:url(../img/menu/topmenu_15_n.png) no-repeat; }
+.topmenu.menu15.hover	{ width:47px; height:68px; background:url(../img/menu/topmenu_15_s.png) no-repeat; }
+.topmenu.menu16			{ width:48px; height:68px; background:url(../img/menu/topmenu_16_n.png) no-repeat; }
+.topmenu.menu16.hover	{ width:48px; height:68px; background:url(../img/menu/topmenu_16_s.png) no-repeat; }
+.topmenu.menu17			{ width:50px; height:68px; background:url(../img/menu/topmenu_17_n.png) no-repeat; }
+.topmenu.menu17.hover	{ width:50px; height:68px; background:url(../img/menu/topmenu_17_s.png) no-repeat; }
+
+
+
+.submenu	{ display:inline-block; cursor:pointer; }
+.submenuwrap { position:absolute; top:63px; width:100%; background:url(../img/menu/submenu_bg.jpg) repeat-x; }
+.submenubg	{position:relative; display:none; top:63px; }
+
+/*
+#submenu01	{ padding-left:0; }
+#submenu02	{ padding-left:0px; }
+#submenu03	{ padding-left:0px; }
+#submenu04	{ padding-left:80px; }
+#submenu05	{ padding-left:340px; }
+#submenu06	{ padding-left:287px; }
+#submenu07	{ padding-left:175px; }
+#submenu08	{ padding-left:372px; }
+#submenu09	{ padding-left:359px; }
+#submenu10	{ padding-left:400px; }
+#submenu11	{ padding-left:870px; }
+#submenu12	{ padding-left:860px; }
+#submenu13	{ padding-left:970px; }
+#submenu14	{ padding-left:990px; }
+#submenu15	{ padding-left:620px; }
+#submenu16	{ padding-left:950px; }
+#submenu17	{ padding-left:820px; }
+
+문제가 있는듯하여 방식을 바꾸었습시니다.
+각 서브메뉴의 첫번째 버튼에 아래처럼 하시면 됩니다.
+(.submenu.menu08, .submenu.menu11에 예시로 적용해 놓았습니다.)
+*/
+
+.submenu.menu01			{ width:106px; height:33px; background:url(../img/menu/submenu_01.jpg) no-repeat; }
+.submenu.menu01:hover	{ width:106px; height:33px; background:url(../img/menu/submenu_01_r.jpg) no-repeat; }
+.submenu.menu02			{ width:145px; height:33px; background:url(../img/menu/submenu_02.jpg) no-repeat; }
+.submenu.menu02:hover	{ width:145px; height:33px; background:url(../img/menu/submenu_02_r.jpg) no-repeat; }
+
+.submenu.menu03			{ width:123px; height:33px; background:url(../img/menu/submenu_03.jpg) no-repeat;}
+.submenu.menu03:hover	{ width:123px; height:33px; background:url(../img/menu/submenu_03_r.jpg) no-repeat; }
+.submenu.menu04			{ width:127px; height:33px; background:url(../img/menu/submenu_04.jpg) no-repeat; }
+.submenu.menu04:hover	{ width:127px; height:33px; background:url(../img/menu/submenu_04_r.jpg) no-repeat; }
+
+.submenu.menu52			{ width:101px; height:33px; background:url(../img/menu/submenu_52.jpg) no-repeat;}
+.submenu.menu52:hover	{ width:101px; height:33px; background:url(../img/menu/submenu_52_r.jpg) no-repeat; }
+.submenu.menu53			{ width:109px; height:33px; background:url(../img/menu/submenu_53.jpg) no-repeat; }
+.submenu.menu53:hover	{ width:109px; height:33px; background:url(../img/menu/submenu_53_r.jpg) no-repeat; }
+
+.submenu.menu05			{ width:108px; height:33px; background:url(../img/menu/submenu_05.jpg) no-repeat; }
+.submenu.menu05:hover	{ width:108px; height:33px; background:url(../img/menu/submenu_05_r.jpg) no-repeat; }
+.submenu.menu06			{ width:113px; height:33px; background:url(../img/menu/submenu_06.jpg) no-repeat; }
+.submenu.menu06:hover	{ width:113px; height:33px; background:url(../img/menu/submenu_06_r.jpg) no-repeat; }
+.submenu.menu07			{ width:111px; height:33px; background:url(../img/menu/submenu_07.jpg) no-repeat; }
+.submenu.menu07:hover	{ width:111px; height:33px; background:url(../img/menu/submenu_07_r.jpg) no-repeat; }
+.submenu.menu105  		{ width:136px; height:33px; background:url(../img/menu/submenu_105.jpg) no-repeat; }
+.submenu.menu105:hover	{ width:136px; height:33px; background:url(../img/menu/submenu_105_r.jpg) no-repeat; }
+.submenu.menu106  		{ width:136px; height:33px; background:url(../img/menu/submenu_106.jpg) no-repeat; }
+.submenu.menu106:hover	{ width:136px; height:33px; background:url(../img/menu/submenu_106_r.jpg) no-repeat; }
+
+.submenu.menu08			{ width:98px; height:33px; background:url(../img/menu/submenu_08.jpg) no-repeat; }
+.submenu.menu08:hover	{ width:98px; height:33px; background:url(../img/menu/submenu_08_r.jpg) no-repeat; }
+.submenu.menu09			{ width:85px; height:33px; background:url(../img/menu/submenu_09.jpg) no-repeat; }
+.submenu.menu09:hover	{ width:85px; height:33px; background:url(../img/menu/submenu_09_r.jpg) no-repeat; }
+.submenu.menu10			{ width:136px; height:33px; background:url(../img/menu/submenu_10.jpg) no-repeat; }
+.submenu.menu10:hover	{ width:136px; height:33px; background:url(../img/menu/submenu_10_r.jpg) no-repeat; }
+
+.submenu.menu11			{ width:104px; height:33px; background:url(../img/menu/submenu_11.jpg) no-repeat; }
+.submenu.menu11:hover	{ width:104px; height:33px; background:url(../img/menu/submenu_11_r.jpg) no-repeat; }
+.submenu.menu70			{ width:104px; height:33px; background:url(../img/menu/submenu_68.jpg) no-repeat; }
+.submenu.menu70:hover	{ width:104px; height:33px; background:url(../img/menu/submenu_68_r.jpg) no-repeat; }
+.submenu.menu55			{ width:121px; height:33px; background:url(../img/menu/submenu_55.jpg) no-repeat; }
+.submenu.menu55:hover	{ width:121px; height:33px; background:url(../img/menu/submenu_55_r.jpg) no-repeat; }
+
+.submenu.menu62			{ width:104px; height:33px; background:url(../img/menu/submenu_11.jpg) no-repeat; }
+.submenu.menu62:hover	{ width:104px; height:33px; background:url(../img/menu/submenu_11_r.jpg) no-repeat; }
+
+.submenu.menu12			{ width:113px; height:33px; background:url(../img/menu/submenu_12.jpg) no-repeat; }
+.submenu.menu12:hover	{ width:113px; height:33px; background:url(../img/menu/submenu_12_r.jpg) no-repeat; }
+.submenu.menu13			{ width:155px; height:33px; background:url(../img/menu/submenu_13.jpg) no-repeat; }
+.submenu.menu13:hover	{ width:155px; height:33px; background:url(../img/menu/submenu_13_r.jpg) no-repeat; }
+
+.submenu.menu14			{ width:74px; height:33px; background:url(../img/menu/submenu_14.jpg) no-repeat; }
+.submenu.menu14:hover	{ width:74px; height:33px; background:url(../img/menu/submenu_14_r.jpg) no-repeat; }
+.submenu.menu15			{ width:101px; height:33px; background:url(../img/menu/submenu_15.jpg) no-repeat; }
+.submenu.menu15:hover	{ width:101px; height:33px; background:url(../img/menu/submenu_15_r.jpg) no-repeat; }
+.submenu.menu16			{ width:113px; height:33px; background:url(../img/menu/submenu_16.jpg) no-repeat; }
+.submenu.menu16:hover	{ width:113px; height:33px; background:url(../img/menu/submenu_16_r.jpg) no-repeat; }
+.submenu.menu17			{ width:124px; height:33px; background:url(../img/menu/submenu_17.jpg) no-repeat; }
+.submenu.menu17:hover	{ width:124px; height:33px; background:url(../img/menu/submenu_17_r.jpg) no-repeat; }
+.submenu.menu18			{ width:103px; height:33px; background:url(../img/menu/submenu_18.jpg) no-repeat; }
+.submenu.menu18:hover	{ width:103px; height:33px; background:url(../img/menu/submenu_18_r.jpg) no-repeat; }
+.submenu.menu19			{ width:86px; height:33px; background:url(../img/menu/submenu_19.jpg) no-repeat; }
+.submenu.menu19:hover	{ width:86px; height:33px; background:url(../img/menu/submenu_19_r.jpg) no-repeat; }
+
+.submenu.menu20			{ width:125px; height:33px; background:url(../img/menu/submenu_20.jpg) no-repeat; }
+.submenu.menu20:hover	{ width:125px; height:33px; background:url(../img/menu/submenu_20_r.jpg) no-repeat; }
+.submenu.menu21			{ width:89px; height:33px; background:url(../img/menu/submenu_21.jpg) no-repeat; }
+.submenu.menu21:hover	{ width:89px; height:33px; background:url(../img/menu/submenu_21_r.jpg) no-repeat; }
+.submenu.menu22			{ width:147px; height:33px; background:url(../img/menu/submenu_22.jpg) no-repeat; }
+.submenu.menu22:hover	{ width:147px; height:33px; background:url(../img/menu/submenu_22_r.jpg) no-repeat; }
+
+.submenu.menu23			{ width:84px; height:33px; background:url(../img/menu/submenu_23.jpg) no-repeat; }
+.submenu.menu23:hover	{ width:84px; height:33px; background:url(../img/menu/submenu_23_r.jpg) no-repeat; }
+.submenu.menu24			{ width:84px; height:33px; background:url(../img/menu/submenu_24.jpg) no-repeat; }
+.submenu.menu24:hover	{ width:84px; height:33px; background:url(../img/menu/submenu_24_r.jpg) no-repeat; }
+.submenu.menu25			{ width:87px; height:33px; background:url(../img/menu/submenu_25.jpg) no-repeat; }
+.submenu.menu25:hover	{ width:87px; height:33px; background:url(../img/menu/submenu_25_r.jpg) no-repeat; }
+.submenu.menu26			{ width:77px; height:33px; background:url(../img/menu/submenu_26.jpg) no-repeat; }
+.submenu.menu26:hover	{ width:77px; height:33px; background:url(../img/menu/submenu_26_r.jpg) no-repeat; }
+.submenu.menu27			{ width:132px; height:33px; background:url(../img/menu/submenu_27.jpg) no-repeat; }
+.submenu.menu27:hover	{ width:132px; height:33px; background:url(../img/menu/submenu_27_r.jpg) no-repeat; }
+.submenu.menu28			{ width:108px; height:33px; background:url(../img/menu/submenu_28.jpg) no-repeat; }
+.submenu.menu28:hover	{ width:108px; height:33px; background:url(../img/menu/submenu_28_r.jpg) no-repeat; }
+.submenu.menu29			{ width:66px; height:33px; background:url(../img/menu/submenu_29.jpg) no-repeat; }
+.submenu.menu29:hover	{ width:66px; height:33px; background:url(../img/menu/submenu_29_r.jpg) no-repeat; }
+.submenu.menu30			{ width:130px; height:33px; background:url(../img/menu/submenu_30.jpg) no-repeat; }
+.submenu.menu30:hover	{ width:130px; height:33px; background:url(../img/menu/submenu_30_r.jpg) no-repeat; }
+.submenu.menu31			{ width:74px; height:33px; background:url(../img/menu/submenu_31.jpg) no-repeat; }
+.submenu.menu31:hover	{ width:74px; height:33px; background:url(../img/menu/submenu_31_r.jpg) no-repeat; }
+.submenu.menu32			{ width:82px; height:33px; background:url(../img/menu/submenu_32.jpg) no-repeat; }
+.submenu.menu32:hover	{ width:82px; height:33px; background:url(../img/menu/submenu_32_r.jpg) no-repeat; }
+.submenu.menu33			{ width:111px; height:33px; background:url(../img/menu/submenu_33.jpg) no-repeat; }
+.submenu.menu33:hover	{ width:111px; height:33px; background:url(../img/menu/submenu_33_r.jpg) no-repeat; }
+
+.submenu.menu34			{ width:116px; height:33px; background:url(../img/menu/submenu_34.jpg) no-repeat; }
+.submenu.menu34:hover	{ width:116px; height:33px; background:url(../img/menu/submenu_34_r.jpg) no-repeat; }
+.submenu.menu68			{ width:116px; height:33px; background:url(../img/menu/submenu_34.jpg) no-repeat; }
+.submenu.menu68:hover	{ width:116px; height:33px; background:url(../img/menu/submenu_34_r.jpg) no-repeat; }
+
+.submenu.menu36			{ width:150px; height:33px; background:url(../img/menu/submenu_36.jpg) no-repeat; }
+.submenu.menu36:hover	{ width:150px; height:33px; background:url(../img/menu/submenu_36_r.jpg) no-repeat; }
+.submenu.menu35			{ width:150px; height:33px; background:url(../img/menu/submenu_35.jpg) no-repeat;  }
+.submenu.menu35:hover	{ width:150px; height:33px; background:url(../img/menu/submenu_35_r.jpg) no-repeat; }
+
+.submenu.menu37			{ width:64px; height:33px; background:url(../img/menu/submenu_37.jpg) no-repeat; }
+.submenu.menu37:hover	{ width:64px; height:33px; background:url(../img/menu/submenu_37_r.jpg) no-repeat; }
+.submenu.menu67			{ width:107px; height:33px; background:url(../img/menu/submenu_67.jpg) }
+.submenu.menu67:hover	{ width:107px; height:33px; background:url(../img/menu/submenu_67_r.jpg) no-repeat; }
+.submenu.menu38			{ width:142px; height:33px; background:url(../img/menu/submenu_38.jpg) no-repeat; }
+.submenu.menu38:hover	{ width:142px; height:33px; background:url(../img/menu/submenu_38_r.jpg) no-repeat; }
+
+.submenu.menu39			{ width:84px; height:33px; background:url(../img/menu/submenu_39.jpg) no-repeat; }
+.submenu.menu39:hover	{ width:84px; height:33px; background:url(../img/menu/submenu_39_r.jpg) no-repeat; }
+.submenu.menu71			{ width:135px; height:33px; background:url(../img/menu/submenu_69.jpg) no-repeat; }
+.submenu.menu71:hover	{ width:135px; height:33px; background:url(../img/menu/submenu_69_r.jpg) no-repeat; }
+.submenu.menu40			{ width:118px; height:33px; background:url(../img/menu/submenu_40.jpg) no-repeat; }
+.submenu.menu40:hover	{ width:118px; height:33px; background:url(../img/menu/submenu_40_r.jpg) no-repeat; }
+.submenu.menu54			{ width:164px; height:33px; background:url(../img/menu/submenu_54.jpg) no-repeat; }
+.submenu.menu54:hover	{ width:164px; height:33px; background:url(../img/menu/submenu_54_r.jpg) no-repeat; }
+
+.submenu.menu63			{ width:84px; height:33px; background:url(../img/menu/submenu_39.jpg) no-repeat; }
+.submenu.menu63:hover	{ width:84px; height:33px; background:url(../img/menu/submenu_39_r.jpg) no-repeat; }
+.submenu.menu64			{ width:84px; height:33px; background:url(../img/menu/submenu_39.jpg) no-repeat; }
+.submenu.menu64:hover	{ width:84px; height:33px; background:url(../img/menu/submenu_39_r.jpg) no-repeat; }
+
+.submenu.menu69			{ width:84px; height:33px; background:url(../img/menu/submenu_39.jpg) no-repeat; }
+.submenu.menu69:hover	{ width:84px; height:33px; background:url(../img/menu/submenu_39_r.jpg) no-repeat; }
+
+.submenu.menu41			{ width:147px; height:33px; background:url(../img/menu/submenu_41.jpg) no-repeat; }
+.submenu.menu41:hover	{ width:147px; height:33px; background:url(../img/menu/submenu_41_r.jpg) no-repeat; }
+.submenu.menu42			{ width:113px; height:33px; background:url(../img/menu/submenu_42.jpg) no-repeat; }
+.submenu.menu42:hover	{ width:113px; height:33px; background:url(../img/menu/submenu_42_r.jpg) no-repeat; }
+.submenu.menu43			{ width:112px; height:33px; background:url(../img/menu/submenu_43.jpg) no-repeat; }
+.submenu.menu43:hover	{ width:112px; height:33px; background:url(../img/menu/submenu_43_r.jpg) no-repeat; }
+.submenu.menu44			{ width:139px; height:33px; background:url(../img/menu/submenu_44.jpg) no-repeat; }
+.submenu.menu44:hover	{ width:139px; height:33px; background:url(../img/menu/submenu_44_r.jpg) no-repeat; }
+.submenu.menu45			{ width:150px; height:33px; background:url(../img/menu/submenu_45.jpg) no-repeat; }
+.submenu.menu45:hover	{ width:150px; height:33px; background:url(../img/menu/submenu_45_r.jpg) no-repeat; }
+
+.submenu.menu46			{ width:146px; height:33px; background:url(../img/menu/submenu_46.jpg) no-repeat; }
+.submenu.menu46:hover	{ width:146px; height:33px; background:url(../img/menu/submenu_46_r.jpg) no-repeat; }
+.submenu.menu47			{ width:155px; height:33px; background:url(../img/menu/submenu_47.jpg) no-repeat; }
+.submenu.menu47:hover	{ width:155px; height:33px; background:url(../img/menu/submenu_47_r.jpg) no-repeat; }
+
+.submenu.menu48			{ width:159px; height:33px; background:url(../img/menu/submenu_48.jpg) no-repeat; }
+.submenu.menu48:hover	{ width:159px; height:33px; background:url(../img/menu/submenu_48_r.jpg) no-repeat;  }
+.submenu.menu56			{ width:159px; height:33px; background:url(../img/menu/submenu_56.jpg) no-repeat; }
+.submenu.menu56:hover	{ width:159px; height:33px; background:url(../img/menu/submenu_56_r.jpg) no-repeat; }
+.submenu.menu49			{ width:148px; height:33px; background:url(../img/menu/submenu_49.jpg) no-repeat; }
+.submenu.menu49:hover	{ width:148px; height:33px; background:url(../img/menu/submenu_49_r.jpg) no-repeat; }
+.submenu.menu50			{ width:110px; height:33px; background:url(../img/menu/submenu_50.jpg) no-repeat; }
+.submenu.menu50:hover	{ width:110px; height:33px; background:url(../img/menu/submenu_50_r.jpg) no-repeat; }
+
+.submenu.menu60			{ width:159px; height:33px; background:url(../img/menu/submenu_48.jpg) no-repeat; }
+.submenu.menu60:hover	{ width:159px; height:33px; background:url(../img/menu/submenu_48_r.jpg) no-repeat;  }
+.submenu.menu61			{ width:148px; height:33px; background:url(../img/menu/submenu_56.jpg) no-repeat; }
+.submenu.menu61:hover	{ width:148px; height:33px; background:url(../img/menu/submenu_56_r.jpg) no-repeat; }
+
+.submenu.menu66			{ width:85px; height:33px; background:url(../img/menu/submenu_57.jpg) no-repeat; }
+.submenu.menu66:hover	{ width:85px; height:33px; background:url(../img/menu/submenu_57_r.jpg) no-repeat; }
+
+.submenu.menu65			{ width:148px; height:33px; background:url(../img/menu/submenu_49.jpg) no-repeat; }
+.submenu.menu65:hover	{ width:148px; height:33px; background:url(../img/menu/submenu_49_r.jpg) no-repeat; }
+
+.submenu.menu73			{ width:105px; height:33px; background:url(../img/menu/submenu_73.jpg) no-repeat; }
+.submenu.menu73:hover	{ width:105px; height:33px; background:url(../img/menu/submenu_73_r.jpg) no-repeat; }
+.submenu.menu74			{ width:109px; height:33px; background:url(../img/menu/submenu_74.jpg) no-repeat; }
+.submenu.menu74:hover	{ width:109px; height:33px; background:url(../img/menu/submenu_74_r.jpg) no-repeat; }
+
+.submenu.menu100		{ width:72px; height:33px; background:url(../img/menu/submenu_100.jpg) no-repeat; }
+.submenu.menu100:hover	{ width:72px; height:33px; background:url(../img/menu/submenu_100_r.jpg) no-repeat; }
+.submenu.menu101		{ width:123px; height:33px; background:url(../img/menu/submenu_101.jpg) no-repeat; }
+.submenu.menu101:hover	{ width:123px; height:33px; background:url(../img/menu/submenu_101_r.jpg) no-repeat; }
+
+.submenu.menu102		{ width:113px; height:33px; background:url(../img/menu/submenu_42.jpg) no-repeat; }
+.submenu.menu102:hover	{ width:113px; height:33px; background:url(../img/menu/submenu_42_r.jpg) no-repeat; }
+
+
+/* Quick Menu */
+.bottommenu	{ display:block; cursor:pointer; width:32px; height:42px; }
+.bottommenuwrap { width:100%; display:block; background:url(../img/menu/bottombar_bg.jpg) repeat-x; }
+.bottommenubg	{ width:1017px; margin:0 auto; }
+.bottommenulogo	{ display:block; width:76px; height:42px; background:url(../img/menu/bottombar_logo.png) no-repeat; }
+.bottommenu.menu01			{ background:url(../img/menu/bottombar_button_wizard_n.jpg) no-repeat; }
+.bottommenu.menu01:hover	{ background:url(../img/menu/bottombar_button_wizard_r.jpg) no-repeat; }
+.bottommenu.menu01-select	{ background:url(../img/menu/bottombar_button_wizard_s.jpg) no-repeat; }
+.bottommenu.menu02			{ background:url(../img/menu/bottombar_button_lostcard_n.jpg) no-repeat; }
+.bottommenu.menu02:hover	{ background:url(../img/menu/bottombar_button_lostcard_r.jpg) no-repeat; }
+.bottommenu.menu02-select	{ background:url(../img/menu/bottombar_button_lostcard_s.jpg) no-repeat; }
+.bottommenu.menu03			{ background:url(../img/menu/bottombar_button_sitemap_n.jpg) no-repeat; }
+.bottommenu.menu03:hover	{ background:url(../img/menu/bottombar_button_sitemap_r.jpg) no-repeat; }
+.bottommenu.menu03-select	{ background:url(../img/menu/bottombar_button_sitemap_s.jpg) no-repeat; }
+.bottommenu.menu04			{ background:url(../img/menu/bottombar_button_license_n.jpg) no-repeat; }
+.bottommenu.menu04:hover	{ background:url(../img/menu/bottombar_button_license_r.jpg) no-repeat; }
+.bottommenu.menu04-select	{ background:url(../img/menu/bottombar_button_license_s.jpg) no-repeat; }
+.bottommenu.menu05			{ background:url(../img/menu/bottombar_button_client_n.jpg) no-repeat; }
+.bottommenu.menu05:hover	{ background:url(../img/menu/bottombar_button_client_r.jpg) no-repeat; }
+.bottommenu.menu05-select	{ background:url(../img/menu/bottombar_button_client_s.jpg) no-repeat; }
+
+
+/* Wizard */
+.wizard-close		    { display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_wizard_close_n.png) no-repeat; }
+.wizard-close:hover	    { display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_wizard_close_r.png) no-repeat; }
+.wizard-location	    { font-family:Arial, Helvetica, sans-serif; color:#a0a0a4; font-size:12px; margin:20px 0 10px 0; }
+
+.lostcard-close		    { display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_lostcard_close_n.png) no-repeat; }
+.lostcard-close:hover	{ display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_lostcard_close_r.png) no-repeat; }
+.lostcard-location	    { font-family:Arial, Helvetica, sans-serif; color:#a0a0a4; font-size:12px; margin:20px 0 10px 0; }
+
+.sitemap-close		    { display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_sitemap_close_n.png) no-repeat; }
+.sitemap-close:hover	{ display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_sitemap_close_r.png) no-repeat; }
+.sitemap-location	    { font-family:Arial, Helvetica, sans-serif; color:#a0a0a4; font-size:12px; margin:20px 0 10px 0; }
+
+.license-close		    { display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_license_close_n.png) no-repeat; }
+.license-close:hover	{ display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_license_close_r.png) no-repeat; }
+.license-location	    { font-family:Arial, Helvetica, sans-serif; color:#a0a0a4; font-size:12px; margin:20px 0 10px 0; }
+
+.client-close		    { display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_client_close_n.png) no-repeat; }
+.client-close:hover		{ display:block; cursor:pointer; width:73px; height:25px; background:url(../img/menu/button_client_close_r.png) no-repeat; }
+.client-location	    { font-family:Arial, Helvetica, sans-serif; color:#a0a0a4; font-size:12px; margin:20px 0 10px 0; }
+
+
+/* Container */
+#confirm-dialog {display:none;}
+
+#confirm-container {height:140px; width:420px; text-align:left; background:#fff; border:2px solid #336699;}
+#confirm-container .header {height:29px; line-height:30px; width:100%; background:url(../img/menu/window_table_bg.jpg) repeat-x; color:#fff; font-weight:bold;}
+#confirm-container .header span {padding-left:8px;}
+#confirm-container .message {color:#333; font-size:13px; margin:0; padding:12px 4px 12px 8px;}
+#confirm-container .buttons {line-height:26px; width:160px; float:right; padding:10px 8px 0;} 
+#confirm-container .buttons div {float:right; margin-left:4px; width:70px; height:26px; color:#666; font-weight:bold; text-align:center; background:url(..../img/confirm/button.gif) repeat-x; border:1px solid #bbb; cursor:pointer;} 
+#confirm-container a.modal-close,
+#confirm-container a.modal-close:link,
+#confirm-container a.modal-close:active,
+#confirm-container a.modal-close:visited {text-decoration:none; font-weight:bold; position:absolute; right:10px; top:2px; color:#fff;}
+#confirm-container a.modal-close:hover {color:#ccc;}
+
+#confirm-container-logout {height:140px; width:420px; text-align:left; background:#fff; border:2px solid #336699;}
+#confirm-container-logout .header {height:29px; line-height:30px; width:100%; background:url(../img/menu/window_table_bg.jpg) repeat-x; color:#fff; font-weight:bold;}
+#confirm-container-logout .header span {padding-left:8px;}
+#confirm-container-logout .message {color:#333; font-size:13px; margin:0; padding:12px 4px 12px 8px;}
+#confirm-container-logout .buttons {line-height:26px; width:160px; float:right; padding:10px 8px 0;} 
+#confirm-container-logout .buttons div {float:right; margin-left:4px; width:70px; height:26px; color:#666; font-weight:bold; text-align:center; background:url(..../img/confirm/button.gif) repeat-x; border:1px solid #bbb; cursor:pointer;} 
+#confirm-container-logout a.modal-close,
+#confirm-container-logout a.modal-close:link,
+#confirm-container-logout a.modal-close:active,
+#confirm-container-logout a.modal-close:visited {text-decoration:none; font-weight:bold; position:absolute; right:10px; top:2px; color:#fff;}
+#confirm-container-logout a.modal-close:hover {color:#ccc;}
+
+
+/* Door Icon State */
+.door-state								{ background-image: url(../img/icon/door_close.png); }
+.door-state.door-lock					{ background-image: url(../img/icon/door_lock.png); }
+
+.door-state.door-open					{ background-image: url(../img/icon/door_open.png); }
+.door-state.door-open.door-lock			{ background-image: url(../img/icon/door_open_lock.png); }
+
+.door-state.door-forced_open			{ background-image: url(../img/icon/door_open_blink.gif); }
+.door-state.door-forced_open.door-lock	{ background-image: url(../img/icon/door_open_blink_lock.gif); }
+
+.door-disconnect						{ background-image: url(../img/icon/door_disconnect.png) !important; }
+
+
+@media print {
+	#lnb { display: none; }
+	#contents { width: 595px; }
+}

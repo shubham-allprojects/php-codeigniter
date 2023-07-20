@@ -1,0 +1,160 @@
+{
+	"condition"			: "Condition",
+	"conditiontype"		: "Condition Type",
+	"constvalue"		: "Constant Value",
+	"field"				: "Field",		
+	"fieldname"			: "Field Name",
+	"fieldoutputname"	: "Field Header",
+	"fieldsize"			: "Field Size",
+    "no"				: "No",
+	"name"				: "Name",
+    
+    "datetime"          : "Date/Time",
+    "cardholders"       : "Residents",
+    "cards"             : "Cards",    
+    "doors"             : "Doors",
+    "elevators"         : "Elevators",
+    "events"            : "Events",
+    "output_format"     : "Output Format",
+    "save_report"       : "Save Report",
+    
+    "report_covers_time_frame"  : "Report covers time frame",
+    "datetime_ask_run"          : "Ask for date and time range when report is run (* The need to click [Add new time frame] button)",
+    "datetime_last_days"        : "Last days",
+    "days"                      : "days",
+    "datetime_specific_range"   : "Specific Range",
+    "datetime_no_restriction"   : "No date/time restriction",
+    "datetime_weekmonth"        : "Week or month report",
+    "start"                     : "Start",
+    "end"                       : "End",
+    
+    "limit_daily_time_to"       : "Limit daily time to",
+    "time_ask_run"              : "Ask for time restriction when report is run (* The need to click [Add new time frame] button)",
+    "time_restrict_range"       : "Restrict to time range",
+    "time_no_restriction"       : "No daily restriction",
+    "time_specification"        : "Time specification",
+    
+    "exclude_specified_time"    : "Exclude specified time",
+    "include_specified_time"    : "Include specified time",
+    
+    "include_holidays"          : "Include holidays",
+    "exclude_holidays"          : "Exclude Holiday",
+    
+    "cardholders"               : "Residents",
+    "cardholder_no_restriction" : "No resident restriction",
+    "cardholder_ask_run"        : "Ask for residents when report is run",
+    "cardholder_use_specification" : "Use the following specification",
+    "unselect_cardholders"      : "Unselected Residents",
+    "select_cardholders"        : "Selected Residents",
+    
+    "unselect_cardholder_groups"    : "Unselected Cardholder Groups",
+    "select_cardholder_groups"      : "Selected Cardholder Groups",
+    
+    "attribute_filter"          : "Attribute filter",
+    "attribute"                 : "Attribute",
+    "relation"                  : "Relation",
+    "value"                     : "Value",
+    "ask"                       : "Ask",
+    
+    "cards"                     : "Cards",
+    "card_no_restriction"       : "No card restriction",
+    "card_ask_run"              : "Ask for cards when report is run",
+    "card_use_specification"    : "Use the following specification",
+    "unselect_cards"            : "Unselected Cards",
+    "select_cards"              : "Selected Cards",
+    "unselect_card_types"       : "Unselected Card Types",
+    "select_card_types"         : "Selected Card Types",
+    
+    "doors"                     : "Doors",
+    "door_no_restriction"       : "No door restriction",
+    "door_ask_run"              : "Ask for doors when report is run",
+    "door_use_specification"    : "Use the following specification",
+    "unselect_doors"            : "Unselected Doors",
+    "select_doors"              : "Selected Doors",
+    "unselect_threatlevel"      : "Unselected Threat Level",
+    "select_threatlevel"        : "Selected Threat Level",
+    "doors_belonging_to_floors" : "Doors belonging to floors",
+    "unselect_floors"           : "Unselected Floors",
+    "select_floors"             : "Selected Floors",
+    
+    "elevators"                 : "Elevators",
+    "elevator_all"              : "All Elevators",
+    "elevator_ask_run"          : "Ask for elevator when report is run",
+    "elevator_use_specification"   : "Use the following specification",
+    "unselect_elevators"        : "Unselected Elevators",
+    "select_elevators"          : "Selected Elevators",
+    
+    "events"                    : "Events",
+    "event_all"                 : "All Events",
+    "event_ask_run"             : "Ask for events when report is run",
+    "event_use_specification"   : "Use the following specification",
+    "event_groups"              : "Event Groups",
+    "individual_events"         : "Individual Events",
+    
+    "column"                    : "Column",
+    "title"                     : "Title",
+    "width"                     : "Width",
+    "sort_order"                : "Sort Order",
+    
+    "save_report"               : "Save Report",
+    "report_name"               : "Report Name",
+    "limit_count"               : "Limit report to lines of data",
+    "page_line_count"           : "Start a new page every lines",
+    "allow_access_to"           : "Allow access to",
+    "unselect_user_role"        : "Unselected user role",
+    "select_user_role"          : "Selected user role",
+    
+    "database"                  : "Database",
+    "run_report"                : "Run Report",
+    "current_db"                : "Current DB",
+    "sd_card"                   : "SD Card",
+    "curdbandsdcard"            : "Current DB & SD Card",
+    "upload_file"               : "Upload file",
+    
+    "this_week"                 : "This week",
+    "last_week"                 : "Last week",
+    "this_month"                : "This month",
+    "last_month"                : "Last month",
+    
+    "number_of_cardholder"      : "Resident No",
+    "firstname_of_cardholder"   : "First Name",
+    "lastname_of_cardholder"    : "Last Name",
+    "phone_number"              : "Phone Number",
+    "cell_number"               : "Cell Number",
+    "any_phone_number"          : "Any Phone Number",
+    "email"                     : "Email",
+    "use_ada"                   : "Ada",
+    "has_web_account"           : "Web Account",
+    "web_account_name"          : "Web Account ID",
+    "threatlevel"               : "Threat Level",
+    "has_picture"               : "Picture File",
+    
+    "queued"                    : "Queued",
+    "running"                   : "Running",
+    "complete"                  : "Complete",
+    "error"                     : "Error",
+    "canceled"                     : "Canceled",
+    
+    
+    "error_reportname_required" : "Error Report Name Required",
+    "error_limitcnt_required"   : "Error Limit Count Required",
+    "error_linecnt_required"    : "Error Line Count Required",
+    "error_reportno_missing"    : "Error Report No Missing",
+    "error_save"                : "Save Error",
+    "error_weekmonth_required"  : "Error week or month Required",
+    "error_lastday_required"    : "Error Last day Required",
+    "error_startdate_required"  : "Error Start Date Required",
+    "error_enddate_required"    : "Error End Date Required",
+    "error_time_specification_required" : "Error Time Specification Required",
+    "error_atttr_value_required" : "Error Attribute Value Required",
+    "error_column_required"     : "Error Column Required",
+    "error_db_required"         : "Error Select DB Required"
+    
+    
+    
+    
+    
+    
+    
+    
+}

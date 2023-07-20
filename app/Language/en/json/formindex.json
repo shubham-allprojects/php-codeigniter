@@ -1,0 +1,97 @@
+{
+	"alarm_map"			: "1",
+	"alarm_set"			: "2",
+	
+	"card_holder"			: "3",
+	"card_flash"			: "3",
+	"card"				: "4",
+	"card_format"			: "5",
+	"alevel"			: "6",
+	
+	"schedule"			: "7",
+	"holiday"			: "8",
+	
+	"event"				: "9",
+	"event_code"			: "12",
+	
+	"atlevel"			: "10",
+	"tlevel"			: "11",
+	
+	"resident"			: "13",
+    
+	"cam_view"			: "32",
+	"cam_setup"			: "31",
+	"dvr_view"			: "34",
+	"dvr_search"			: "34",
+	"dvr_setup"			: "33",
+	"nvr_viewer"			: "36",
+	"nvr_search"			: "36",
+	"nvr_setup"			: "35",
+	
+	"door"				: "41",
+	"elevator"			: "42",
+	"ainput"			: "43",
+	"aoutput"			: "44",
+	"tinput"			: "45",
+	"pinput"			: "46",
+	"ctrl"				: "47",
+	"region"			: "89",
+	
+	"server_client"			: "48",
+	"clientreplace"			: "51",
+	"site"				: "49",
+	"sitedevice"			: "52",
+	"ver"				: "50",
+		
+	"userdefine"			: "55",
+	"userrole"			: "56",
+	"webuser"			: "57",
+	"cfloor"			: "58",
+
+	"groupuser"			: "60",	
+	"groupdoor"			: "61",
+	"groupaccess"			: "64",
+	"groupauxin"			: "65",
+	"groupauxout"			: "66",
+	"groupcamera"			: "67",
+	
+	"update"			: "91",
+	"backup"			: "92",
+	"restore"			: "93",
+	"reset"				: "94",
+	"fdefault"			: "95",
+	
+	"ipset"				: "96",
+	"ftp"				: "97",
+	"updatesev"			: "72",
+	"sms"				: "72",
+	"smtp"				: "98",
+	"timesvr"			: "99",
+	"rmc"				: "100",
+	
+	"dimport"			: "73",
+	"dexport"			: "73",
+	
+	"log_report"			: "74",
+	
+	"report"			: "75",
+	
+	"unlockschedule"		: "76",
+	"onetime_unlockschedule"	: "88",
+	"elevatoraction"		: "77",
+	
+	"logmanagement"			: "78",	
+
+	"wizard"			: "79",
+	"lostcard"			: "80",
+	"sitemap"			: "81",
+	"license"			: "82",
+	
+	"access_report"			: "87",
+	"systemreport"			: "86",
+	"smartreport"			: "83",
+	"smartreport_set"		: "84",
+	
+	"log_viewer"			: "85"
+
+}

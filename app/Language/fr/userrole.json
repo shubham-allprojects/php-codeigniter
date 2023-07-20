@@ -1,0 +1,12 @@
+{
+	"dependency_card_holder"	: "Granting Card Holder Access will also grant access to the following:\\n\\n - Card\\n\\nClick OK to Accept or Cancel to cancel.",
+	"dependency_card"		: "Granting Card Access will also grant access to the following:\\n\\n - Access Level\\n\\nClick OK to Accept or Cancel to cancel.",
+	"dependency_alevel"		: "Granting Access Level Access will also grant access to the following:\\n\\n - Door\\n\\nClick OK to Accept or Cancel to cancel.",
+	"dependency_unlockschedule"	: "Granting Unlock Schedule Access will also grant access to the following:\\n\\n - Door\\n\\nClick OK to Accept or Cancel to cancel.",
+	"dependency_wizard"		: "Granting Wizard Access will also grant access to the following:\\n\\n - License\\n - Card Format\\n - Holiday Group\\n - Schedule\\n - Door\\n - Access Level\\n - Card Holder\\n - Card\\n - Network\\n\\nClick OK to Accept or Cancel to cancel.",
+
+	"default_user_role"	: "Default User Role",
+	"name"				: "Name",
+	"Name"				: "Name",
+	"No"				: "No"
+}

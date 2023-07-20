@@ -1,0 +1,24 @@
+{
+	"No"		: "No",
+	"disable"	: "Disable",
+	"alram"		: "Hide On Alarm Map",
+	"name"		: "Output Name",
+	"mean"		: "Description",
+	"Mean"		: "Description",
+	"mode"		: "Mode",
+	"floor"		: "Floor",
+	"Floor"		: "Floor",
+	"State"		: "Default State",
+	"OnTime"    : "On Time",
+	"OffTime"   : "Off Time",
+	"Repeat"    : "Repeat",
+	"Client"		: "Client",
+	"error_percent" : "Error Percent Value",
+	"error_ontime_empty" : "Error On Time Required",
+	"error_offtime_empty" : "Error Off Time Required",
+	"error_repeat_empty" : "Error Repeat Required",
+	"error_ontime_range" : "Error On Time Range (1 sec ~ 18 hrs)",
+	"error_offtime_range" : "Error Off Time Range (1 ~ 999)",
+	"error_repeat_range" : "Error Repeat Range (1 ~ 999)"
+	
+}

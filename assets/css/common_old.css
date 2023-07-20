@@ -1,0 +1,132 @@
+@CHARSET "UTF-8";
+
+/*
+Cross Browsing을 위해 Browser별로 상이한 기본 Style을 일치 시킴
+*/
+html {overflow: scroll; overflow-x: auto;
+scrollbar-shadow-color: white; scrollbar-highlight-color: 
+white; scrollbar-face-color: #d9d9d9; scrollbar-3dlight-color: #d9d9d9; scrollbar-darkshadow-color: 
+#d9d9d9; scrollbar-track-color: white; scrollbar-arrow-color: white;}
+/* 마진과 패딩의 초기화 */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, p, blockquote, th, td
+{ margin : 0; padding : 0; }
+
+/* 헤더 폰트 사이즈 초기화 */
+h1, h2, h3, h4, h5, h6
+{ font-size : 100%; }
+
+/* 리스트의 스타일 제거 */
+ol, ul
+{ list-style : none; }
+
+/* 폰트 강조 특성 초기화 */
+address, caption, cite, code, dfn, em, strong, th, var
+{ font-style : normal; font-weight : normal; }
+
+/* 테이블 스타일 초기화 */
+table
+{ border-collapse : collapse; border-spacing : 0; }
+
+/* 이미지 및 필드셋에서 보더 표시 초기화 */
+fieldset, img
+{ border : 0; }
+
+/* 캡션과 테이블헤더 텍스트 정렬 초기화 */
+caption, th
+{ text-align : left; }
+
+/* 인용구 표시 초기화 */
+q:before, q:after
+{ content : ''; }
+
+
+
+/*
+사이트 전체에서 사용되는 공통 Style 정의
+*/
+
+body {margin:0 ;padding:0 ;background:url(/img/main_bg.png) repeat-x; }
+body, th, td, p, select, input, textarea, h1, h2, h3, h4
+{ font-family:Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:8pt; line-height:160%;  color:#000000; }
+
+img { border:0; vertical-align:middle }
+
+table { width:100%; }
+th, td { vertical-align:top; }
+
+input, select, button { vertical-align:middle; }
+button { font-family:Trebuchet MS,Verdana,Arial,Helvetica,sans-serif; font-size:8pt; line-height:160%;background:url("/img/btn.png");
+border:1px solid #929292;
+color:#FF0000;
+cursor:pointer; }
+
+h2 { color:#fff; padding:4px 7px; font-weight:bold;background:url('/img/detailarea_bg.png') }
+h3 { background-color:#a8a8a8; color:#fff; padding:4px 10px; }
+h4 { background-color:#a8a8a8; color:#fff; padding:4px 7px; }
+
+
+#wrap {}
+
+#top { clear:both; width:980px; margin:0 auto; }
+#gnb { clear:both; width:980px; height:19px; margin:0 auto; }
+#wrap_contents { clear:both; width:980px; margin:0 auto; }
+
+#lnb { width:280px; float:left; border:0; }
+#contents { width:700px; float:left; border:0; }
+
+#bottom { clear:both; height:30px; background:url(/img/main_bg.png) repeat-x; }
+#copyright { margin:0 auto; width:980px; text-align:right; font:bold 8pt 'Verdana'; padding-top:10px; padding-bottom:6px; color:#fff }
+
+#location { font-weight:bold; font-size:10pt; color:#CC0000; margin:5px 0; }
+
+
+
+/*
+자주 사용하는 Style 정의
+*/
+
+.space { clear:both; }
+.left { float:left; }
+.right { float:right; }
+.text_left { text-align:left; }
+.text_right { text-align:right; }
+.text_center { text-align:center; }
+.show { display:inline; }
+.hide { display:none; }
+
+
+
+
+.box01 { border:1px solid #a8a8a8; padding:5px; margin-bottom:10px; }
+.box02 { border:1px solid #ccc; padding:5px; }
+
+.tbl_view th { padding:5px; border-bottom:1px solid #e1e1e1; width:150px; }
+.tbl_view td { padding:5px; border-bottom:1px solid #e1e1e1; vertical-align:middle; }
+
+.tbl_list th { padding:5px; text-align:center; background-color:#888; color:#fff; }
+.tbl_list td { padding:5px; border-bottom:1px solid #e1e1e1; text-align:center; }
+
+.tbl_list2 th { padding:5px; text-align:center; background-color:#ccc; color:#fff; }
+.tbl_list2 td { padding:5px; border-bottom:1px solid #ccc; text-align:center; }
+
+.user_picture { width:110px; height:130px; }
+.button_set { padding:5px; text-align:center; }
+
+.top_text { text-align:right; vertical-align:middle; font:bold 8pt 'Verdana'; color:#fff; }
+
+.list_button_set { border-bottom:1px solid #e1e1e1; }
+.list_button_set td { padding:5px 0; }
+.pagination { text-align:center; margin:10px 0; }
+
+.ov { padding-left:5px; cursor:pointer; background-color:#ffffff; }
+.ov:hover { background-color:#ffffee; }
+.on { background-color:#ffeeee; }
+/*.on:hover { background-color:#ffffee; }*/
+
+
+.time_h, .time_m	{ width:20px; }
+
+input[type=text]{ height:18px;;
+
+
+

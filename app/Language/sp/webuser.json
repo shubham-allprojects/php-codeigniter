@@ -1,0 +1,15 @@
+{
+    "No"        : "No",
+    "Name"      : "Web User Name",
+    "Type"      : "User Type",
+    "ID"        : "User ID",
+    "Password"  : "Password",
+    "UserRole"  : "User Role",
+    "language"  : "Language",
+    "defaultpage"  : "Default Page",
+    "defaultfloor"  : "Default Floor",
+    "defaultfloorstate"  : "Floor Show",
+    "ByAdminNo" : "Admin By Controller",
+    "AutoDisconnectTime"  : "Auto Disconnect Time"
+
+}

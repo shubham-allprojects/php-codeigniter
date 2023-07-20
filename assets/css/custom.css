@@ -1,0 +1,110 @@
+/* #wrap {  height:100%; background:url("../img/bg_login.jpg"); } */
+
+body.login {
+	background-color: #000000;
+	background-image: url("../img/bg_login.jpg");
+	background-repeat: repeat-x;
+	text-align: center;
+}
+
+.Title {	
+	font-family: Arial, Helvetica, sans-serif;
+	color: #A0A0A4;
+	text-align: left;
+	font-size: 12px;
+	width: 30px;
+}
+
+.Data {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #A0A0A4;
+	text-align: left;
+	font-size: 12px;
+	width: 50px;
+}
+.error {
+	color:red
+}
+
+/* #wrap {
+	background: url("../img/menu/bg_top_wizard.jpg") repeat-x #710000;
+}
+
+#lnb {
+	background: url();
+}
+
+#lnb td {
+	vertical-align: middle;
+}
+
+.wizard-title img {
+	margin: 30px 0 0 25px;
+}
+
+.wizard-menu {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	color: #ffffff;
+	height: 46px;
+	background: url("../img/menu/checkbox_nonchk.png") no-repeat 25px;
+	
+}
+
+.wizard-menu div {
+	margin: 0 0 0 50px;
+}
+
+.wizard-menu-select {
+	color: #710000;
+	background-color: #ffffff;
+}
+
+.wizard-menu-checked {
+	background: url("../img/menu/checkbox_chk.png") no-repeat 25px #710000;
+}
+
+.wizard-menu-checked.wizard-menu-select {
+	background: url("../img/menu/checkbox_chk.png") no-repeat 25px #ffffff;
+} */
+
+#contents {
+	width: 771px;
+	float: left;
+	border: 0;
+	margin: 0 0 16px 0;
+	background: #710000;
+}
+
+.prev-wizard {
+	display: inline-block;
+	cursor: pointer;
+	width: 46px;
+	height: 24px;
+	background: url(../img/menu/quick_button_prev_n.png) no-repeat;
+}
+
+.prev-wizard:hover {
+	display: inline-block;
+	cursor: pointer;
+	width: 46px;
+	height: 24px;
+	background: url(../img/menu/quick_button_prev_r.png) no-repeat;
+}
+
+.next-wizard {
+	display: inline-block;
+	cursor: pointer;
+	width: 46px;
+	height: 24px;
+	background: url(../img/menu/quick_button_next_n.png) no-repeat;
+}
+
+.next-wizard:hover {
+	display: inline-block;
+	cursor: pointer;
+	width: 46px;
+	height: 24px;
+	background: url(../img/menu/quick_button_next_r.png) no-repeat;
+}

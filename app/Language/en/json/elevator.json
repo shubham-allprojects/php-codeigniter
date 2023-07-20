@@ -1,0 +1,25 @@
+{
+    "No"            : "No",
+    "Name"          : "Elevator Name",
+    "Elevator"      : "Elevator",
+    "Mean"          : "Description",
+    "Lock"          : "Elevator Lock Mode",
+    "ThreatLevel"   : "Threat Level",
+    "Floor"         : "Floor",
+    "SelectType"    : "Select Type",
+    "UserList"      : "Access Level List",
+    "AuxOutput"     : "Aux Output",
+    "error_auxoutput_empty"     : "Error Aux Output Required",
+
+    "master"		: "Master",
+    "client"		: "Client",
+    "Extended"		: "Extended",
+    "MasterElevator"	: "Master Elevator",
+    "DefaultClientHelpStr"	: "Factory Default Setting",
+    "ExtendedClientHelpStr"	: "Check to add more floors to existing elevator client",
+    "outputs"		: "Outputs",
+    "ElevatorOutput"	: "Elevator Output",
+    "AccessLevel"	: "Access Level",
+    "ElevatorClient"		: "Elevator Client",
+    "ElevatorClientExtension"	: "Elevator Client Extension"
+}

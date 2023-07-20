@@ -1,0 +1,38 @@
+{
+	"warning_change_count"		: "Threat level count is the total number of threat levels available any threat levels above this number will be lost",
+
+	"threat_level_off_lable"	: "Check to turn off Threat Levels",
+
+	"warning_name_required"	: "Threat level count is the total number of threat levels available any threat levels above this number will be lost",
+
+    "ThreatCount"   : "Threat Level Count", 
+    "ThreatLevel"   : "Define Threat Level",
+    "ThreatName1"   : "Threat Level 1",
+    "ThreatName2"   : "Threat Level 2",
+    "ThreatName3"   : "Threat Level 3", 
+    "ThreatName4"   : "Threat Level 4",
+    "ThreatName5"   : "Threat Level 5",
+    "ThreatName6"   : "Threat Level 6",
+    "ThreatName7"   : "Threat Level 7",
+    "ThreatName8"   : "Threat Level 8",
+    "ThreatName9"   : "Threat Level 9",
+    "ThreatName10"   : "Threat Level 10",
+    "ThreatName11"   : "Threat Level 11",
+    "ThreatName12"   : "Threat Level 12",
+    "ThreatName13"   : "Threat Level 13",
+    "ThreatName14"   : "Threat Level 14",
+    "ThreatName15"   : "Threat Level 15",
+    "ThreatName16"   : "Threat Level 16",
+    "ThreatName17"   : "Threat Level 17",
+    "ThreatName18"   : "Threat Level 18",
+    "ThreatName19"   : "Threat Level 19",
+    "ThreatName20"   : "Threat Level 20",    
+    "ThreatName21"   : "Threat Level 21",
+    "ThreatName22"   : "Threat Level 22",
+    "ThreatName23"   : "Threat Level 23",
+    "ThreatName24"   : "Threat Level 24",
+    "ThreatName25"   : "Threat Level 25",
+    "error_name_required"	 : "Error Name Required - Level ",
+    "NotSet"	 : "OFF"
+    
+}

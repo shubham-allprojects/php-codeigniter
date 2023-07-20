@@ -1,0 +1,8 @@
+{
+	"disable"	: "Disable",
+	"alram"		: "Hide On Alarm Map",
+	"name"		: "Name",
+	"mean"		: "Description",
+	"error_name_required"	  : "Error Name Required",
+	"typ"		: "Reader Type"
+}

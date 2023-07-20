@@ -1,0 +1,21 @@
+{
+	"No"		: "No",
+	"disable"	: "Disable",
+	"Disable"	: "Disable",
+	"alram"		: "Hide On Alarm Map",
+	"Alarm"		: "Hide On Alarm Map",
+	"name"		: "Name",
+	"Name"		: "Name",
+	"mean"		: "Description",
+	"Mean"		: "Description",
+	"typ"		: "Circiut Type",
+	"Type"		: "Circiut Type",
+	"low"		: "Low Value",
+	"high"		: "High Value",
+	"nomal"		: "Normal Range",
+	"T_open"	: "Trouble Open Range",
+	"T_short"	: "Trouble Short Range",
+	"A_1"		: "Alarm 1 Range",
+	"error_name_required"	  : "Error Name Required",	
+	"A_2"		: "Alarm 2 Range"
+}

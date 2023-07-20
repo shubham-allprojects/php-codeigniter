@@ -1,0 +1,16 @@
+{
+	"type"				: "Type",
+	"mainresident"		: "Main Resident",
+	"coresident"		: "Co Residents",
+	"resident"			: "Resident",
+	"callrollthrough"	: "Call Roll-Through",
+	"coresidents"		: "Co-Residents",
+	"coname"			: "Co-Resident Name",
+	"directorylisted"	: "Directory Listed",
+	"directorycode"	  	: "Directory Code",	
+	"entrycode"			: "Entry Code",
+	"phonenumber"		: "Phone Number",
+	"access_level"          : "Access Level",
+	"SelectType"            : "Select Type",
+	"error_empty_main"  : "Error Main Resident Required"
+}

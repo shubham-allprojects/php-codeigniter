@@ -1,0 +1,6 @@
+{
+	"name"		: "Reader Group Name",
+	"mean"		: "Description",
+	"error_name_required"	  : "Error Name Required",
+	"readers"	: "Readers"
+}
