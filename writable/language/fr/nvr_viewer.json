@@ -1,0 +1,10 @@
+{
+	"date"		:	"Date",
+	"time"		:	"Time",
+	"dst"		:	"DST",
+	"channel"	:	"Channel",
+	"nvr"		:	"NVR",
+	"nvr_setup"	:	"NVR Setting",
+	"search_viewer" : "Search"
+	
+}

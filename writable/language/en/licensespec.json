@@ -1,0 +1,82 @@
+[
+	{
+		"title" : "Door per System",
+		"essential1" : "1",
+		"essential2" : "2",
+		"essential3" : "3",
+		"essential4" : "4",
+		"elite36" : "36*"
+	},
+	{
+		"title" : "Readers per System",
+		"essential1" : "2",
+		"essential2" : "4",
+		"essential3" : "6",
+		"essential4" : "8",
+		"elite36" : "72*"
+	},
+	{
+		"title" : "Users per System",
+		"essential1" : "1,000",
+		"essential2" : "1,000",
+		"essential3" : "1,000",
+		"essential4" : "1,000",
+		"elite36" : "20,000"
+	},
+	{
+		"title" : "Access Cards per System",
+		"essential1" : "8,000",
+		"essential2" : "8,000",
+		"essential3" : "8,000",
+		"essential4" : "8,000",
+		"elite36" : "8,000"
+	},
+	{
+		"title" : "Cards per User",
+		"essential1" : "12",
+		"essential2" : "12",
+		"essential3" : "12",
+		"essential4" : "12",
+		"elite36" : "120"
+	},
+	{
+		"title" : "Access Levels per Card",
+		"essential1" : "8",
+		"essential2" : "8",
+		"essential3" : "8",
+		"essential4" : "8",
+		"elite36" : "16"
+	},
+	{
+		"title" : "Inputs per System",
+		"essential1" : "5",
+		"essential2" : "8",
+		"essential3" : "11",
+		"essential4" : "14",
+		"elite36" : "126*"
+	},
+	{
+		"title" : "Outputs per System",
+		"essential1" : "2",
+		"essential2" : "4",
+		"essential3" : "6",
+		"essential4" : "8",
+		"elite36" : "72*"
+	},
+	{
+		"title" : "Expansion Modules per System",
+		"essential1" : "0",
+		"essential2" : "0",
+		"essential3" : "0",
+		"essential4" : "0",
+		"elite36" : "8*"
+	},
+	{
+		"title" : "Log Transactions",
+		"essential1" : "15,000",
+		"essential2" : "15,000",
+		"essential3" : "15,000",
+		"essential4" : "15,000",
+		"elite36" : "30,000"
+	}
+]

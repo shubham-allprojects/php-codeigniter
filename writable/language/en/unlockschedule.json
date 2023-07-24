@@ -1,0 +1,20 @@
+{
+    "Name"          : "Unlock Schedule Name",
+    "UnlockDay"     : "Unlock Day",
+    "UnlockTime"    : "Unlock Time",
+    "DataList"      : "Unlock Device",
+    "SelectType"    : "Select Type",
+    "SelectDay"     : {"1":"Weekday","2":"Weekend","3":"Holiday"},
+    "Reverse"       : "Reverse",
+    "Holiday"       : "Holiday Group",
+    "Holiday1"      : "Holiday Group 1",
+    "Holiday2"      : "Holiday Group 2",
+    "Holiday3"      : "Holiday Group 3",
+    "Holiday4"      : "Holiday Group 4",
+    "Weekday"       : "Weekday",
+    "error_time_empty" : "Error Start Time == End Time",
+    "error_time_value" : "Error Start Time > End Time"
+    
+    
+}
+

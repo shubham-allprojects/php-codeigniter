@@ -1,0 +1,19 @@
+{
+	"No"		: "No",
+	"Name"		: "Name",
+	"StartTime"	: "Start Date",
+	"EndTime"	: "End Date",
+	"Holiday1"	: "Holiday Group 1",
+	"Holiday2"	: "Holiday Group 2",
+	"Holiday3"	: "Holiday Group 3",
+	"Holiday4"	: "Holiday Group 4",
+	"HolidayGroup"	: "Holiday Group",
+	"year"		: "Year",
+
+    "error_name_required"	  : "Error Name Required",	
+    "error_startdate_empty" : "Error Start Date Required",
+    "error_enddate_empty" : "Error End Date Required",
+    "error_date_value" : "Error Start Date > End Date",
+    "error_hour_error" : "Error Hour Value",
+    "error_min_error" : "Error Minite Value"
+}

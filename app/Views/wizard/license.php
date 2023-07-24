@@ -7,162 +7,14 @@
 
 </style>
 
-<script type="text/javascript">
-function create_list()
-{
-    open_view(0);
-
-	var model = _data.list[0].Model;
-	var type = _data.list[0].Type;
-
-	$("input[name='model-type']", $("#license_spec")).each(function() {
-		var val = $(this).val();
-		var split_val = val.split("-");
-
-		if( val == model+"-"+type ) {
-			$(this).attr({ "checked":"checked" });
-			$("td.type_item_"+type+".model_item_"+model, $("#license_spec")).css({ "background":"#eaeaea" });
-			$(this).parent().find("label").text("<?=$lang->license->msg_current_system?>");
-		}
-
-		if( split_val[0] < model || (split_val[0] == model && split_val[1] < type) ) {
-			$(this).attr({ "disabled":"disabled" });
-		}
-	});
-
-	if( model < "<?=ConstTable::MODEL_ELITE?>" && type < "<?=ConstTable::CONTROLLER_TYPE_ESSENTIAL_4?>" ) {
-		$("input[name='model-type'][value='<?=ConstTable::MODEL_ELITE?>-<?=ConstTable::CONTROLLER_TYPE_ELITE_36?>']", $("#license_spec")).attr({ "disabled":"disabled" });
-	}
-
-	$("input[name='model-type']", $("#license_spec")).trigger("change");
-}
-
-$(document).ready(function() {
-	$("input[name='model-type']", $("#form_request"))
-		.change(function(event) {
-				if( $(this).is(":checked") ) {
-					var val = $(this).val();
-					var split_val = val.split("-");
-					$("input[name='request_model']", $("#form_request")).val(split_val[0]);
-					$("input[name='request_type']", $("#form_request")).val(split_val[1]);
-				}
-			});
-
-    load_list();
-	$("select[name='request_type']").trigger("change");
-	$("#edit_option_panel").load("/?c=license&m=edit_option&model=<?=$_SESSION['spider_model']?>");
-});
-
-function edit_start()
-{
-    $("#view_section").hide();
-    $("#edit_section").show();
-    
-    set_edit();
-    
-    $("#form_edit input[name='No']").val("1");
-    $("#form_edit input[name='No']").val("1");
-}
-
-function edit_end()
-{
-    $("#view_section").show();
-    $("#edit_section").hide();
-}
-
-function clearForm()
-{
-	$("#license_contact").find("input[type='text']").each(function() {
-		$(this).val("");
-	});
-}
-
-function confirm_sendorder()
-{
-	if( confirm("<?=$lang->license->sendorder_confirm?>") ) {
-		$("#form_request").attr("action", "/?c=license&m=sendorder").submit();
-	}
-}
-
-function confirm_sendregister()
-{
-	if( confirm("<?=$lang->license->sendregister_confirm?>") ) {
-		$("#form_request").attr("action", "/?c=license&m=sendregister").submit();
-	}
-}
-/*
-function sendorder()
-{
-	var modelNo = $("input[type='radio'][name='model']:checked", $("#license_spec")).val();
-	var email = $("input[type='text'][name='email']", $("#license_spec")).val();
-	var phone = $("input[type='text'][name='phone']", $("#license_spec")).val();
-
-	$.getScript("/?c=license&m=sendorder&model="+modelNo+"&email="+email+"&phone="+phone, function(data, textStatus, jqXHR) {
-	});
-}
-*/
-
-var currentMode		= parseInt("<?=$_SESSION['spider_model']?>", 10);
-var currentType		= parseInt("<?=$_SESSION['spider_kind']?>", 10);
-var attrModelSpec	= <?=json_encode(EnumTable::$attrModelSpec)?>;
-
-function changeModel()
-{
-	var model	= $("select[name='request_model']").val();
-
-	resetTypeItem();
-	$("#edit_option_panel").load("/?c=license&m=edit_option&model="+model);
-}
-
-function resetTypeItem()
-{
-	var model	= $("select[name='request_model']").val();
-	var spec	= attrModelSpec[model];
-
-	$("select[name='request_type'] > option").remove();
-	$.each(spec, function(key, val) {
-		if( parseInt(model, 10) == currentMode ) {
-			if( parseInt(key, 10) < currentType ) {
-				return;
-			}
-		}
-
-		$("<option></option>")
-			.val(key)
-			.text(key)
-			.appendTo($("select[name='request_type']"));
-	});
-	$("select[name='request_type'] > option:first").attr("selected", "selected");
-	$("select[name='request_type']").trigger("change");
-}
-
-function changeType()
-{
-	var model	= $("select[name='request_model']").val();
-	var type	= $("select[name='request_type']").val();
-	var spec	= attrModelSpec[model][type];
-
-	$("span[name='upgrade_readers']").text(addCommas(spec[0]));
-	$("span[name='upgrade_users']").text(addCommas(spec[2]));
-	$("span[name='upgrade_access_levels']").text(addCommas(spec[3]));
-	$("span[name='upgrade_access_cards']").text(addCommas(spec[4]));
-	$("span[name='upgrade_cards']").text(addCommas(spec[5]));
-	$("span[name='upgrade_card_formats']").text(addCommas(spec[6]));
-	$("span[name='upgrade_modules']").text(addCommas(spec[7]));
-	$("span[name='upgrade_input_points']").text(addCommas(spec[8]));
-	$("span[name='upgrade_output_points']").text(addCommas(spec[9]));
-	$("span[name='upgrade_event_logs']").text(addCommas(spec[10]));
-}
-</script>
-
-<? if( Input::get('wizard') != '1' ) { ?>
+<? if( $Input::get('wizard') != '1' ) { ?>
 <div style="height:30px; padding-left:690px;">
 	<a href="<?=$_SERVER['HTTP_REFERER']?>" class="license-close"></a>
 </div>
 <? } ?>
 
 <table>
-<? if( Input::get('wizard') != '1' ) { ?>
+<? if( $Input::get('wizard') != '1' ) { ?>
 <tr>
 	<td width="6" height="3" background="/img/menu/quick_window_top_left.png"></td>
 	<td bgcolor="#ffffff"></td>
@@ -171,8 +23,8 @@ function changeType()
 <? } ?>
 <tr>
 	<td bgcolor="#ffffff"></td>
-	<td height="500" bgcolor="#ffffff" style="padding-left:<?=(Input::get('wizard') == '1' ? '0' : '30px')?>;">
-		<? if( Input::get('wizard') != '1' ) { ?>
+	<td height="500" bgcolor="#ffffff" style="padding-left:<?=($Input::get('wizard') == '1' ? '0' : '30px')?>;">
+		<? if( $Input::get('wizard') != '1' ) { ?>
 		<div class="license-location">
 			<img src="/img/menu/icon_info.png" valign="absmiddle">
 			<span id="license-location-text"><?=$lang->menu->license?></span>
@@ -225,7 +77,7 @@ function changeType()
         <div id="edit_section" class="hide">
             <h2>:: <?=$lang->menu->license?></h2>
             <div class="box01">
-                <form id="form_edit" method="post" action="/?c=<?=$this->class?>&m=update">
+                <form id="form_edit" method="post" action="<?=base_url()?>license-update">
                     <?=Form::hidden("No")?>
                     <h3><?=$lang->menu->basic?></h3>
                     <table class="tbl_view">
@@ -245,7 +97,7 @@ function changeType()
                 </div>
         </div>
 
-		<? if( Input::get('wizard') != '1' && 
+		<? if( $Input::get('wizard') != '1' && 
 		      ($_SESSION['spider_model'] == ConstTable::MODEL_ESSENTIAL || 
 			   $_SESSION['spider_model'] == ConstTable::MODEL_ELITE || 
 			   $_SESSION['spider_model'] == ConstTable::MODEL_ENTERPRISE ||
@@ -253,7 +105,7 @@ function changeType()
 			   $_SESSION['spider_model'] == ConstTable::MODEL_TE_SERVER) ) { ?>
 		<br>
 		<br>
-		<form id="form_request" method="post" action="/?c=license&m=sendorder">
+		<form id="form_request" method="post" action="<?=base_url()?>license-send-order">
 		<input type="hidden" name="request_model" value="">
 		<input type="hidden" name="request_type" value="">
 		<?
@@ -391,7 +243,7 @@ function changeType()
 					<? foreach( EnumTable::$attrModelOption[$_SESSION['spider_model']] as $label=>$items ) { ?>
 					<tr>
 						<th><?=$label?></th>
-						<td><?=$this->system_option_to_str($items)?></td>
+						<td><?=$system_option_to_str($items)?></td>
 					</tr>
 					<? } ?>
 					</table>
@@ -404,7 +256,7 @@ function changeType()
 			</table>
 			<br>
             <div class="box01" style="text-align:center;">
-				<button type="button" onclick="$('#form_request').attr('action', '/?c=license&m=valid_sendorder').submit();" class="btn_large4"><?=$lang->button->request_upgrade?></button>
+				<button type="button" onclick="$('#form_request').attr('action', '<?=base_url()?>license-valid-send-order').submit();" class="btn_large4"><?=$lang->button->request_upgrade?></button>
 				<button type="button" onclick="$('#btn_license_spec_show').trigger('click');"><?=$lang->button->cancel?></button>
 			</div>
 		</div>
@@ -425,3 +277,153 @@ function changeType()
 	<td width="6" height="3" background="/img/menu/quick_window_bottom_right.png"></td>
 </tr>
 </table>
+
+<?PHP echo view('common/js.php'); ?>
+
+<script type="text/javascript">
+function create_list()
+{
+    open_view(0);
+
+	var model = _data.list[0].Model;
+	var type = _data.list[0].Type;
+
+	$("input[name='model-type']", $("#license_spec")).each(function() {
+		var val = $(this).val();
+		var split_val = val.split("-");
+
+		if( val == model+"-"+type ) {
+			$(this).attr({ "checked":"checked" });
+			$("td.type_item_"+type+".model_item_"+model, $("#license_spec")).css({ "background":"#eaeaea" });
+			$(this).parent().find("label").text("<?=$lang->license->msg_current_system?>");
+		}
+
+		if( split_val[0] < model || (split_val[0] == model && split_val[1] < type) ) {
+			$(this).attr({ "disabled":"disabled" });
+		}
+	});
+
+	if( model < "<?=ConstTable::MODEL_ELITE?>" && type < "<?=ConstTable::CONTROLLER_TYPE_ESSENTIAL_4?>" ) {
+		$("input[name='model-type'][value='<?=ConstTable::MODEL_ELITE?>-<?=ConstTable::CONTROLLER_TYPE_ELITE_36?>']", $("#license_spec")).attr({ "disabled":"disabled" });
+	}
+
+	$("input[name='model-type']", $("#license_spec")).trigger("change");
+}
+
+$(document).ready(function() {
+	$("input[name='model-type']", $("#form_request"))
+		.change(function(event) {
+				if( $(this).is(":checked") ) {
+					var val = $(this).val();
+					var split_val = val.split("-");
+					$("input[name='request_model']", $("#form_request")).val(split_val[0]);
+					$("input[name='request_type']", $("#form_request")).val(split_val[1]);
+				}
+			});
+
+    load_list();
+	$("select[name='request_type']").trigger("change");
+	$("#edit_option_panel").load("<?=base_url()?>license-edit-option/?model=<?=$_SESSION['spider_model']?>");
+});
+
+function edit_start()
+{
+    $("#view_section").hide();
+    $("#edit_section").show();
+    
+    set_edit();
+    
+    $("#form_edit input[name='No']").val("1");
+    $("#form_edit input[name='No']").val("1");
+}
+
+function edit_end()
+{
+    $("#view_section").show();
+    $("#edit_section").hide();
+}
+
+function clearForm()
+{
+	$("#license_contact").find("input[type='text']").each(function() {
+		$(this).val("");
+	});
+}
+
+function confirm_sendorder()
+{
+	if( confirm("<?=$lang->license->sendorder_confirm?>") ) {
+		$("#form_request").attr("action", "<?=base_url()?>license-send-order").submit();
+	}
+}
+
+function confirm_sendregister()
+{
+	if( confirm("<?=$lang->license->sendregister_confirm?>") ) {
+		$("#form_request").attr("action", "<?=base_url()?>license-send-register").submit();
+	}
+}
+/*
+function sendorder()
+{
+	var modelNo = $("input[type='radio'][name='model']:checked", $("#license_spec")).val();
+	var email = $("input[type='text'][name='email']", $("#license_spec")).val();
+	var phone = $("input[type='text'][name='phone']", $("#license_spec")).val();
+
+	$.getScript("/?c=license&m=sendorder&model="+modelNo+"&email="+email+"&phone="+phone, function(data, textStatus, jqXHR) {
+	});
+}
+*/
+
+var currentMode		= parseInt("<?=$_SESSION['spider_model']?>", 10);
+var currentType		= parseInt("<?=$_SESSION['spider_kind']?>", 10);
+var attrModelSpec	= <?=json_encode(EnumTable::$attrModelSpec)?>;
+
+function changeModel()
+{
+	var model	= $("select[name='request_model']").val();
+
+	resetTypeItem();
+	$("#edit_option_panel").load("<?=base_url()?>license-edit-option/?model="+model);
+}
+
+function resetTypeItem()
+{
+	var model	= $("select[name='request_model']").val();
+	var spec	= attrModelSpec[model];
+
+	$("select[name='request_type'] > option").remove();
+	$.each(spec, function(key, val) {
+		if( parseInt(model, 10) == currentMode ) {
+			if( parseInt(key, 10) < currentType ) {
+				return;
+			}
+		}
+
+		$("<option></option>")
+			.val(key)
+			.text(key)
+			.appendTo($("select[name='request_type']"));
+	});
+	$("select[name='request_type'] > option:first").attr("selected", "selected");
+	$("select[name='request_type']").trigger("change");
+}
+
+function changeType()
+{
+	var model	= $("select[name='request_model']").val();
+	var type	= $("select[name='request_type']").val();
+	var spec	= attrModelSpec[model][type];
+
+	$("span[name='upgrade_readers']").text(addCommas(spec[0]));
+	$("span[name='upgrade_users']").text(addCommas(spec[2]));
+	$("span[name='upgrade_access_levels']").text(addCommas(spec[3]));
+	$("span[name='upgrade_access_cards']").text(addCommas(spec[4]));
+	$("span[name='upgrade_cards']").text(addCommas(spec[5]));
+	$("span[name='upgrade_card_formats']").text(addCommas(spec[6]));
+	$("span[name='upgrade_modules']").text(addCommas(spec[7]));
+	$("span[name='upgrade_input_points']").text(addCommas(spec[8]));
+	$("span[name='upgrade_output_points']").text(addCommas(spec[9]));
+	$("span[name='upgrade_event_logs']").text(addCommas(spec[10]));
+}
+</script>

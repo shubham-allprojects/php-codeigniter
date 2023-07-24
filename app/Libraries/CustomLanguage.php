@@ -1,9 +1,8 @@
 <?php
 
+namespace App\Libraries;
 
-if( !defined('LANGUAGE_DIR') )		define('LANGUAGE_DIR',	'language');
-
-class Language
+class CustomLanguage
 {
 	var $_lang		= 'en';
 	var $messages	= array();
@@ -47,7 +46,7 @@ class Language_Message
 	var $_lang;
 	var $messages	= array();
 
-	public function Language_Message($kind, $_lang)
+	public function __construct($kind, $_lang)
 	{
 		if( defined('LANGUAGE_DIR') )	$this->dir	= LANGUAGE_DIR;
 		$this->init($kind, $_lang);

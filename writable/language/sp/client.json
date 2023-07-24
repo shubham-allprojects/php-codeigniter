@@ -1,0 +1,15 @@
+{
+	"Client"	                    : "Client",
+	"Network"                     	: "Network Information",
+	"Server"                     	: "Server Information",
+	"ServerIP"                     	: "Server IP",
+	"ServerFTP"        				: "Port",
+	"SetID"							: "Set ID, Password",
+	"ID"							: "ID",
+	"Password"						: "Password",
+	"changepass"					: "Change Password",
+	"confirmpass"					: "Confirm Password",
+    "error_ip_add_required"         : "Error Server IP Address Required",
+    "error_port_required"           : "Error Server Port Address Required",
+    "confirm_restart"               : "Client Restart?"
+}

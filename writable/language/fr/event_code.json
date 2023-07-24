@@ -1,0 +1,13 @@
+{
+	"No"		: "No",
+	"SourceType"	: "Source Type",
+	"EventCode"	: "Event Code",
+	"Name"		: "Name",
+	"Mean"		: "Mean",
+	"Mnemonic"	: "Mnemonic",
+	"LogDisplay"	: "Dashboard Display",
+	"Alert"		: "Alert",
+	"Ack"		: "Ack",
+	"all_check_log_display"	: "Select All Log Display",
+	"all_check_ack"		: "Select All ACK"
+}

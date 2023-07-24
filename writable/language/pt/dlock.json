@@ -1,0 +1,9 @@
+{
+	"No"		: "No",
+	"disable"	: "Disable",
+	"alram"		: "Hide On Alarm Map",
+	"name"		: "Door Lock Name",
+	"mean"		: "Description",
+	"error_name_required"	  : "Error Name Required",	
+	"State"		: "Default State"
+}

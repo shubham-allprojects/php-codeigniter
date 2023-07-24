@@ -1,0 +1,10 @@
+{
+	"No"		: "No",
+	"Name"		: "Access Level Name",
+	"Mean"		: "Description ",
+	"SelectType"	: "Select Type",
+	"SelectReader"	: "Select Reader",
+	"DoorList"	: "Door List",
+	"error_name_required"	  : "Error Name Required",	
+	"ScheduleNo"	: "Schedule"
+}

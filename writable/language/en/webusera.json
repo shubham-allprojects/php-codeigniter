@@ -1,0 +1,9 @@
+{
+	"total"		:"Max. number of account",
+	"user"		:"User",
+	"super_user"	:"Super User",
+	"admin"		:"Admin",
+	"type"		:"User Type",
+	"id"		:"ID",
+	"pw"		:"PW"
+}

@@ -1,7 +1,9 @@
 <script type="text/javascript" src="<?PHP echo base_url(); ?>assets/js/jquery-3.7.0.min.js" charset="utf-8"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
 <script src="<?PHP echo base_url(); ?>assets/js/custom.js"></script>
 <script type="text/javascript" src="<?PHP echo base_url(); ?>assets/js/jquery.browser.min.js" charset="utf-8"></script>
-<script type="text/javascript" src="<?PHP echo base_url(); ?>assets/js/plugin/jquery.datepicker/js/datepicker.js" charset="utf-8"></script>
+<!-- <script type="text/javascript" src="<?PHP echo base_url(); ?>assets/js/plugin/jquery.datepicker/js/datepicker.js" charset="utf-8"></script> -->
 
 <script type="text/javascript" src="<?PHP echo base_url(); ?>assets/js/plugin/jquery.simplemodal/jquery.simplemodal-1.4.4.min.js" charset="utf-8"></script>
 

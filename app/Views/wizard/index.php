@@ -111,7 +111,7 @@
                                     <img src="<?=base_url()?>assets/img/menu/icon_info.png" valign="absmiddle">
                                     <span id="wizard-location-text"></span>
                                 </div>
-                                <iframe class="box01" id="wizard_body" src="<?PHP echo base_url(); ?>wizard-language"
+                                <iframe class="box01" id="wizard_body" src="<?PHP echo base_url(); ?>wizard-language/?wizard=1"
                                     frameborder="no" border="0" framespacing="0" scrolling="auto"
                                     style="width:707px; height:100%;"></iframe>
                                 <br><br>
@@ -166,21 +166,21 @@ function set_wizard()
 	var wtitle = "", url = "";
 
 	switch( current_wizard ) {
-		case 1: wtitle = "<?=lang('Message.Menu.language_title')?>";	url = "<?PHP echo base_url(); ?>wizard-language"; break;
+		case 1: wtitle = "<?=lang('Message.Menu.language_title')?>";	url = "<?PHP echo base_url(); ?>wizard-language/?wizard=1"; break;
 		case 2: wtitle = "<?=lang('Message.Menu.license_title')?>";		url = "<?PHP echo base_url(); ?>license"; break;
 		case 3: wtitle = "<?=lang('Message.Menu.card_format_title')?>";	url = "<?PHP echo base_url(); ?>cardformat/?wizard=1"; break;
-		case 4: wtitle = "<?=lang('Message.Menu.holiday_title')?>";		url = "/?c=holiday&wizard=1"; break;
-		case 5: wtitle = "<?=lang('Message.Menu.schedule_title')?>";	url = "/?c=schedule&wizard=1"; break;
-		case 6: wtitle = "<?=lang('Message.Menu.door_title')?>";		url = "/?c=door&wizard=1"; break;
-		case 7: wtitle = "<?=lang('Message.Menu.alevel_title')?>";		url = "/?c=alevel&wizard=1"; break;
-		case 8: wtitle = "<?=lang('Message.Menu.card_holder_title')?>";	url = "/?c=card_holder&wizard=1"; break;
-		case 9: wtitle = "<?=lang('Message.Menu.card_title')?>";		url = "/?c=card&wizard=1"; break;
-		case 10: wtitle = "<?=lang('Message.Menu.network_title')?>";		url = "/?c=ipset&wizard=1"; break;
+		case 4: wtitle = "<?=lang('Message.Menu.holiday_title')?>";		url = "<?PHP echo base_url(); ?>holiday/?wizard=1"; break;
+		case 5: wtitle = "<?=lang('Message.Menu.schedule_title')?>";	url = "<?PHP echo base_url(); ?>schedule/?wizard=1"; break;
+		case 6: wtitle = "<?=lang('Message.Menu.door_title')?>";		url = "<?PHP echo base_url(); ?>door/?wizard=1"; break;
+		case 7: wtitle = "<?=lang('Message.Menu.alevel_title')?>";		url = "<?PHP echo base_url(); ?>alevel/?wizard=1"; break;
+		case 8: wtitle = "<?=lang('Message.Menu.card_holder_title')?>";	url = "<?PHP echo base_url(); ?>card-holder/?wizard=1"; break;
+		case 9: wtitle = "<?=lang('Message.Menu.card_title')?>";		url = "<?PHP echo base_url(); ?>card/?wizard=1"; break;
+		case 10: wtitle = "<?=lang('Message.Menu.network_title')?>";		url = "<?PHP echo base_url(); ?>ipset/?wizard=1"; break;
 		/** DELETE CJMOON 2017.03.20
         case 11: wtitle = "<?=lang('Message.Menu.dealer_registration')?>";		url = "/?c=wizard&m=dealer&wizard=1"; break;
 		case 12: wtitle = "<?=lang('Message.Menu.saverestart_title')?>";	url = "/?c=wizard&m=restart&wizard=1"; break;
 		**/
-		case 11: wtitle = "<?=lang('Message.Menu.saverestart_title')?>";	url = "/?c=wizard&m=restart&wizard=1"; break;
+		case 11: wtitle = "<?=lang('Message.Menu.saverestart_title')?>";	url = "<?PHP echo base_url(); ?>wizard-restart/?wizard=1"; break;
 	}
 
 	$("#wizard_body").attr("src", url);

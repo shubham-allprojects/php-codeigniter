@@ -1,0 +1,8 @@
+{
+	"no"		: "No",
+	"name"		: "Event Action Name",
+	"mean"		: "Description",
+	"ack"		: "Ack",
+	"sch"		: "Schedule",
+	"error_name_required"	  : "Error Name Required",	
+}

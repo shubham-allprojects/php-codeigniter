@@ -1,0 +1,18 @@
+{
+    "No"		: "No",
+    "Name"		: "Name",
+    "ActDate"		: "Date",
+    "StartTime"		: "Start Time",
+    "EndTime"		: "End Time",
+    "UnlockDevice"	: "Unlock Device",
+    "Time"		: "Time",
+
+    "error_name_required"	: "Error name required",
+    "error_date_required"	: "Error date required",
+    "error_starttime_required"	: "Error start time required",
+    "error_endtime_required"	: "Error end time required",
+    "error_door_required"	: "Error unlock device required",
+    "error_date_value"		: "Error start time > end time"
+    
+}
+

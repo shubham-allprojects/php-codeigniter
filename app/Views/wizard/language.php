@@ -1,106 +1,107 @@
-<?PHP echo view('common/css.php'); ?>
+
 <style>
 
 #wrap { background:url(); }
 
 </style>
 
-<form id="form_edit" method="post" action="<?PHP echo base_url(); ?>save-language" target="frame_exe">
-<h3><?=lang('Message.Menu.language')?></h3>
+<form id="form_edit" method="post" action="<?=base_url()?>save-language" target="frame_exe">
+<h3><?=$lang->menu->language?></h3>
 <table class="tbl_view">
 <tr>
 	<td>
-		<? if ($language=='en') { ?>
-			<?=Form::radio('language', 'en', array('en'=>lang('Message.Common.english')))?>
-		<? } else if ($language=='sp') { ?>
-			<?=Form::radio('language', 'en', array('en'=>lang('Message.Common.Spanish')))?>
-		<? } else { ?>
-			<?=Form::radio('language', '', array('en'=>'english'))?>
-		<? } ?>
+		<?PHP if ($language=='en') { ?>
+			<?=Form::radio('language', 'en', array('en'=>$lang->common->English))?>
+		<?PHP } else if ($language=='sp') { ?>
+			<?=Form::radio('language', 'en', array('en'=>$lang->common->English))?>
+		<?PHP } else { ?>
+			<?=Form::radio('language', '', array('en'=>'English'))?>
+		<?PHP } ?>
 	</td>
 </tr>
 <tr class="hide">
 	<td>
-		<? if ($language=='fr') { ?>
+		<?PHP if ($language=='fr') { ?>
 			<?=Form::radio('language', 'fr', array('fr'=>'French'))?>
-		<? } else { ?>
+		<?PHP } else { ?>
 			<?=Form::radio('language', '', array('fr'=>'French'))?>
-		<? } ?>
+		<?PHP } ?>
 	</td>
 </tr>
 <tr>
 	<td>
-		<? if ($language=='sp') { ?>
-			<?=Form::radio('language', 'sp', array('sp'=>lang('Message.Common.Spanish')))?>
-		<? } else { ?>
+		<?PHP if ($language=='sp') { ?>
+			<?=Form::radio('language', 'sp', array('sp'=>$lang->common->Spanish))?>
+		<?PHP } else { ?>
 			<?=Form::radio('language', '', array('sp'=>'Spanish'))?>
-		<? } ?>
+		<?PHP } ?>
 	</td>
 </tr>
 <tr class="hide">
 	<td>
-		<? if ($language=='pt') { ?>
+		<?PHP if ($language=='pt') { ?>
 			<?=Form::radio('language', 'pt', array('pt'=>'Portuguese'))?>
-		<? } else { ?>
+		<?PHP } else { ?>
 			<?=Form::radio('language', '', array('pt'=>'Portuguese'))?>
-		<? } ?>
+		<?PHP } ?>
 	</td>
 </tr>
 </table>
 <br>
 
-<h3><?=lang('Message.Menu.country')?></h3>
+<h3><?=$lang->menu->country?></h3>
 <table class="tbl_view">
 <tr>
 	<td>
-		<? if ($country=='1') { ?>
-			<?=Form::radio('country', '1', array('1'=>lang('Message.Common.united_states')))?>
-		<? } else { ?>
-			<?=Form::radio('country', '', array('1'=>lang('Message.Common.united_states')))?>
-		<? } ?>
+		<?PHP if ($country=='1') { ?>
+			<?=Form::radio('country', '1', array('1'=>$lang->common->united_states))?>
+		<?PHP } else { ?>
+			<?=Form::radio('country', '', array('1'=>$lang->common->united_states))?>
+		<?PHP } ?>
 	</td>
 </tr>
 <tr>
 	<td>
-		<? if ($country=='2') { ?>
-			<?=Form::radio('country', '2', array('2'=>lang('Message.Common.canada')))?>
-		<? } else { ?>
-			<?=Form::radio('country', '', array('2'=>lang('Message.Common.canada')))?>
-		<? } ?>
+		<?PHP if ($country=='2') { ?>
+			<?=Form::radio('country', '2', array('2'=>$lang->common->canada))?>
+		<?PHP } else { ?>
+			<?=Form::radio('country', '', array('2'=>$lang->common->canada))?>
+		<?PHP } ?>
 	</td>
 </tr>
 <tr>
 	<td>
-		<? if ($country=='3') { ?>
-			<?=Form::radio('country', '3', array('3'=>lang('Message.Common.brazil')))?>
-		<? } else { ?>
-			<?=Form::radio('country', '', array('3'=>lang('Message.Common.brazil')))?>
-		<? } ?>
+		<?PHP if ($country=='3') { ?>
+			<?=Form::radio('country', '3', array('3'=>$lang->common->brazil))?>
+		<?PHP } else { ?>
+			<?=Form::radio('country', '', array('3'=>$lang->common->brazil))?>
+		<?PHP } ?>
 	</td>
 </tr>
 <tr>
 	<td>
-		<? if ($country=='4') { ?>
-			<?=Form::radio('country', '4', array('4'=>lang('Message.Common.mexico')))?>
-		<? } else { ?>
-			<?=Form::radio('country', '', array('4'=>lang('Message.Common.mexico')))?>
-		<? } ?>
+		<?PHP if ($country=='4') { ?>
+			<?=Form::radio('country', '4', array('4'=>$lang->common->mexico))?>
+		<?PHP } else { ?>
+			<?=Form::radio('country', '', array('4'=>$lang->common->mexico))?>
+		<?PHP } ?>
 	</td>
 </tr>
 </table>
 <br>
 
 <div class="button_set">
-		<button type="button" onclick="$('#form_edit').submit()"><?=lang('Message.Button.save')?></button>
+		<button type="button" onclick="$('#form_edit').submit()"><?=$lang->button->save?></button>
 </div>
 
 </form>
+
 <?PHP echo view('common/js.php'); ?>
 <script type="text/javascript">
 function restore_holiday(country)
 {
-	if( confirm("<?=lang('Message.addmsg.confirm_restore_holiday')?>") ) {
-		$.getScript("/?c=wizard&m=restore_holiday&country="+country, function(data, textStatus, jqXHR) {
+	if( confirm("<?=$lang->addmsg->confirm_restore_holiday?>") ) {
+		$.getScript("<?=base_url()?>restore-holiday/?country="+country, function(data, textStatus, jqXHR) {
 		});
 	}
 }

@@ -1,11 +1,18 @@
 <?php
 namespace App\Libraries;
+use App\Models\PDOModel;
 
 if( !defined('IS_AJAX') )
     define('IS_AJAX',   (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'));
 
 class Util
 {
+	private static $conn;
+	private static $net_work;
+	public function __construct(){
+		self::$conn = new \PDO('sqlite:'.WRITEPATH.'database/Spider.db'); 
+		self::$net_work = new \PDO('sqlite:'.WRITEPATH.'database/Network.db'); 
+	}
 	public function GetSessionCount()
 	{
 		$dir=opendir("/tmp"); 
@@ -30,18 +37,18 @@ class Util
 		return $onSession;
 	}
 
-	public function GetLimitCount($num1, $num2, $num3)
+	static public function GetLimitCount($num1, $num2, $num3)
 	{
-		if ($_SESSION['spider_model'] == ConstTable::MODEL_ESSENTIAL)
+		if ($_SESSION['spider_model'] == MODEL_ESSENTIAL)
     		return $num1;
-    	if ($_SESSION['spider_model'] == ConstTable::MODEL_ELITE)
+    	if ($_SESSION['spider_model'] == MODEL_ELITE)
     		return $num2;
-    	if ($_SESSION['spider_model'] == ConstTable::MODEL_ENTERPRISE)
+    	if ($_SESSION['spider_model'] == MODEL_ENTERPRISE)
     		return $num3;
 //ADD CJMOON 2017.04.18
-		if ($_SESSION['spider_model'] == ConstTable::MODEL_TE_STANDALONE)
+		if ($_SESSION['spider_model'] == MODEL_TE_STANDALONE)
     		return $num3;
-		if ($_SESSION['spider_model'] == ConstTable::MODEL_TE_SERVER)
+		if ($_SESSION['spider_model'] == MODEL_TE_SERVER)
     		return $num3;
         
         return 0;
@@ -49,16 +56,16 @@ class Util
     
 	static public function GetRecordCount($table, $where="")
 	{
-		$count  = $this->conn->prepare("SELECT COUNT(*) FROM ".$table." ".$where);
+		$count  = self::$conn->prepare("SELECT COUNT(*) FROM ".$table." ".$where);
         $count->execute();
         $count  = $count->fetchColumn(); 
         
         return $count;
     }
     
-    public function GetRecordCountSet($table, $where, $fields)
+    static public function GetRecordCountSet($table, $where, $fields)
 	{
-		$count  = $this->conn->prepare("SELECT COUNT(*) FROM ".$table." ".$where);
+		$count  = self::$conn->prepare("SELECT COUNT(*) FROM ".$table." ".$where);
         $count->execute($fields);
         $count  = $count->fetchColumn(); 
         
@@ -67,38 +74,38 @@ class Util
     
 	public function GetRecordNo($table, $where="")
 	{
-		$count  = $this->conn->prepare("SELECT No FROM ".$table." ".$where);
+		$count  = self::$conn->prepare("SELECT No FROM ".$table." ".$where);
         $count->execute();
         $count  = $count->fetchColumn(); 
         
         return $count;
     }    
 
-	public function GetRecordName($table, $no)
+	static public function GetRecordName($table, $no)
 	{
-		$name  = $this->conn->prepare("SELECT Name FROM ".$table." WHERE Site = ? AND No = ? ");
+		$name  = self::$conn->prepare("SELECT Name FROM ".$table." WHERE Site = ? AND No = ? ");
         $name->execute(array($_SESSION['spider_site'], $no));
         $name  = $name->fetchColumn(); 
         
         return $name;
     }    
 
-	public function GetCardHolderName($no)
+	static public function GetCardHolderName($no)
 	{
-		$cardholder  = $this->conn->prepare("SELECT FirstName, LastName FROM User WHERE Site = ? AND No = ? ");
+		$cardholder  = self::$conn->prepare("SELECT FirstName, LastName FROM User WHERE Site = ? AND No = ? ");
         $cardholder->execute(array($_SESSION['spider_site'], $no));
-        if( $cardholder = $cardholder->fetch(PDO::FETCH_ASSOC) ) {
+        if( $cardholder = $cardholder->fetch(\PDO::FETCH_ASSOC) ) {
             return $cardholder['FirstName'] .' '. $cardholder['LastName'];
         }
         
         return '';
     }    
 
-	public function GetCardName($no)
+	static public function GetCardName($no)
 	{
-		$card  = $this->conn->prepare("SELECT UserNo, CardNo, CardFormatNo FROM Card WHERE Site = ? AND No = ? ");
+		$card  = self::$conn->prepare("SELECT UserNo, CardNo, CardFormatNo FROM Card WHERE Site = ? AND No = ? ");
         $card->execute(array($_SESSION['spider_site'], $no));
-        if( $card = $card->fetch(PDO::FETCH_ASSOC) ) {
+        if( $card = $card->fetch(\PDO::FETCH_ASSOC) ) {
             $cardholder_name = Util::GetCardHolderName($card['UserNo']);
             $card_name       = Util::GetCardFormatName($card['CardFormatNo']);
             return $cardholder_name .','. $card_name .','. $card['CardNo'];
@@ -107,11 +114,11 @@ class Util
         return '';
     }    
 
-	public function GetCardFacilityCode($no)
+	static public function GetCardFacilityCode($no)
 	{
-		$cardformat  = $this->conn->prepare("SELECT FacilityCode FROM CardFormat WHERE No = ? ");
+		$cardformat  = self::$conn->prepare("SELECT FacilityCode FROM CardFormat WHERE No = ? ");
         $cardformat->execute(array($no));
-        if( $cardformat = $cardformat->fetch(PDO::FETCH_ASSOC) ) {
+        if( $cardformat = $cardformat->fetch(\PDO::FETCH_ASSOC) ) {
             $facilityCode = $cardformat['FacilityCode'];
             return $facilityCode;
         }
@@ -119,25 +126,25 @@ class Util
         return '';
     }    
 	
-	public function GetEventCodeName($no)
+	static public function GetEventCodeName($no)
 	{
-		$name  = $this->conn->prepare("SELECT Name FROM EventCode WHERE No = ? ");
+		$name  = self::$conn->prepare("SELECT Name FROM EventCode WHERE No = ? ");
         $name->execute(array($no));
         $name  = $name->fetchColumn(); 
         
         return $name;
     }    
 
-	public function GetCardFormatName($no)
+	static public function GetCardFormatName($no)
 	{
-		$name  = $this->conn->prepare("SELECT Name FROM CardFormat WHERE No = ? ");
+		$name  = self::$conn->prepare("SELECT Name FROM CardFormat WHERE No = ? ");
         $name->execute(array($no));
         $name  = $name->fetchColumn(); 
         
         return $name;
     }    
 
-    public function redirect($url, $wrap=NULL)
+    static public function redirect($url, $wrap=NULL)
     {
         if( IS_AJAX || headers_sent() )     Util::js('window.location.href="'.$url.'";', TRUE, $wrap);
         else                                header("Refresh:0;url=".$url);
@@ -150,13 +157,13 @@ class Util
         exit;
     }
     
-    public function topreload($wrap=NULL)
+    static public function topreload($wrap=NULL)
     {
         Util::js('top.location.reload();', TRUE, $wrap);
         exit;
     }
     
-    public function back($wrap=NULL)
+    static public function back($wrap=NULL)
     {
         Util::js('window.history.back();', TRUE, $wrap);
         exit;
@@ -189,14 +196,14 @@ class Util
         Util::js('alert("'.$message.'");', $exit, $wrap);
     }
     
-    public function DebugOutput($message)
+    static public function DebugOutput($message)
     {
         $fHandle = fopen("/spider/web/debug.txt", "a");
         fwrite($fHandle, $message);
         fclose($fHandle);       
     }
     
-    public function DebugOutputLine($message)
+    static public function DebugOutputLine($message)
     {
         Util::DebugOutput($message."\n");
     }
@@ -229,7 +236,7 @@ class Util
         if( $exit )     exit;
     }
 
-	public function get_diskspace()
+	static public function get_diskspace()
 	{
 		exec(SPIDER_COMM . " df", $result);
 
@@ -264,7 +271,7 @@ class Util
 		return FALSE;
 	}
 
-	public function vaild_diskspace()
+	static public function vaild_diskspace()
 	{
 		$space = Util::get_imgspace();
 
@@ -275,7 +282,7 @@ class Util
 		}
 	}
 
-	public function get_imgspace()
+	static public function get_imgspace()
 	{
 		exec(SPIDER_COMM . " dfimg", $result);
 
@@ -302,7 +309,7 @@ class Util
 		return FALSE;
 	}
 
-	public function get_userspace()
+	static public function get_userspace()
 	{
 		exec(SPIDER_COMM . " dfuserimg", $result);
 
@@ -334,7 +341,7 @@ class Util
 		return FALSE;
 	}
 
-	public function get_sdspace()
+	static public function get_sdspace()
 	{
 		exec(SPIDER_COMM . " dfsd", $result);
 
@@ -365,7 +372,7 @@ class Util
 		return FALSE;
 	}
 
-    public function get_logstatus()
+    static public function get_logstatus()
 	{
 		exec(SPIDER_COMM . " logstatus", $result);
 
@@ -403,23 +410,23 @@ class Util
 	}
 
     
-    public function get_sysrpt_mktime()
+    static public function get_sysrpt_mktime()
 	{
-		$time  = $this->net_work->prepare("SELECT strftime('%m-%d-%Y %H:%M:%S',datetime(mkDate,'unixepoch')) FROM SystemInfo WHERE No = 1");
+		$time  = self::$net_work->prepare("SELECT strftime('%m-%d-%Y %H:%M:%S',datetime(mkDate,'unixepoch')) FROM SystemInfo WHERE No = 1");
         $time->execute();
         $time  = $time->fetchColumn(); 
         
         return $time;
     }    
     
-	public function parse_search_string($str)
+	static public function parse_search_string($str)
 	{
 		$str = preg_replace('/^\*/', '%', $str);
 		$str = preg_replace('/\*$/', '%', $str);
 		return $str;
 	}
 
-	public function get_file_backup_db()
+	static public function get_file_backup_db()
 	{
 		$file = '/spider/database/Spider-3.db';
 		if( !file_exists($file) ) {
@@ -435,7 +442,7 @@ class Util
 		return $file;
 	}
 
-	public function get_file_backup_log_db()
+	static public function get_file_backup_log_db()
 	{
 		$file = '/spider/database/SpiderLog-3.db';
 		if( !file_exists($file) ) {
@@ -451,21 +458,21 @@ class Util
 		return $file;
 	}
 
-	public function get_connect_backup_db()
+	static public function get_connect_backup_db()
 	{
 		$file = Util::get_file_backup_db();
-		return new PDO('sqlite:'.$file);
+		return new \PDO('sqlite:'.$file);
 	}
 
 	public function get_connect_backup_log_db()
 	{
 		$file = Util::get_file_backup_log_db();
-		return new PDO('sqlite:'.$file);
+		return new \PDO('sqlite:'.$file);
 	}
 
     // ----------------------------------------------------------------------------------
 
-    function getFlashData($name)
+    static public function getFlashData($name)
     {
         $flash_data = unserialize($_SESSION['flash_data']);
         if( !is_array($flash_data) ) {
@@ -477,7 +484,7 @@ class Util
 
     // ----------------------------------------------------------------------------------
 
-    function setFlashData($name, $value)
+    static public function setFlashData($name, $value)
     {
         $flash_data = unserialize($_SESSION['flash_data']);
         if( !is_array($flash_data) ) {

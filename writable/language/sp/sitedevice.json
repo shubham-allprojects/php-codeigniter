@@ -1,0 +1,8 @@
+{
+    "Name"           : "Site Name",
+    "DeviceKind"     : "Device Kind",
+    "DoorCount"      : "Use Door Count",
+    "ElevatorCount"  : "Use Elevator Count",
+    "AuxInputCount"  : "Use Aux In Count",
+    "AuxOutputCount" : "Use Aux Out Count"
+}

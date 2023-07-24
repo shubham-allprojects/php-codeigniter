@@ -42,7 +42,7 @@ class Form
 		return '<input type="hidden" name="'.$name.'" value="'.$value.'" '.$attr.' />';
 	}
 
-	public function textarea($name, $value='', $attrs=array())
+	static public function textarea($name, $value='', $attrs=array())
 	{
 		$attr	= Form::build_attr($attrs);
 		return '<textarea name="'.$name.'" '.$attr.'>'.$value.'</textarea>';
@@ -66,7 +66,7 @@ class Form
 		return '<select name="'.$name.'" '.$attr.'>'.implode($elements).'</select>';
 	}
 
-    public function select2($name, $options=array())
+	static public function select2($name, $options=array())
 	{
 		$elements	= array();
 		foreach( $options as $val=>$text )
@@ -91,7 +91,7 @@ class Form
 		return implode($separator, $elements);
 	}
 
-	public function checkbox($name, $text='', $checked=FALSE, $value='1', $attrs=array())
+	static public function checkbox($name, $text='', $checked=FALSE, $value='1', $attrs=array())
 	{
 		$attr		= Form::build_attr($attrs);
 		$element	= '';
@@ -105,7 +105,7 @@ class Form
 		return $element;
 	}
 
-	public function checkbox2($name, $text='', $checked=FALSE, $value='1', $attrs=array())
+	static public function checkbox2($name, $text='', $checked=FALSE, $value='1', $attrs=array())
 	{
 		$attr		= Form::build_attr($attrs);
 		$element	= '';

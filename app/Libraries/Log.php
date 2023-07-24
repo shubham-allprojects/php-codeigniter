@@ -8,7 +8,7 @@ class Log
         'cam_view'=>'02',
         'card_holder'=>'03',
         'card'=>'04',
-        'card_format'=>'05',
+        'cardformat'=>'05',
         'alevel'=>'06',
         'event'=>'07',
         'atlevel'=>'08',
@@ -110,7 +110,7 @@ class Log
 		exec(SPIDER_COMM." log '{$Site}' '{$DeviceName}' '{$Port}' '{$EventCode}' '{$CardNo}' '{$UserNo}' '{$UserName}' '{$Ack}' '{$Type}' '{$Message}'");
     }
 
-    public function set_log_message($message)
+    static public function set_log_message($message)
     {
         Log::set_log(NULL, NULL, $message);
     }
@@ -207,11 +207,16 @@ class Log
 
     static public function get_eventcode($f=NULL, $s=NULL)
     {
-        if( $f == NULL )    $f = $GLOBALS['class'];
-        if( $s == NULL )    $s = $GLOBALS['method'];
+        $router = service('router');
+        if( $f == NULL )    $controller = strtolower($router->controllerName());
+        if( $s == NULL )    $method = strtolower($router->methodName());
+        
+        $pieces = explode("\\", $controller);
+        $f = array_pop($pieces);
+        $s = $method;
 
-        $fcode = Log::$fcode[$f];
-        $scode = Log::$scode[$s];
+        $fcode = self::$fcode[$f];
+        $scode = self::$scode[$s];
 
         if( empty($fcode) ) $fcode = '99';
         if( empty($scode) ) $scode = '99';

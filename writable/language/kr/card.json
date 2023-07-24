@@ -1,0 +1,28 @@
+{
+	"error_card_no_out_of_bounds"	: "Card number is out of bounds",
+
+	"inactive"	: "Inactive",
+	"expired"	: "Expired",
+
+
+	"No"	: "No",
+	"ReaderNo"	: "Auto Scan",
+	"CardFormat"	: "Card Format",
+	"CardNo"	: "Card Number",
+	"CardStatus"	: "Card Status",
+	"CardType"	: "Card Type",
+	"NeverExpire"	: "Never Expired",
+	"Reason"	: "Inactive Reason",
+	"ActDate"	: "Activation Date",
+	"ExpDate"	: "Expiration Date",
+	"A_level"	: "Access Level",
+	"SelectType"	: "Select Type",
+	"ALevelList"	: "Select Level",
+    "error_date_value" : "Error Activation Date > Expiration Date",
+    "error_a_level_required" : "Error Access Level Required",
+    "error_card_no_required" : "Error Card Number Required",
+    "error_cardformat_required" : "Error Card Format Required",
+    "error_reader_required" : "Error Auto Scan Required",
+    "error_user_no_required" : "Error User No Required",
+    "error_actdate_required" : "Set Activation date or Check Never Expired"
+}

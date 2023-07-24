@@ -42,6 +42,7 @@ class Autoload extends AutoloadConfig
     public $psr4 = [
         APP_NAMESPACE => APPPATH, // For custom app namespace
         'Config'      => APPPATH . 'Config',
+        'ConstTable'  =>  APPPATH.'Libraries/ConstTable.php'
     ];
 
     /**
@@ -75,7 +76,6 @@ class Autoload extends AutoloadConfig
         'Uploader'  =>  APPPATH.'Libraries/Uploader.php',
         'upload'  =>  APPPATH.'Libraries/upload.php',
         'CirciutType'  =>  APPPATH.'Libraries/CirciutType.php',
-        'ConstTable'  =>  APPPATH.'Libraries/ConstTable.php',
         'EnumTable'  =>  APPPATH.'Libraries/EnumTable.php',
         'Form'  =>  APPPATH.'Libraries/Form.php',
         'HolidayType'  =>  APPPATH.'Libraries/HolidayType.php',

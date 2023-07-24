@@ -10,6 +10,7 @@ use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
 use App\Models\CommonModel;
+use App\Models\PDOModel;
 
 // import custorm libraries
 use App\Libraries\Input;
@@ -17,6 +18,8 @@ use App\Libraries\Util;
 use App\Libraries\Log;
 use App\Libraries\Pagination;
 use App\Libraries\EnumTable;
+use App\Libraries\CustomLanguage;
+
 
 
 /**
@@ -52,8 +55,10 @@ abstract class BaseController extends Controller
    * The creation of dynamic property is deprecated in PHP 8.2.
    */
   protected $session;
-  protected $networkModel;
-  protected $defaultModel;
+  protected $net_work;
+  protected $conn_log;
+  protected $conn;
+  protected $api_conn;
 
   protected $input;
   protected $util;
@@ -61,6 +66,9 @@ abstract class BaseController extends Controller
   protected $pagination;
   protected $free_auth  = FALSE;
   protected $enumtable;
+  protected $lang;
+  protected $result;
+  // protected $constTable;
 
   /**
    * Constructor.
@@ -75,8 +83,10 @@ abstract class BaseController extends Controller
     // E.g.: $this->session = \Config\Services::session();
 
     $this->session = session();
-    $this->defaultModel = new CommonModel('default');
-    $this->networkModel = new CommonModel('network');
+    $this->conn = new \PDO('sqlite:'.WRITEPATH.'database/Spider.db');
+    $this->conn_log = new \PDO('sqlite:'.WRITEPATH.'database/SpiderLog.db');
+    $this->net_work = new \PDO('sqlite:'.WRITEPATH.'database/Network.db');
+    $this->api_conn = new \PDO('sqlite:'.WRITEPATH.'database/api.db');
 
     // custom Libraries
     $this->input = new Input();
@@ -84,6 +94,9 @@ abstract class BaseController extends Controller
     $this->log = new Log();
     $this->pagination = new Pagination();
     $this->enumtable = new EnumTable();
+    $this->lang = new CustomLanguage();
+    // $this->constTable = new ConstTable();
+    //$this->ConstTable = new ConstTable();
   }
 
   public function systemLogger($msg = "", $tag = "web")
@@ -101,7 +114,8 @@ abstract class BaseController extends Controller
 
   public function display($vars = array(), $view = '', $layout = '')
   {
-
+    $vars['lang'] = $this->lang;
+    $vars['Input'] = $this->input;
     $content = ($layout['header']) ? view('common/'.$layout['header']):'';
     $content .= view($view, $vars);
     $content .= ($layout['footer']) ? view('common/'.$layout['footer']):'';
@@ -113,12 +127,12 @@ abstract class BaseController extends Controller
 		if( $_SESSION['spider_type'] == 'spider' )  return TRUE;
 		if( $this->free_auth )  return TRUE;
 
-		$userroletable  = $this->defaultModel->selectRowsCount("UserRoleTable", ["Site" => $_SESSION['spider_site'], "UserRole" => $_SESSION['spider_userrole'], "FormIndex" => $FormIndex , "Authority" => $Authority ]); 
+		$userroletable  = $this->conn->prepare("SELECT COUNT(*) FROM UserRoleTable WHERE Site = ? AND UserRole = ? AND FormIndex = ? AND Authority = ?");
+		$userroletable->execute(array($_SESSION['spider_site'], $_SESSION['spider_userrole'], $FormIndex, $Authority));
+		$userroletable	= $userroletable->fetchColumn();
 
-    if( $userroletable > 0 )
-      return TRUE;
-    else						
-    return FALSE;
+        if( $userroletable > 0 )	return TRUE;
+        else						return FALSE;
   }
   
 }

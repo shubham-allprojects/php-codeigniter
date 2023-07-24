@@ -1,0 +1,19 @@
+{
+    "No"				: "No",
+	"name"				: "Name",
+	"reportname"		: "Report Name",
+	"status"            : "Status",
+    "starttime"         : "Start Time",
+    "endtime"           : "End Time",
+    "smartreport_viewer" : "Smart Report Viewer",
+    "queued"            : "Queued",
+    "running"           : "Running",
+    "complete"          : "Complete",
+    "error"             : "Error",
+    "canceled"          : "Canceled",
+    "makecomplete"      : "This report has already been created",
+    "continuecancel"    : "Cancellation is underway",
+
+	"error_report_required"	  : "Error Report Name Required",
+	"error_db_required"	  : "Please select the database"
+}

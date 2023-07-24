@@ -1,0 +1,26 @@
+{
+	"AccessGroup"		: "Access Level Group",
+	"AuxinGroup"		: "Aux Input Group",
+	"AuxoutGroup"		: "Aux Output Group",
+	"CameraGroup"		: "Camera Group",
+	"DoorGroup"		: "Door Group",
+	"CardholderGroup"	: "Card Holder Group",
+	"AccessGroupName"	: "Access Level Group Name",
+	"AuxinGroupName"	: "Aux Input Group Name",
+	"AuxoutGroupName"	: "Aux Output Group Name",
+	"CameraGroupName"	: "Camera Group Name",
+	"DoorGroupName"		: "Door Group Name",
+	"CardholderGroupName"	: "Card Holder Group Name",
+	"Group"			: "Group",
+	"GroupName"		: "Group Name",
+
+	"No"		: "No",
+    "Name"      : "Group Table Name",
+    "TableName" : "Table Name",
+    "ElementList" : "Element List",
+    "ElementListStr" : "Element List",
+    "ElementList_acc" : "Access Level List",
+    "ElementList_door" : "Door List",
+    "ElementList_user" : "Card Holder List",
+    "ElementList_camera" : "Camera List"
+}

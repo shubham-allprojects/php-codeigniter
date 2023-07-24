@@ -36,7 +36,7 @@
 	        			<div height="15">
 		            		<tr height="15"></tr>		            		
 						</div>
-						<?PHP if(($spider_model == ConstTable::MODEL_ENTERPRISE || session()->get('spider_model') == ConstTable::MODEL_TE_STANDALONE || session()->get('spider_model') == ConstTable::MODEL_TE_SERVER) && count($arr_site) > 1) { ?>
+						<?PHP if(($spider_model == MODEL_ENTERPRISE || session()->get('spider_model') == MODEL_TE_STANDALONE || session()->get('spider_model') == MODEL_TE_SERVER) && count($arr_site) > 1) { ?>
 	        			<div height="25">
 		            		<tr height="25">
 		            			<td width="25">&nbsp;</td>   

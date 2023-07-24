@@ -1,0 +1,11 @@
+{
+	"fail_upload"		: "Fail File Upload.",
+	"invalid_dir"		: "Invalid Upload Directory.",
+	"not_exist_dir"		: "Not Exist Upload Directory.",
+	"not_define_file"	: "Not Define File Type.",
+	"not_allow_file"	: "Not Allow File Type.",
+	"over_max_file_size": "Upload File size exceeds the allowable. Max : ",
+	"over_image_width"	: "Max Image Width Over. Max : ",
+	"over_image_height"	: "Max Image Height Over. Max : "
+	
+}

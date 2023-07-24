@@ -36,22 +36,43 @@ $routes->get('logout', 'Auth::logout');
 
 // public api routes with authentication filter
 $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
-    // Wizard Language routes
+    // Wizard Language routes 
     $routes->get('wizard', 'Wizard::index');
     $routes->get('wizard-language', 'Wizard::wizard_language');
     $routes->post('save-language', 'Wizard::language_insert');
+    $routes->get('restore-holiday', 'Wizard::restore_holiday');
     $routes->get('check-data', 'Wizard::check_data');
     $routes->get('update-server-time/(:any)', 'Wizard::update_server_time/$1');
 
     // License routes
     $routes->get('license', 'License::index');
+    $routes->get('license-edit-option', 'License::edit_option');
+    $routes->get('license-send-order', 'License::sendorder');
+    $routes->get('license-send-register', 'License::sendregister');
+    $routes->get('license-valid-send-order', 'License::valid_sendorder');
 
     // Card Format Route
     $routes->get('cardformat', 'CardFormat::index');
-    $routes->get('get-card-format', 'CardFormat::select');
-    $routes->post('add-card-format', 'CardFormat::insert');
-    $routes->post('update-card-format', 'CardFormat::update');
-    $routes->get('card-format-update-default/(:num)', 'CardFormat::update_default/$1');
+    $routes->get('cardformat-get', 'CardFormat::select');
+    $routes->post('cardformat-add', 'CardFormat::insert');
+    $routes->post('cardformat-update', 'CardFormat::update');
+    $routes->get('cardformat-update-default/(:num)', 'CardFormat::update_default/$1');
+    $routes->get('cardformat-check-dependency', 'CardFormat::check_dependency');
+    $routes->get('cardformat-delete', 'CardFormat::delete');
+    $routes->get('cardformat-calculate', 'CardFormat::calculate');
+
+    // Holiday Group Route
+    $routes->get('holiday', 'Holiday::index');
+    $routes->get('holiday-get', 'Holiday::select');
+    $routes->post('holiday-add', 'Holiday::insert');
+    $routes->post('holiday-update', 'Holiday::update');
+
+    // Schedule Route
+    $routes->get('schedule', 'Schedule::index');
+    $routes->get('schedule-get', 'Schedule::select');
+    $routes->post('schedule-add', 'Schedule::insert');
+    $routes->post('schedule-update', 'Schedule::update');
+    $routes->get('schedule-delete', 'Schedule::delete');
     
 });
 

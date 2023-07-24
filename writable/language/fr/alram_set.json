@@ -1,0 +1,19 @@
+{
+	"floor"		:"Floor",
+	"sucss_msg"	:"Map Information updated success",
+	"alram"		:"alram",
+	"name"		:"name",
+	"mean"		:"mean",
+	"typ"		:"typ",
+	"nomal_low"	:"nomal_low",
+	"nomal_high"	:"nomal_high",
+	"T_open_low"	:"T_open_low",
+	"T_open_high"	:"T_open_high",
+	"T_short_low"	:"T_short_low",
+	"T_short_high"	:"T_short_high",
+	"A_1_low"	:"A_1_low",
+	"A_1_high"	:"A_1_high",
+	"A_2_low"	:"A_2_low",
+	"A_2_high"	:"A_2_high",
+	"error_name_required"	:"Aux Input name required"
+}
