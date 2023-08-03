@@ -22,7 +22,7 @@ class Auth extends BaseController
         }
 
         if(!empty(session()->get('spider_id'))){
-            return view('wizard/index');
+            $this->display([], 'wizard/index', ['header' => 'css', 'footer' => '']);
         }else{
             return view('auth/login', $data);
         }
@@ -38,6 +38,11 @@ class Auth extends BaseController
             $arr[$val['No']] = $val['Name'];
         }
         return $arr;
+    }
+
+    public function forgot_password(){
+        exec(SPIDER_COMM." smtp pwrqsend " . $this->input::post('login_id', ''));
+        $this->util::alert("Sent a request message to the administrator.");
     }
     public function logout(){
         session()->destroy();

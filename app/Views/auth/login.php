@@ -119,6 +119,24 @@
 			window.location.href = "<?PHP echo base_url(); ?>";
 		}
     }
+
+	function forgot_password()
+	{
+		var login_id = $("#loginForm input[name=login_id]").val();
+		
+		if( login_id == '' || login_id == undefined ) {
+			alert("Enter User ID");
+		} else {
+			$.ajax({
+				method: "post",
+				dataType: "script",
+				url: "<?=base_url()?>forgot-password",
+				data: "login_id=" + login_id,
+				success: function(data) {
+				}
+			});
+		}
+	}
 </script>
 
 </body>

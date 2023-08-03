@@ -9,10 +9,10 @@ use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
 
-use App\Models\CommonModel;
-use App\Models\PDOModel;
-
-// import custorm libraries
+/**
+ * 04-08-2023
+ * import custom libraries
+ */
 use App\Libraries\Input;
 use App\Libraries\Util;
 use App\Libraries\Log;
@@ -64,11 +64,10 @@ abstract class BaseController extends Controller
   protected $util;
   protected $log;
   protected $pagination;
-  protected $free_auth  = FALSE;
+  protected $free_auth = FALSE;
   protected $enumtable;
   protected $lang;
   protected $result;
-  // protected $constTable;
 
   /**
    * Constructor.
@@ -83,20 +82,28 @@ abstract class BaseController extends Controller
     // E.g.: $this->session = \Config\Services::session();
 
     $this->session = session();
-    $this->conn = new \PDO('sqlite:'.WRITEPATH.'database/Spider.db');
-    $this->conn_log = new \PDO('sqlite:'.WRITEPATH.'database/SpiderLog.db');
-    $this->net_work = new \PDO('sqlite:'.WRITEPATH.'database/Network.db');
-    $this->api_conn = new \PDO('sqlite:'.WRITEPATH.'database/api.db');
 
-    // custom Libraries
+    /**
+     * 04-08-2023
+     * CI4 doesn't support PDO DB connection.
+     * And in original code base everywhere we have preapred statements 
+     * Replacing prepared statement with sqlite3 queries is time consuming process. 
+     * To avoid that initializing PDO DB connection from PHP PDO dll file.
+     */
+    $this->conn = new \PDO('sqlite:' . WRITEPATH . 'database/Spider.db'); // using same object name as original
+    $this->conn_log = new \PDO('sqlite:' . WRITEPATH . 'database/SpiderLog.db'); // using same object name as original
+    $this->net_work = new \PDO('sqlite:' . WRITEPATH . 'database/Network.db'); // using same object name as original
+    $this->api_conn = new \PDO('sqlite:' . WRITEPATH . 'database/api.db'); // using same object name as original
+
+    /**
+     * Initialize the object of libraries.
+     */
     $this->input = new Input();
     $this->util = new Util();
     $this->log = new Log();
     $this->pagination = new Pagination();
     $this->enumtable = new EnumTable();
     $this->lang = new CustomLanguage();
-    // $this->constTable = new ConstTable();
-    //$this->ConstTable = new ConstTable();
   }
 
   public function systemLogger($msg = "", $tag = "web")
@@ -112,27 +119,41 @@ abstract class BaseController extends Controller
    * load views based on passed conditions
    */
 
-  public function display($vars = array(), $view = '', $layout = '')
+  public function display($data = [], $pageBody = '', $HeaderFooterArr = [])
   {
-    $vars['lang'] = $this->lang;
-    $vars['Input'] = $this->input;
-    $content = ($layout['header']) ? view('common/'.$layout['header']):'';
-    $content .= view($view, $vars);
-    $content .= ($layout['footer']) ? view('common/'.$layout['footer']):'';
+    $data['lang'] = $this->lang;
+    $data['Input'] = $this->input;
+
+    $content = ($HeaderFooterArr['header']) ? view('common/' . $HeaderFooterArr['header'], $data) : ''; // common header for page content
+    $content .= view($pageBody, $data); // main page content
+    $content .= ($HeaderFooterArr['footer']) ? view('common/' . $HeaderFooterArr['footer'], $data) : ''; // common footer for page content
+
     echo $content;
   }
 
   public function is_auth($FormIndex, $Authority)
   {
-		if( $_SESSION['spider_type'] == 'spider' )  return TRUE;
-		if( $this->free_auth )  return TRUE;
+    if ($_SESSION['spider_type'] == 'spider')
+      return TRUE;
+    if ($this->free_auth)
+      return TRUE;
 
-		$userroletable  = $this->conn->prepare("SELECT COUNT(*) FROM UserRoleTable WHERE Site = ? AND UserRole = ? AND FormIndex = ? AND Authority = ?");
-		$userroletable->execute(array($_SESSION['spider_site'], $_SESSION['spider_userrole'], $FormIndex, $Authority));
-		$userroletable	= $userroletable->fetchColumn();
+    $userroletable = $this->conn->prepare("SELECT COUNT(*) FROM UserRoleTable WHERE Site = ? AND UserRole = ? AND FormIndex = ? AND Authority = ?");
+    $userroletable->execute(array($_SESSION['spider_site'], $_SESSION['spider_userrole'], $FormIndex, $Authority));
+    $userroletable = $userroletable->fetchColumn();
 
-        if( $userroletable > 0 )	return TRUE;
-        else						return FALSE;
+    if ($userroletable > 0)
+      return TRUE;
+    else
+      return FALSE;
   }
-  
+
+  public function is_SuperAdmin()
+  {
+    if ($_SESSION['spider_type'] == 'spider')
+      return TRUE;
+    else
+      return FALSE;
+  }
+
 }

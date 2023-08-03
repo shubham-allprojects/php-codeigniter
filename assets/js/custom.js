@@ -1,3 +1,9 @@
+/**
+ * created on 04-08-2023
+ * Common JS code write it here
+ */
+"use strict";
+
 function layout_center(layerId)
 {
 	$("#"+layerId).css({

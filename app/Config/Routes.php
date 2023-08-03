@@ -32,6 +32,7 @@ $routes->set404Override();
 
 // View Routes
 $routes->get('/', 'Auth::login');
+$routes->post('forgot-password', 'Auth::forgot_password');
 $routes->get('logout', 'Auth::logout');
 
 // public api routes with authentication filter
@@ -73,6 +74,21 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
     $routes->post('schedule-add', 'Schedule::insert');
     $routes->post('schedule-update', 'Schedule::update');
     $routes->get('schedule-delete', 'Schedule::delete');
+
+    // Door Route
+    $routes->get('door', 'Door::index');
+    $routes->get('door-get', 'Door::select');
+    $routes->post('door-add', 'Door::insert');
+    $routes->post('door-update', 'Door::update');
+    $routes->get('door-delete', 'Door::delete');
+    $routes->post('door-control', 'Door::door_control');
+
+    // Access Level Route
+    $routes->get('access-level', 'AccessLevel::index');
+    $routes->get('access-level-get', 'AccessLevel::select');
+    $routes->post('access-level-add', 'AccessLevel::insert');
+    $routes->post('access-level-update', 'AccessLevel::update');
+    $routes->get('access-level-delete', 'AccessLevel::delete');
     
 });
 

@@ -1,361 +1,330 @@
 <div id="wrap">
-<div id="location">
-<?PHP 
-echo $lang->menu->admin.'&nbsp;&gt;&nbsp;'.$lang->menu->card_format;
-?>
-	<button class="btn_help" onclick="openHelp('help', 'card_format')">Help</button>
-</div>
+	<div id="location">
+		<?=$lang->menu->admin.'&nbsp;&gt;&nbsp;'.$lang->menu->card_format?>
+		<button class="btn_help" onclick="openHelp('help', 'card_format')">Help</button>
+	</div>
 
-<div id="decoder_section" class="hide">
-<form id="form_decoder" method="post" action="<?=base_url()?>cardformat-add">
-	<h2>:: <?=$lang->menu->card_format?></h2>
-	<div class="box01">
+	<div id="decoder_section" class="hide">
+		<form id="form_decoder" method="post" action="<?=base_url()?>cardformat-add">
+			<h2>:: <?=$lang->menu->card_format?></h2>
+			<div class="box01">
 
-		<h3><?=$lang->menu->basic?></h3>
-		<table class="tbl_view">
-		<tr>
-			<th><?=$lang->card->ReaderNo?></th>
-			<td width="1">:</td>
-			<td><?=Form::select('door', '', $array_door)?></td>
-			<th colspan="3"></th>
-		</tr>
-        <tr>
-            <td colspan="6"><span id="card_btn"><button type="button" class="btn_large4" onclick="card_scan(0)"><?=$lang->button->card_scan?></button></span> <span id="card-rowdata"></span></td>
-        </tr>
-		<tr>
-			<th><?=$lang->card_format->card_format_default?></th>
-			<td width="1">:</td>
-			<td><?=Form::select('card_format_default', '', $arr_card_format_default, array('onchange'=>"change_format('form_decoder');"), 'Custom')?><?=Form::hidden('BitValue')?></td>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->Name?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('Name', "", array("MAXLENGTH"=>max_name_char))?></td>
-			<th><?=$lang->card_format->Mean?></th>
-			<td width="1">:</td>
-			<td><?=Form::input('Mean', "", array("MAXLENGTH"=>max_description_char))?></td>
-		</tr>
-		<tr>
-			<th><font color="red"><?=$lang->card_format->FacilityStartBit?></font> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityStartBit', "", array("MAXLENGTH"=>max_facility_code_start_bit_char, 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?></td>
-			<th><font color="red"><?=$lang->card_format->FacilityBitLength?></font> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityBitLength', "", array("MAXLENGTH"=>max_faciltity_code_length_char, 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?></td>
-		</tr>
-		<tr>
-			<th><font color="blue"><?=$lang->card_format->CardNumberStartBit?></font> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('CardNumberStartBit', "", array("MAXLENGTH"=>max_card_number_start_bit_char, 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?></td>
-			<th><font color="blue"><?=$lang->card_format->CardNumberLength?></font> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('CardNumberLength', "", array("MAXLENGTH"=>max_card_number_length_char, 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?></td>
-		</tr>
-		<!-- <tr>
-			<th><font color="orange"><?=$lang->card_format->EvenParityStartBit?></font> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('EvenParityStartBit', "", array("MAXLENGTH"=>"3", 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?></td>
-			<th><font color="orange"><?=$lang->card_format->EvenParityBitLength?></font> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('EvenParityBitLength', "", array("MAXLENGTH"=>"3", 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?></td>
-		</tr>
-		<tr>
-			<th><font color="green"><?=$lang->card_format->OddParityStartBit?></font> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('OddParityStartBit', "", array("MAXLENGTH"=>"3", 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?></td>
-			<th><font color="green"><?=$lang->card_format->OddParityBitLength?></font> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('OddParityBitLength', "", array("MAXLENGTH"=>"3", 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?></td>
-		</tr> -->
-		<tr>
-			<th><?=$lang->card_format->FacilityCode?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityCode', "", array("MAXLENGTH"=>max_faciltity_code_char,'onkeypress'=>"if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"))?><?=Form::hidden('TotalBitLength')?></td>
-			<th><?=$lang->card->CardNo?></th>
-			<td width="1">:</td>
-			<td><?=Form::input('CardNumber', "")?></td>
-		</tr>
-		</table>
+				<h3><?=$lang->menu->basic?></h3>
+				<table class="tbl_view">
+					<tr>
+						<th><?=$lang->card->ReaderNo?></th>
+						<td width="1">:</td>
+						<td><?=Form::select('door', '', $array_door)?></td>
+						<th colspan="3"></th>
+					</tr>
+					<tr>
+						<td colspan="6"><span id="card_btn"><button type="button" class="btn_large4"
+									onclick="card_scan(0)"><?=$lang->button->card_scan?></button></span> <span
+								id="card-rowdata"></span></td>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->card_format_default?></th>
+						<td width="1">:</td>
+						<td><?=Form::select('card_format_default', '', $arr_card_format_default, array('onchange'=>"change_format('form_decoder');"), 'Custom')?><?=Form::hidden('BitValue')?>
+						</td>
+						<th colspan="3"></th>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->Name?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::input('Name', "", array("MAXLENGTH"=>max_name_char))?></td>
+						<th><?=$lang->card_format->Mean?></th>
+						<td width="1">:</td>
+						<td><?=Form::input('Mean', "", array("MAXLENGTH"=>max_description_char))?></td>
+					</tr>
+					<tr>
+						<th>
+							<font color="red"><?=$lang->card_format->FacilityStartBit?></font> *
+						</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityStartBit', "", array("MAXLENGTH"=>max_facility_code_start_bit_char, 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?>
+						</td>
+						<th>
+							<font color="red"><?=$lang->card_format->FacilityBitLength?></font> *
+						</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityBitLength', "", array("MAXLENGTH"=>max_faciltity_code_length_char, 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?>
+						</td>
+					</tr>
+					<tr>
+						<th>
+							<font color="blue"><?=$lang->card_format->CardNumberStartBit?></font> *
+						</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('CardNumberStartBit', "", array("MAXLENGTH"=>max_card_number_start_bit_char, 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?>
+						</td>
+						<th>
+							<font color="blue"><?=$lang->card_format->CardNumberLength?></font> *
+						</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('CardNumberLength', "", array("MAXLENGTH"=>max_card_number_length_char, 'onchange'=>"$('#card-rowdata').html(parseRowdata());"))?>
+						</td>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->FacilityCode?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityCode', "", array("MAXLENGTH"=>max_faciltity_code_char,'onkeypress'=>"if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"))?><?=Form::hidden('TotalBitLength')?>
+						</td>
+						<th><?=$lang->card->CardNo?></th>
+						<td width="1">:</td>
+						<td><?=Form::input('CardNumber', "")?></td>
+					</tr>
+				</table>
 
-		<div class="button_set">
-			<button type="button" onclick="$('#form_decoder').submit()"><?=$lang->button->add?></button>&nbsp;&nbsp;
-			<button type="button" onclick="clear_card_scan(); open_decoder(); change_format_custom('form_decoder');"><?=$lang->button->reset?></button>&nbsp;&nbsp;
-			<button type="button" onclick="clear_card_scan(); $('#decoder_section').hide();"><?=$lang->button->cancel?></button>
+				<div class="button_set">
+					<button type="button"
+						onclick="$('#form_decoder').submit()"><?=$lang->button->add?></button>&nbsp;&nbsp;
+					<button type="button"
+						onclick="clear_card_scan(); open_decoder(); change_format_custom('form_decoder');"><?=$lang->button->reset?></button>&nbsp;&nbsp;
+					<button type="button"
+						onclick="clear_card_scan(); $('#decoder_section').hide();"><?=$lang->button->cancel?></button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="new_section" class="hide">
+		<form id="form_new" method="post" action="<?=base_url()?>cardformat-add">
+			<h2>:: <?=$lang->menu->card_format?></h2>
+			<div class="box01">
+
+				<h3><?=$lang->menu->basic?></h3>
+				<table class="tbl_view">
+					<tr>
+						<th><?=$lang->card_format->card_format_default?></th>
+						<td width="1">:</td>
+						<td><?=Form::select('card_format_default', '', $arr_card_format_default, array('onchange'=>"change_format('form_new');"), 'Custom')?>
+						</td>
+						<th colspan="3"></th>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->Name?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::input('Name', "", array("MAXLENGTH"=>max_name_char))?></td>
+						<th colspan="3"></th>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->Mean?></th>
+						<td width="1">:</td>
+						<td><?=Form::input('Mean', "", array("MAXLENGTH"=>max_description_char))?></td>
+						<th colspan="3"></th>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->TotalBitLength?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('TotalBitLength', "", array("MAXLENGTH"=>max_total_bit_length_char))?>
+						</td>
+						<th><?=$lang->card_format->FacilityCode?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityCode', "", array("MAXLENGTH"=>max_faciltity_code_char,'onkeypress'=>"if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"))?>
+						</td>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->FacilityStartBit?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityStartBit', "", array("MAXLENGTH"=>max_facility_code_start_bit_char))?>
+						</td>
+						<th><?=$lang->card_format->FacilityBitLength?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityBitLength', "", array("MAXLENGTH"=>max_faciltity_code_length_char))?>
+						</td>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->CardNumberStartBit?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('CardNumberStartBit', "", array("MAXLENGTH"=>max_card_number_start_bit_char))?>
+						</td>
+						<th><?=$lang->card_format->CardNumberLength?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('CardNumberLength', "", array("MAXLENGTH"=>max_card_number_length_char))?>
+						</td>
+					</tr>
+					
+				</table>
+
+				<div class="button_set">
+					<button type="button" onclick="$('#form_new').submit()"><?=$lang->button->add?></button>&nbsp;&nbsp;
+					<button type="button"
+						onclick="open_new(); change_format_custom('form_new');"><?=$lang->button->reset?></button>&nbsp;&nbsp;
+					<button type="button" onclick="close_new()"><?=$lang->button->cancel?></button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="edit_section" class="hide">
+		<form id="form_edit" method="post" action="<?=base_url()?>cardformat-update">
+			<?=Form::hidden("No")?>
+			<h2>:: <?=$lang->menu->card_format?></h2>
+			<div class="box01">
+
+				<h3><?=$lang->menu->basic?></h3>
+				<table class="tbl_view">
+					<tr>
+						<th><?=$lang->card_format->card_format_default?></th>
+						<td width="1">:</td>
+						<td><?=Form::select('card_format_default', '', $arr_card_format_default, array('onchange'=>"change_format('form_edit');"), 'Custom')?>
+						</td>
+						<th colspan="3"></th>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->Name?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::input('Name', "", array("MAXLENGTH"=>max_description_char))?></td>
+						<th colspan="3"></th>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->Mean?></th>
+						<td width="1">:</td>
+						<td><?=Form::input('Mean', "", array("MAXLENGTH"=>max_description_char))?></td>
+						<th colspan="3"></th>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->TotalBitLength?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('TotalBitLength', "", array("MAXLENGTH"=>max_description_char))?></td>
+						<th><?=$lang->card_format->FacilityCode?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityCode', "", array("MAXLENGTH"=>max_faciltity_code_char,'onkeypress'=>"if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"))?>
+						</td>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->FacilityStartBit?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityStartBit', "", array("MAXLENGTH"=>max_description_char))?></td>
+						<th><?=$lang->card_format->FacilityBitLength?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('FacilityBitLength', "", array("MAXLENGTH"=>max_description_char))?></td>
+					</tr>
+					<tr>
+						<th><?=$lang->card_format->CardNumberStartBit?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('CardNumberStartBit', "", array("MAXLENGTH"=>max_description_char))?></td>
+						<th><?=$lang->card_format->CardNumberLength?> *</th>
+						<td width="1">:</td>
+						<td><?=Form::inputnum('CardNumberLength', "", array("MAXLENGTH"=>max_description_char))?></td>
+					</tr>
+					
+				</table>
+
+				<div class="button_set">
+					<button type="button"
+						onclick="$('#form_edit').submit()"><?=$lang->button->save?></button>&nbsp;&nbsp;
+					<button type="button"
+						onclick="open_edit(_seq); change_format_custom('open_edit');"><?=$lang->button->reset?></button>&nbsp;&nbsp;
+					<button type="button" onclick="close_edit()"><?=$lang->button->cancel?></button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="view_section" class="hide">
+		<h2>:: <?=$lang->menu->card_format?></h2>
+		<div class="box01">
+
+			<h3><?=$lang->menu->basic?></h3>
+			<table class="tbl_view">
+				<tr style="display:none">
+					<th></th>
+					<td id="view_No"></td>
+				</tr>
+				<tr>
+					<th width="150"><?=$lang->card_format->Name?> *</th>
+					<td width="1">:</td>
+					<td id="view_Name"></td>
+					<th colspan="3"></th>
+				</tr>
+				<tr>
+					<th><?=$lang->card_format->Mean?></th>
+					<td width="1">:</td>
+					<td id="view_Mean"></td>
+					<th colspan="3"></th>
+				</tr>
+			</table>
+			<table class="tbl_view">
+				<tr>
+					<th width="150"><?=$lang->card_format->TotalBitLength?></th>
+					<td width="1">:</td>
+					<td width="160" id="view_TotalBitLength"></td>
+					<th><?=$lang->card_format->FacilityCode?></th>
+					<td width="1">:</td>
+					<td width="160" id="view_FacilityCode"></td>
+				</tr>
+				<tr>
+					<th><?=$lang->card_format->FacilityStartBit?></th>
+					<td width="1">:</td>
+					<td id="view_FacilityStartBit"></td>
+					<th width="150"><?=$lang->card_format->FacilityBitLength?></th>
+					<td width="1">:</td>
+					<td id="view_FacilityBitLength"></td>
+				</tr>
+				<tr>
+					<th><?=$lang->card_format->CardNumberStartBit?></th>
+					<td width="1">:</td>
+					<td id="view_CardNumberStartBit"></td>
+					<th><?=$lang->card_format->CardNumberLength?></th>
+					<td width="1">:</td>
+					<td id="view_CardNumberLength"></td>
+				</tr>
+				
+			</table>
+
+			<div class="button_set">
+				<button type="button"
+					onclick="open_edit(_seq); change_format_custom('form_edit');"><?=$lang->button->edit?></button>&nbsp;&nbsp;
+				<button type="button" onclick="delete_form();"><?=$lang->button->delete?></button>&nbsp;&nbsp;
+				<button type="button" onclick="close_view()"><?=$lang->button->cancel?></button>
+			</div>
 		</div>
 	</div>
-</form>
-</div>
 
+	<div id="list_section">
+		<h2>:: <?=$lang->menu->list?></h2>
+		<div class="box01">
+			<table class="tbl_list">
+				<tr>
+					<th><?=$lang->card_format->No?></th>
+					<th><?=$lang->card_format->Name?></th>
+					<th><?=$lang->card_format->Mean?></th>
+					<th><?=$lang->card_format->FacilityCode?></th>
+					<th><?=$lang->card_format->TotalBitLength?></th>
+					<th><?=$lang->card_format->IsDefault?></th>
+				</tr>
+				<tbody id="list_body">
+				</tbody>
+			</table>
 
-<div id="new_section" class="hide">
-<form id="form_new" method="post" action="<?=base_url()?>cardformat-add">
-	<h2>:: <?=$lang->menu->card_format?></h2>
-	<div class="box01">
+			<table class="list_button_set">
+				<tr>
+					<td width="160">
+						<button type="button"
+							onclick="open_new(); change_format_custom('form_new');"><?=$lang->button->new?></button>
+						<button type="button"
+							onclick="open_decoder(); change_format_custom('form_decoder');"><?=$lang->button->decoder?></button>
+					</td>
+					<td align="center">
+						<form id="form_search" method="post" action="<?=base_url()?>cardformat-get"
+							onsubmit="load_list_search('<?=base_url()?>cardformat-get'); return false;" target="_self">
+							<?=Form::select('field', '', array('Name'=>$lang->card_format->name, 'Mean'=>$lang->card_format->Mean))?>
+							<?=Form::input('word', '')?>
+							<button type="button"
+								onclick="load_list_search('<?=base_url()?>cardformat-get')"><?=$lang->button->search?></button>
+						</form>
+					</td>
+					<td width="150" align="right"><button type="button"
+							onclick="load_list('<?=base_url()?>cardformat-get')"><?=$lang->button->list?></button></td>
+				</tr>
+			</table>
 
-		<h3><?=$lang->menu->basic?></h3>
-		<table class="tbl_view">
-		<tr>
-			<th><?=$lang->card_format->card_format_default?></th>
-			<td width="1">:</td>
-			<td><?=Form::select('card_format_default', '', $arr_card_format_default, array('onchange'=>"change_format('form_new');"), 'Custom')?></td>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->Name?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('Name', "", array("MAXLENGTH"=>max_name_char))?></td>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->Mean?></th>
-			<td width="1">:</td>
-			<td><?=Form::input('Mean', "", array("MAXLENGTH"=>max_description_char))?></td>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->TotalBitLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('TotalBitLength', "", array("MAXLENGTH"=>max_total_bit_length_char))?></td>
-			<th><?=$lang->card_format->FacilityCode?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityCode', "", array("MAXLENGTH"=>max_faciltity_code_char,'onkeypress'=>"if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"))?></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->FacilityStartBit?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityStartBit', "", array("MAXLENGTH"=>max_facility_code_start_bit_char))?></td>
-			<th><?=$lang->card_format->FacilityBitLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityBitLength', "", array("MAXLENGTH"=>max_faciltity_code_length_char))?></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->CardNumberStartBit?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('CardNumberStartBit', "", array("MAXLENGTH"=>max_card_number_start_bit_char))?></td>
-			<th><?=$lang->card_format->CardNumberLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('CardNumberLength', "", array("MAXLENGTH"=>max_card_number_length_char))?></td>
-		</tr>
-		<!-- <tr>
-			<th><?=$lang->card_format->EvenParityStartBit?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('EvenParityStartBit', "", array("MAXLENGTH"=>"3"))?></td>
-			<th><?=$lang->card_format->EvenParityBitLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('EvenParityBitLength', "", array("MAXLENGTH"=>"3"))?></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->OddParityStartBit?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('OddParityStartBit', "", array("MAXLENGTH"=>"3"))?></td>
-			<th><?=$lang->card_format->OddParityBitLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('OddParityBitLength', "", array("MAXLENGTH"=>"3"))?></td>
-		</tr> -->
-		</table>
-
-		<div class="button_set">
-			<button type="button" onclick="$('#form_new').submit()"><?=$lang->button->add?></button>&nbsp;&nbsp;
-			<button type="button" onclick="open_new(); change_format_custom('form_new');"><?=$lang->button->reset?></button>&nbsp;&nbsp;
-			<button type="button" onclick="close_new()"><?=$lang->button->cancel?></button>
-		</div>
-	</div>
-</form>
-</div>
-
-
-<div id="edit_section" class="hide">
-<form id="form_edit" method="post" action="<?=base_url()?>cardformat-update">
-<?=Form::hidden("No")?>
-	<h2>:: <?=$lang->menu->card_format?></h2>
-	<div class="box01">
-
-		<h3><?=$lang->menu->basic?></h3>
-		<table class="tbl_view">
-		<tr>
-			<th><?=$lang->card_format->card_format_default?></th>
-			<td width="1">:</td>
-			<td><?=Form::select('card_format_default', '', $arr_card_format_default, array('onchange'=>"change_format('form_edit');"), 'Custom')?></td>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->Name?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('Name', "", array("MAXLENGTH"=>max_description_char))?></td>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->Mean?></th>
-			<td width="1">:</td>
-			<td><?=Form::input('Mean', "", array("MAXLENGTH"=>max_description_char))?></td>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->TotalBitLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('TotalBitLength', "", array("MAXLENGTH"=>max_description_char))?></td>
-			<th><?=$lang->card_format->FacilityCode?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityCode', "", array("MAXLENGTH"=>max_faciltity_code_char,'onkeypress'=>"if(event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"))?></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->FacilityStartBit?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityStartBit', "", array("MAXLENGTH"=>max_description_char))?></td>
-			<th><?=$lang->card_format->FacilityBitLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('FacilityBitLength', "", array("MAXLENGTH"=>max_description_char))?></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->CardNumberStartBit?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('CardNumberStartBit', "", array("MAXLENGTH"=>max_description_char))?></td>
-			<th><?=$lang->card_format->CardNumberLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::inputnum('CardNumberLength', "", array("MAXLENGTH"=>max_description_char))?></td>
-		</tr>
-		<!-- <tr>
-			<th><?=$lang->card_format->EvenParityStartBit?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('EvenParityStartBit')?></td>
-			<th><?=$lang->card_format->EvenParityBitLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('EvenParityBitLength', "", array("MAXLENGTH"=>"3"))?></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->OddParityStartBit?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('OddParityStartBit', "", array("MAXLENGTH"=>"3"))?></td>
-			<th><?=$lang->card_format->OddParityBitLength?> *</th>
-			<td width="1">:</td>
-			<td><?=Form::input('OddParityBitLength')?></td>
-		</tr> -->
-		</table>
-
-		<div class="button_set">
-			<button type="button" onclick="$('#form_edit').submit()"><?=$lang->button->save?></button>&nbsp;&nbsp;
-			<button type="button" onclick="open_edit(_seq); change_format_custom('open_edit');"><?=$lang->button->reset?></button>&nbsp;&nbsp;
-			<button type="button" onclick="close_edit()"><?=$lang->button->cancel?></button>
-		</div>
-	</div>
-</form>
-</div>
-
-
-<div id="view_section" class="hide">
-	<h2>:: <?=$lang->menu->card_format?></h2>
-	<div class="box01">
-
-		<h3><?=$lang->menu->basic?></h3>
-		<table class="tbl_view">
-		<tr style="display:none">
-            <th></th>
-            <td id="view_No"></td>
-        </tr>
-		<tr>
-			<th width="150"><?=$lang->card_format->Name?> *</th>
-			<td width="1">:</td>
-			<td id="view_Name"></td>
-			<th colspan="3"></th>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->Mean?></th>
-			<td width="1">:</td>
-			<td id="view_Mean"></td>
-			<th colspan="3"></th>
-		</tr>
-		</table>
-		<table class="tbl_view">
-		<tr>
-			<th width="150"><?=$lang->card_format->TotalBitLength?></th>
-			<td width="1">:</td>
-			<td width="160" id="view_TotalBitLength"></td>
-			<th><?=$lang->card_format->FacilityCode?></th>
-			<td width="1">:</td>
-			<td width="160" id="view_FacilityCode"></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->FacilityStartBit?></th>
-			<td width="1">:</td>
-			<td id="view_FacilityStartBit"></td>
-			<th width="150"><?=$lang->card_format->FacilityBitLength?></th>
-			<td width="1">:</td>
-			<td id="view_FacilityBitLength"></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->CardNumberStartBit?></th>
-			<td width="1">:</td>
-			<td id="view_CardNumberStartBit"></td>
-			<th><?=$lang->card_format->CardNumberLength?></th>
-			<td width="1">:</td>
-			<td id="view_CardNumberLength"></td>
-		</tr>
-		<!-- <tr>
-			<th><?=$lang->card_format->EvenParityStartBit?></th>
-			<td width="1">:</td>
-			<td id="view_EvenParityStartBit"></td>
-			<th><?=$lang->card_format->EvenParityBitLength?></th>
-			<td width="1">:</td>
-			<td id="view_EvenParityBitLength"></td>
-		</tr>
-		<tr>
-			<th><?=$lang->card_format->OddParityStartBit?></th>
-			<td width="1">:</td>
-			<td id="view_OddParityStartBit"></td>
-			<th><?=$lang->card_format->OddParityBitLength?></th>
-			<td width="1">:</td>
-			<td id="view_OddParityBitLength"></td>
-		</tr> -->
-		</table>
-
-		<div class="button_set">
-			<button type="button" onclick="open_edit(_seq); change_format_custom('form_edit');"><?=$lang->button->edit?></button>&nbsp;&nbsp;
-            <button type="button" onclick="delete_form();"><?=$lang->button->delete?></button>&nbsp;&nbsp;
-			<button type="button" onclick="close_view()"><?=$lang->button->cancel?></button>
+			<div id="pagination" class="pagination">[ 1 ]</div>
 		</div>
 	</div>
 </div>
-
-
-<div id="list_section">
-	<h2>:: <?=$lang->menu->list?></h2>
-	<div class="box01">
-		<table class="tbl_list">
-		<tr>
-			<th><?=$lang->card_format->No?></th>
-			<th><?=$lang->card_format->Name?></th>
-			<th><?=$lang->card_format->Mean?></th>
-			<th><?=$lang->card_format->FacilityCode?></th>
-			<th><?=$lang->card_format->TotalBitLength?></th>
-			<th><?=$lang->card_format->IsDefault?></th>
-		</tr>
-        <tbody id="list_body">
-        </tbody>
-		</table>
-
-		<table class="list_button_set">
-		<tr>
-			<td width="160">
-				<button type="button" onclick="open_new(); change_format_custom('form_new');"><?=$lang->button->new?></button>
-				<button type="button" onclick="open_decoder(); change_format_custom('form_decoder');"><?=$lang->button->decoder?></button>
-			</td>
-			<td align="center">
-			<form id="form_search" method="post" action="<?=base_url()?>cardformat-get" onsubmit="load_list_search('<?=base_url()?>cardformat-get'); return false;" target="_self">
-				<?=Form::select('field', '', array('Name'=>$lang->card_format->name, 'Mean'=>$lang->card_format->Mean))?>
-				<?=Form::input('word', '')?>
-				<button type="button" onclick="load_list_search('<?=base_url()?>cardformat-get')"><?=$lang->button->search?></button>
-			</form>
-			</td>
-			<td width="150" align="right"><button type="button" onclick="load_list('<?=base_url()?>cardformat-get')"><?=$lang->button->list?></button></td>
-		</tr>
-		</table>
-
-		<div id="pagination" class="pagination">[ 1 ]</div>
-	</div>
-</div>
-</div>
-
 <?PHP echo view('common/js'); ?>
 
 <script type="text/javascript">
@@ -661,8 +630,7 @@ function calculate()
 
 function saveIsDefault(event, no)
 {
-	$.getScript('/?c=<?=base_url()?>cardformat-update-default/?no='+no);
+	$.getScript('<?=base_url()?>cardformat-update-default/?no='+no);
 	event.stopPropagation();
 }
 </script>
-

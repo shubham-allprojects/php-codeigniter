@@ -158,9 +158,8 @@ class Log
 		exec(SPIDER_COMM." log '{$Site}' '{$DeviceName}' '{$Port}' '{$EventCode}' '{$CardNo}' '{$UserNo}' '{$UserName}' '{$Ack}' '{$Type}' '{$Message}'");
     }
     
-    public function set_log_device($f=NULL, $s=NULL, $type='', $_port='', $device_name=NULL, $Message='')
+    static public function set_log_device($f=NULL, $s=NULL, $type='', $_port='', $device_name=NULL, $Message='')
     {
-        $conn   = $GLOBALS['conn_log'];
 
 		if(empty($device_name)) {
 			$device_name = $_SERVER['REMOTE_ADDR'];
@@ -208,12 +207,17 @@ class Log
     static public function get_eventcode($f=NULL, $s=NULL)
     {
         $router = service('router');
-        if( $f == NULL )    $controller = strtolower($router->controllerName());
-        if( $s == NULL )    $method = strtolower($router->methodName());
+        if( $f == NULL ) {   
+            $controller = strtolower($router->controllerName());
+            $pieces = explode("\\", $controller);
+            $f = array_pop($pieces);
+        }
+        if( $s == NULL ){
+            $method = strtolower($router->methodName());
+            $s = $method;
+        }
         
-        $pieces = explode("\\", $controller);
-        $f = array_pop($pieces);
-        $s = $method;
+        
 
         $fcode = self::$fcode[$f];
         $scode = self::$scode[$s];

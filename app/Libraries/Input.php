@@ -80,7 +80,7 @@ class Input
 		return $default;
 	}
 
-	static function clean_data($str, $clean = Input::CLEAN_HTML)
+	static public function clean_data($str, $clean = Input::CLEAN_HTML)
 	{
 		if (is_array($str)) {
 			$new_array = array();

@@ -22,10 +22,11 @@ class CardFormat extends BaseController
 		$vars['arr_card_format_default'] = $arr_card_format_default;
 		$vars['array_door'] = $this->to_array_door_scan();
 		$vars['baseController'] = $this;
+		
 
 		if($this->input::get('wizard') == '1' )	
 			$this->display($vars, 'wizard/card_format', ['header' => 'css', 'footer' => '']);
-		else								
+		else							
 		$this->display($vars, 'wizard/card_format', ['header' => 'header', 'footer' => 'footer']);
 	}
 

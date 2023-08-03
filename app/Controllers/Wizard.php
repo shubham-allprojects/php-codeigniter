@@ -15,7 +15,7 @@ class Wizard extends BaseController
 
     public function wizard()
     {
-        $this->display([], 'wizard/index', ['header' => 'css', 'footer' => '']);
+        $this->display([], 'wizard/index', ['header' => '', 'footer' => '']);
     }
     public function wizard_language()
     {
