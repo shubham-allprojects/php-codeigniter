@@ -65,6 +65,8 @@ writable/debugbar/*
 writable/**/*.db
 !writable/**/*.sqlite
 
+writable/database/*
+
 php_errors.log
 
 #-------------------------
