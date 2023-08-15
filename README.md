@@ -1,12 +1,15 @@
 # Spider Application setup ( Codeigniter Framework )
 
+## Pre-requisite:
+- XAMPP (with PHP 8)
+
 ## Installation Steps
-
-- Run `git clone git@bitbucket.org:nortek-control/nxgcpub-spider-web.git` command to clone the repository.
-- copy `env.example` to `.env` and tailor for your app, specifically the baseURL. 
+- Clone repo in server root directory, using one of the below commands:
+`git clone git@bitbucket.org:nortek-control/nxgcpub-spider-web.git`
+`git clone https://<username>@bitbucket.org/nortek-control/nxgcpub-spider-web.git`
+- Change branch: `git checkout php8-security-migration`
+- Copy `env.example` to `.env` 
+- Update `.env` file with the baseURL if it is different
 - Run `composer install` command to download dependencies.
-- Create new `database` folder in writable folder & add sqlite3 db files eg. api.db, Network.db, Spider.db, SpiderLog.db
-
-## GIT Branches
-- create a new branch from `php8-security-migration` base branch for each JIRA ticket.
-- make sure to sync your local branch with remote branch
+- Create a new sub-directory named `database` under `writable` directory
+- Copy sqlite3 db files `api.db`, `Network.db`, `Spider.db`, `SpiderLog.db` to the `database` directory
