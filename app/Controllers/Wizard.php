@@ -19,15 +19,15 @@ class Wizard extends BaseController
     }
     public function wizard_language()
     {
-        $list   = $this->conn->prepare("SELECT Country, Language FROM Site WHERE No=1");
+        $list = $this->conn->prepare("SELECT Country, Language FROM Site WHERE No=1");
         $list->execute();
-		$list   = $list->fetchAll(\PDO::FETCH_ASSOC);
+        $list = $list->fetchAll(\PDO::FETCH_ASSOC);
         $data = [];
         foreach ($list as $val) {
             $data['country'] = $val['Country'];
             $data['language'] = $val['Language'];
         }
-		
+
         $this->display($data, 'wizard/language', ['header' => 'css', 'footer' => '']);
     }
 
@@ -36,16 +36,16 @@ class Wizard extends BaseController
         $country = $this->input::post('country');
         $language = $this->input::post('language');
 
-        $site   = $this->conn->prepare("SELECT Country, Language FROM Site WHERE No=1");
+        $site = $this->conn->prepare("SELECT Country, Language FROM Site WHERE No=1");
         $site->execute();
-		$site   = $site->fetch(\PDO::FETCH_ASSOC);
-  		$sth    = $this->conn->prepare("UPDATE Site SET Country=?, Language=? WHERE No=?");
+        $site = $site->fetch(\PDO::FETCH_ASSOC);
+        $sth = $this->conn->prepare("UPDATE Site SET Country=?, Language=? WHERE No=?");
 
         if (!$sth) {
             $this->util::alert(lang('Message.Common.error_insert'), true);
         }
 
-        $sth    = $this->conn->prepare("UPDATE Controller SET Language=? WHERE No=?");
+        $sth = $this->conn->prepare("UPDATE Controller SET Language=? WHERE No=?");
 
         if (!$sth) {
             $this->util::alert(lang('Message.Common.error_insert'), true);
@@ -55,55 +55,55 @@ class Wizard extends BaseController
         $this->systemLogger("Wizard Feature: Language($language) and Country($country) update");
 
         if ($site['Country'] == $country) {
-            $this->util::js('parent.document.getElementById("wizard_body").contentWindow.restore_holiday("' . $country . '")', TRUE);
+            $this->util::js('parent.document.getElementById("wizard_body").contentWindow.restore_holiday("' . $country . '")', true);
         }
     }
 
-    function restore_holiday()
+    public function restore_holiday()
     {
-        $Country  = $this->input::get('country');
+        $Country = $this->input::get('country');
 
-		$holiday    = $this->conn->prepare("DELETE FROM Holiday WHERE Site=?");
-		$holiday->execute( array($_SESSION['spider_site']) );
+        $holiday = $this->conn->prepare("DELETE FROM Holiday WHERE Site=?");
+        $holiday->execute(array($_SESSION['spider_site']));
 
         $InsertNo = $this->conn->prepare("SELECT MAX(No) FROM Holiday");
         $InsertNo->execute();
         $InsertNo = $InsertNo->fetchColumn() + 1;
 
-		$holiday    = $this->conn->prepare("INSERT INTO Holiday (Site,No,Name,StartTime,EndTime,Holiday1,Holiday2,Holiday3,Holiday4) VALUES (?,?,?,?,?,?,?,?,?)");
-		$path = WRITEPATH.'/holiday/holiday-'.$this->enumtable::$attrCountryCode[$Country].'.csv';
-		$handle = @fopen($path, "r");
-		if($handle) {
-			while(($buffer = fgetcsv($handle)) !== false) {
-				$start_time = $this->to_timestamp_ymd($buffer[0]);
-				$end_time = $this->to_timestamp_ymd($buffer[1], 23, 59, 59);
-				$name = $buffer[2];
+        $holiday = $this->conn->prepare("INSERT INTO Holiday (Site,No,Name,StartTime,EndTime,Holiday1,Holiday2,Holiday3,Holiday4) VALUES (?,?,?,?,?,?,?,?,?)");
+        $path = WRITEPATH . '/holiday/holiday-' . $this->enumtable::$attrCountryCode[$Country] . '.csv';
+        $handle = @fopen($path, "r");
+        if ($handle) {
+            while (($buffer = fgetcsv($handle)) !== false) {
+                $start_time = $this->to_timestamp_ymd($buffer[0]);
+                $end_time = $this->to_timestamp_ymd($buffer[1], 23, 59, 59);
+                $name = $buffer[2];
 
-				$values = array($_SESSION['spider_site'],$InsertNo,$name,$start_time,$end_time,'0','0','0','0');
-				$holiday->execute( $values );
-				$InsertNo++;
-			}
-			fclose($handle);
-		}
+                $values = array($_SESSION['spider_site'], $InsertNo, $name, $start_time, $end_time, '0', '0', '0', '0');
+                $holiday->execute($values);
+                $InsertNo++;
+            }
+            fclose($handle);
+        }
 
-		$this->util::js('alert("'.$this->lang->addmsg->restore_holiday_ok.'");');
+        $this->util::js('alert("' . $this->lang->addmsg->restore_holiday_ok . '");');
     }
 
     // ----------------------------------------------------------------------------------
 
     public function dealer()
     {
-        $dealer   = $this->conn->prepare("SELECT * FROM ToDoTable1 WHERE No = 1");
+        $dealer = $this->conn->prepare("SELECT * FROM ToDoTable1 WHERE No = 1");
         $dealer->execute();
-        $dealer   = $dealer->fetch(\PDO::FETCH_ASSOC);
+        $dealer = $dealer->fetch(\PDO::FETCH_ASSOC);
 
-        $site   = $this->conn->prepare("SELECT * FROM ToDoTable1 WHERE No = 2");
+        $site = $this->conn->prepare("SELECT * FROM ToDoTable1 WHERE No = 2");
         $site->execute();
-        $site   = $site->fetch(\PDO::FETCH_ASSOC);
+        $site = $site->fetch(\PDO::FETCH_ASSOC);
 
-		$vars = array();
-		$vars['dealer'] = $dealer;
-		$vars['site'] = $site;
+        $vars = array();
+        $vars['dealer'] = $dealer;
+        $vars['site'] = $site;
 
         $this->display($vars, 'wizard/dealer', 'none');
     }
@@ -118,34 +118,38 @@ class Wizard extends BaseController
     public function restart_exe()
     {
         $this->systemLogger("Wizard Feature: Start Save(restart_exe())");
-        $backup_sd     = $this->input::post('backup_sd');
-        $default_page  = $this->input::post('default_page');
+        $backup_sd = $this->input::post('backup_sd');
+        $default_page = $this->input::post('default_page');
 
-        if( $_SESSION['spider_type'] == 'spider' )
-        {
-			       $sth	= $this->conn->prepare("UPDATE Controller SET DefaultFloorNo=?, DefaultPage=? WHERE No=1");
-			          $values	= array($default_page, $default_page);
-                $sth->execute($values);
-        }
-        else
-        {
-			        $sth	= $this->conn->prepare("UPDATE WebUser SET DefaultPage=? WHERE Site=? AND No=?");
-			        $values	= array($default_page, $_SESSION['spider_site'], $_SESSION['spider_userno']);
-              $sth->execute($values);
+        if ($_SESSION['spider_type'] == 'spider') {
+            $sth = $this->conn->prepare("UPDATE Controller SET DefaultFloorNo=?, DefaultPage=? WHERE No=1");
+            $values = array($default_page, $default_page);
+            $sth->execute($values);
+        } else {
+            $sth = $this->conn->prepare("UPDATE WebUser SET DefaultPage=? WHERE Site=? AND No=?");
+            $values = array($default_page, $_SESSION['spider_site'], $_SESSION['spider_userno']);
+            $sth->execute($values);
         }
         $this->systemLogger("Wizard Feature: Start Save: updated default floor($default_page) and default page($default_page)");
-        if( $backup_sd == '1' ) {
-            exec(SPIDER_COMM." mnt sd");
-            $rt = exec(SPIDER_COMM." backup sd");
-            if ($rt != "0")     $this->util::alert( $this->lang->common->fail_complete_backup_sd );
-			      if ($rt == "0")     $this->log::set_log('backup', '_exec');
-			      else			    $this->log::set_log('backup', '_execfail');
+        if ($backup_sd == '1') {
+            exec(SPIDER_COMM . " mnt sd");
+            $rt = exec(SPIDER_COMM . " backup sd");
+            if ($rt != "0") {
+                $this->util::alert($this->lang->common->fail_complete_backup_sd);
+            }
+
+            if ($rt == "0") {
+                $this->log::set_log('backup', '_exec');
+            } else {
+                $this->log::set_log('backup', '_execfail');
+            }
+
             $this->systemLogger("Wizard Feature: Start Save: mount sd card and take backup in sd card");
         }
         $this->systemLogger("Wizard Feature: Start Save: Not copy database from /tmp/ to /spider/");
-    		//exec("cp -a /tmp/SpiderDB/* /spider/database/.");
-    		exec(SPIDER_COMM." sysback");
-    		$this->util::js('top.location.href = "/";');
+        //exec("cp -a /tmp/SpiderDB/* /spider/database/.");
+        exec(SPIDER_COMM . " sysback");
+        $this->util::js('top.location.href = "/";');
         //exec(SPIDER_COMM." clnt reset all");
         //exec(SPIDER_COMM." shutdown");
     }
@@ -154,52 +158,69 @@ class Wizard extends BaseController
     {
         echo '$(".wizard-menu.wizard1").addClass("wizard-menu-checked");';
 
-		$count	= $this->net_work->prepare("SELECT COUNT(*) FROM Network WHERE LicenseKey != ''");
-		$count->execute();
-		$count	= $count->fetchColumn();
-		if($count > 0) echo '$(".wizard-menu.wizard2").addClass("wizard-menu-checked");';
+        $count = $this->net_work->prepare("SELECT COUNT(*) FROM Network WHERE LicenseKey != ''");
+        $count->execute();
+        $count = $count->fetchColumn();
+        if ($count > 0) {
+            echo '$(".wizard-menu.wizard2").addClass("wizard-menu-checked");';
+        }
 
-		$count	= $this->conn->prepare("SELECT COUNT(*) FROM CardFormat");
-		$count->execute();
-		$count	= $count->fetchColumn();
-		if($count > 0) echo '$(".wizard-menu.wizard3").addClass("wizard-menu-checked");';
+        $count = $this->conn->prepare("SELECT COUNT(*) FROM CardFormat");
+        $count->execute();
+        $count = $count->fetchColumn();
+        if ($count > 0) {
+            echo '$(".wizard-menu.wizard3").addClass("wizard-menu-checked");';
+        }
 
-		$count	= $this->conn->prepare("SELECT COUNT(*) FROM Holiday WHERE Site=?");
-		$count->execute(array($_SESSION['spider_site']));
-		$count	= $count->fetchColumn();
-		if($count > 0) echo '$(".wizard-menu.wizard4").addClass("wizard-menu-checked");';
+        $count = $this->conn->prepare("SELECT COUNT(*) FROM Holiday WHERE Site=?");
+        $count->execute(array($_SESSION['spider_site']));
+        $count = $count->fetchColumn();
+        if ($count > 0) {
+            echo '$(".wizard-menu.wizard4").addClass("wizard-menu-checked");';
+        }
 
-		$count	= $this->conn->prepare("SELECT COUNT(*) FROM Schedule WHERE Site=?");
-		$count->execute(array($_SESSION['spider_site']));
-		$count	= $count->fetchColumn();
-		if($count > 0) echo '$(".wizard-menu.wizard5").addClass("wizard-menu-checked");';
+        $count = $this->conn->prepare("SELECT COUNT(*) FROM Schedule WHERE Site=?");
+        $count->execute(array($_SESSION['spider_site']));
+        $count = $count->fetchColumn();
+        if ($count > 0) {
+            echo '$(".wizard-menu.wizard5").addClass("wizard-menu-checked");';
+        }
 
-		$count	= $this->conn->prepare("SELECT COUNT(*) FROM AccessLevel WHERE Site=?");
-		$count->execute(array($_SESSION['spider_site']));
-		$count	= $count->fetchColumn();
-		if($count > 0) echo '$(".wizard-menu.wizard7").addClass("wizard-menu-checked");';
+        $count = $this->conn->prepare("SELECT COUNT(*) FROM AccessLevel WHERE Site=?");
+        $count->execute(array($_SESSION['spider_site']));
+        $count = $count->fetchColumn();
+        if ($count > 0) {
+            echo '$(".wizard-menu.wizard7").addClass("wizard-menu-checked");';
+        }
 
-		echo '$(".wizard-menu.wizard6").addClass("wizard-menu-checked");';
+        echo '$(".wizard-menu.wizard6").addClass("wizard-menu-checked");';
 
-		$count	= $this->conn->prepare("SELECT COUNT(*) FROM User WHERE Site=?");
-		$count->execute(array($_SESSION['spider_site']));
-		$count	= $count->fetchColumn();
-		if($count > 0) echo '$(".wizard-menu.wizard8").addClass("wizard-menu-checked");';
+        $count = $this->conn->prepare("SELECT COUNT(*) FROM User WHERE Site=?");
+        $count->execute(array($_SESSION['spider_site']));
+        $count = $count->fetchColumn();
+        if ($count > 0) {
+            echo '$(".wizard-menu.wizard8").addClass("wizard-menu-checked");';
+        }
 
-		$count	= $this->conn->prepare("SELECT COUNT(*) FROM Card WHERE Site=?");
-		$count->execute(array($_SESSION['spider_site']));
-		$count	= $count->fetchColumn();
-		if($count > 0) echo '$(".wizard-menu.wizard9").addClass("wizard-menu-checked");';
+        $count = $this->conn->prepare("SELECT COUNT(*) FROM Card WHERE Site=?");
+        $count->execute(array($_SESSION['spider_site']));
+        $count = $count->fetchColumn();
+        if ($count > 0) {
+            echo '$(".wizard-menu.wizard9").addClass("wizard-menu-checked");';
+        }
 
-		echo '$(".wizard-menu.wizard10").addClass("wizard-menu-checked");';
+        echo '$(".wizard-menu.wizard10").addClass("wizard-menu-checked");';
 
-		$count	= $this->conn->prepare("SELECT COUNT(*) FROM ToDoTable1 WHERE No=1");
-		$count->execute();
-		$count	= $count->fetchColumn();
-		if($count > 0) echo '$(".wizard-menu.wizard11").addClass("wizard-menu-checked");';
+        $count = $this->conn->prepare("SELECT COUNT(*) FROM ToDoTable1 WHERE No=1");
+        $count->execute();
+        $count = $count->fetchColumn();
+        if ($count > 0) {
+            echo '$(".wizard-menu.wizard11").addClass("wizard-menu-checked");';
+        }
+
     }
 
-    public function update_server_time( $ctime)
+    public function update_server_time($ctime)
     {
         //$ctime = $this->input::get('ctime');
 

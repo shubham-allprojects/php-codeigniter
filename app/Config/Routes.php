@@ -93,6 +93,9 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Ipset routes
     $routes->get('ipset', 'Ipset::index');
 
+    // Ftp routes
+    $routes->get('ftp', 'Ftp::index');
+
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\api'], function ($routes) {
