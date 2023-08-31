@@ -6,7 +6,7 @@ $lang->menu->configuration . '&nbsp;&gt;&nbsp;' . $lang->menu->networks . '&nbsp
 	<button class="btn_help" onclick="openHelp('ftp', '<?=$lang->_lang?>')">Help</button>
 </div>
 
-<div id="edit_section" class="hide">
+<div id="edit_section">
     <h2>:: <?=$lang->menu->ftp?></h2>
     <div class="box01">
 
@@ -62,7 +62,7 @@ $lang->menu->configuration . '&nbsp;&gt;&nbsp;' . $lang->menu->networks . '&nbsp
 </div>
 
 
-<div id="view_section" class="hide">
+<div id="view_section">
     <h2>:: <?=$lang->menu->ftp?></h2>
     <div class="box01">
 
@@ -101,11 +101,11 @@ $lang->menu->configuration . '&nbsp;&gt;&nbsp;' . $lang->menu->networks . '&nbsp
         </table>
 
         <div class="button_set">
-<? if( $this->is_auth(97, 3) != TRUE) { ?>
+<?php if ($baseController->is_auth(97, 3) != true): ?>
             <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
-<? } else { ?>
+<?php else: ?>
             <button type="button" onclick="open_edit(_seq);"><?=$lang->button->edit?></button>
-<? } ?>
+<?php endif;?>
         </div>
     </div>
 </div>
