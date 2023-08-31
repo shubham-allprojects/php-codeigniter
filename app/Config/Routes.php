@@ -96,6 +96,9 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Ftp routes
     $routes->get('ftp', 'Ftp::index');
 
+    // Smtp routes
+    $routes->get('smtp', 'Smtp::index');
+
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\api'], function ($routes) {
