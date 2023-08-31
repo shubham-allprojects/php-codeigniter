@@ -36,8 +36,8 @@ $routes->post('forgot-password', 'Auth::forgot_password');
 $routes->get('logout', 'Auth::logout');
 
 // public api routes with authentication filter
-$routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
-    // Wizard Language routes 
+$routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
+    // Wizard Language routes
     $routes->get('wizard', 'Wizard::index');
     $routes->get('wizard-language', 'Wizard::wizard_language');
     $routes->post('save-language', 'Wizard::language_insert');
@@ -89,16 +89,19 @@ $routes->group('', ['namespace' => 'App\Controllers'], function($routes) {
     $routes->post('access-level-add', 'AccessLevel::insert');
     $routes->post('access-level-update', 'AccessLevel::update');
     $routes->get('access-level-delete', 'AccessLevel::delete');
-    
+
+    // Ipset routes
+    $routes->get('ipset', 'Ipset::index');
+
 });
 
-$routes->group('api', ['namespace' => 'App\Controllers\api'], function($routes) {
+$routes->group('api', ['namespace' => 'App\Controllers\api'], function ($routes) {
     $routes->post('login', 'Auth::login');
 });
 
 // private api routes
-$routes->group('api', ['namespace' => 'App\Controllers\api', 'filter' => ['authFilter']],  function($routes) {
-    
+$routes->group('api', ['namespace' => 'App\Controllers\api', 'filter' => ['authFilter']], function ($routes) {
+
 });
 
 /*

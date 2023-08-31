@@ -6,7 +6,7 @@
                     <table width="816" border="0" cellpadding="0" cellspacing="0">
                         <tr>
 
-                            <? if( session()->get('spider_model') == MODEL_ESSENTIAL || session()->get('spider_model') == MODEL_ELITE || session()->get('spider_model') == MODEL_ENTERPRISE || session()->get('spider_model') == MODEL_TE_STANDALONE || session()->get('spider_model') == MODEL_TE_SERVER ) { ?>
+                            <?php if (session()->get('spider_model') == MODEL_ESSENTIAL || session()->get('spider_model') == MODEL_ELITE || session()->get('spider_model') == MODEL_ENTERPRISE || session()->get('spider_model') == MODEL_TE_STANDALONE || session()->get('spider_model') == MODEL_TE_SERVER): ?>
                             <td width="5"></td>
                             <td width="3"><span class="topmenuline"></span></td>
                             <td width="5"></td>
@@ -14,18 +14,18 @@
                                     data-submenu="submenu03"></a></td>
                             <td width="45"><a href="<?=base_url()?>camview" class="topmenu menu02" data-submenu="submenu02"></a>
                             </td>
-                            
+
                             <td width="45"><a href="<?=base_url()?>schedule" class="topmenu menu04" data-submenu="submenu04"></a>
                             </td>
                             <td width="45"><a href="<?=base_url()?>event" class="topmenu menu05" data-submenu="submenu05"></a>
                             </td>
-                            <? if( session()->get('spider_model') == MODEL_ELITE || 
-		       session()->get('spider_model') == MODEL_ENTERPRISE|| 
-			   session()->get('spider_model') == MODEL_TE_STANDALONE || 
-			   session()->get('spider_model') == MODEL_TE_SERVER ) { ?>
+                            <?php if (session()->get('spider_model') == MODEL_ELITE ||
+    session()->get('spider_model') == MODEL_ENTERPRISE ||
+    session()->get('spider_model') == MODEL_TE_STANDALONE ||
+    session()->get('spider_model') == MODEL_TE_SERVER): ?>
                             <td width="49"><a href="<?=base_url()?>alevel" class="topmenu menu06" data-submenu="submenu06"></a>
                             </td>
-                            <? } ?>
+                            <?php endif;?>
                             <td width="5"></td>
                             <td width="3"><span class="topmenuline"></span></td>
                             <td width="5"></td>
@@ -37,10 +37,10 @@
                             </td>
                             <td width="45"><a href="<?=base_url()?>ipset" class="topmenu menu10" data-submenu="submenu10"></a>
                             </td>
-                            <? if( TARGET_BOARD != "EVB") { ?>
+                            <?php if (TARGET_BOARD != "EVB"): ?>
                             <td width="48"><a href="<?=base_url()?>cfloor" class="topmenu menu11" data-submenu="submenu11"></a>
                             </td>
-                            <? } ?>
+                            <?php endif;?>
                             <td width="5"></td>
                             <td width="3"><span class="topmenuline"></span></td>
                             <td width="5"></td>
@@ -55,29 +55,27 @@
                             <td width="5"></td>
                             <td width="47"><a href="<?=base_url()?>groupuser" class="topmenu menu15" data-submenu="submenu15"></a>
                             </td>
-                            <?
-			if( session()->get('spider_model') == MODEL_ELITE || 
-            session()->get('spider_model') == MODEL_ENTERPRISE|| 
-            session()->get('spider_model') == MODEL_TE_STANDALONE || 
-            session()->get('spider_model') == MODEL_TE_SERVER) { ?>
-                            <td width="48"><a href="<?=base_url()?>server-client" class="topmenu menu16"
-                                    data-submenu="submenu16"></a></td>
-                            <? } else { ?>
-                            <? if( TARGET_BOARD != "EVB") { ?>
-                            <td width="48"><a href="<?=base_url()?>site" class="topmenu menu16" data-submenu="submenu16"></a>
-                            </td>
-                            <? } ?>
-                            <? } ?>
+                            <?php if (session()->get('spider_model') == MODEL_ELITE ||
+    session()->get('spider_model') == MODEL_ENTERPRISE ||
+    session()->get('spider_model') == MODEL_TE_STANDALONE ||
+    session()->get('spider_model') == MODEL_TE_SERVER): ?>
+                                <td width="48"><a href="<?=base_url()?>server-client" class="topmenu menu16" data-submenu="submenu16"></a></td>
+                            <?php else: ?>
+                                <?php if (TARGET_BOARD != "EVB"): ?>
+                                <td width="48"><a href="<?=base_url()?>site" class="topmenu menu16" data-submenu="submenu16"></a>
+                                </td>
+                                <?php endif;?>
+                            <?php endif;?>
                             <td width="5"></td>
                             <td width="3"><span class="topmenuline"></span></td>
                             <td width="5"></td>
                             <td width="50"><a href="<?=base_url()?>logout" class="topmenu menu17"
                                     data-submenu="submenu17"></a></td>
-                            <? } else { ?>
+                             <?php else: ?>
                             <td width="812"></td>
                             <td width="50"><a href="<?=base_url()?>logout" class="topmenu menu17"
                                     data-submenu="submenu17"></a></td>
-                            <? } ?>
+                        <?php endif;?>
                         </tr>
                     </table>
                 </td>
@@ -98,7 +96,7 @@
             </div>
 
             <div id="submenu02" class="submenubg" data-submenu="submenu02">
-                <? if( session()->get('spider_model') == MODEL_ELITE || 
+                <? if( session()->get('spider_model') == MODEL_ELITE ||
 		       session()->get('spider_model') == MODEL_ENTERPRISE
 			   )  { ?>
                 <a href="<?=base_url()?>camview" class="submenu menu03"></a>
@@ -118,9 +116,9 @@
                 <a href="<?=base_url()?>schedule" class="submenu menu08"></a>
                 <a href="<?=base_url()?>holiday" class="submenu menu09"></a>
                 <a href="<?=base_url()?>unlockschedule" class="submenu menu10"></a>
-                <? if( $_SESSION['spider_model'] == MODEL_ELITE || 
-		       $_SESSION['spider_model'] == MODEL_ENTERPRISE|| 
-			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE || 
+                <? if( $_SESSION['spider_model'] == MODEL_ELITE ||
+		       $_SESSION['spider_model'] == MODEL_ENTERPRISE||
+			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE ||
 			   $_SESSION['spider_model'] == MODEL_TE_SERVER) { ?>
                 <a href="<?=base_url()?>onetime-unlock-schedule" class="submenu menu104"></a>
                 <? } ?>
@@ -138,9 +136,9 @@
 
             <div id="submenu07" class="submenubg" data-submenu="submenu07">
                 <a href="<?=base_url()?>door" class="submenu menu14"></a>
-                <? if( $_SESSION['spider_model'] == MODEL_ELITE || 
-		       $_SESSION['spider_model'] == MODEL_ENTERPRISE|| 
-			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE || 
+                <? if( $_SESSION['spider_model'] == MODEL_ELITE ||
+		       $_SESSION['spider_model'] == MODEL_ENTERPRISE||
+			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE ||
 			   $_SESSION['spider_model'] == MODEL_TE_SERVER) { ?>
                 <? if( TARGET_BOARD != "EVB") { ?>
                 <a href="<?=base_url()?>elevator" class="submenu menu15"></a>
@@ -148,17 +146,17 @@
                 <? } ?>
                 <a href="<?=base_url()?>ainput" class="submenu menu16"></a>
                 <a href="<?=base_url()?>aoutput" class="submenu menu17"></a>
-                <? if( $_SESSION['spider_model'] == MODEL_ELITE || 
-		       $_SESSION['spider_model'] == MODEL_ENTERPRISE|| 
-			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE || 
+                <? if( $_SESSION['spider_model'] == MODEL_ELITE ||
+		       $_SESSION['spider_model'] == MODEL_ENTERPRISE||
+			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE ||
 			   $_SESSION['spider_model'] == MODEL_TE_SERVER) { ?>
                 <? if( TARGET_BOARD != "EVB") { ?>
                 <a href="<?=base_url()?>elevator-action" class="submenu menu55"></a>
                 <? } ?>
                 <? } ?>
                 <a href="<?=base_url()?>ctrl" class="submenu menu18"></a>
-                <? if($_SESSION['spider_model'] == MODEL_ENTERPRISE|| 
-		      $_SESSION['spider_model'] == MODEL_TE_STANDALONE || 
+                <? if($_SESSION['spider_model'] == MODEL_ENTERPRISE||
+		      $_SESSION['spider_model'] == MODEL_TE_STANDALONE ||
 			  $_SESSION['spider_model'] == MODEL_TE_SERVER) { ?>
                 <? if( TARGET_BOARD != "EVB") { ?>
                 <a href="<?=base_url()?>region" class="submenu menu103"></a>
@@ -183,7 +181,7 @@
             <div id="submenu10" class="submenubg" data-submenu="submenu10">
                 <a href="<?=base_url()?>ipset" class="submenu menu28"></a>
                 <a href="<?=base_url()?>ftp" class="submenu menu29"></a>
-                
+
                 <a href="<?=base_url()?>smtp" class="submenu menu32"></a>
                 <a href="<?=base_url()?>timesvr" class="submenu menu33"></a>
                 <? if(is_option(OPTION_RMR)) { ?>
@@ -193,9 +191,9 @@
             </div>
 
             <div id="submenu11" class="submenubg" data-submenu="submenu11">
-                <? if( $_SESSION['spider_model'] == MODEL_ELITE || 
-		       $_SESSION['spider_model'] == MODEL_ENTERPRISE|| 
-			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE || 
+                <? if( $_SESSION['spider_model'] == MODEL_ELITE ||
+		       $_SESSION['spider_model'] == MODEL_ENTERPRISE||
+			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE ||
 			   $_SESSION['spider_model'] == MODEL_TE_SERVER) { ?>
                 <? if( TARGET_BOARD != "EVB") { ?>
                 <a href="/?c=cfloor" class="submenu menu34"></a>
@@ -219,8 +217,8 @@
             </div>
 
             <div id="submenu14" class="submenubg" data-submenu="submenu14">
-                <? if( $_SESSION['spider_model'] == MODEL_ENTERPRISE|| 
-		       $_SESSION['spider_model'] == MODEL_TE_STANDALONE || 
+                <? if( $_SESSION['spider_model'] == MODEL_ENTERPRISE||
+		       $_SESSION['spider_model'] == MODEL_TE_STANDALONE ||
 			   $_SESSION['spider_model'] == MODEL_TE_SERVER ) { ?>
                 <a href="/?c=report" class="submenu menu39"></a>
                 <a href="/?c=access_report" class="submenu menu101"></a>
@@ -241,9 +239,9 @@
             <div id="submenu15" class="submenubg" data-submenu="submenu15">
                 <a href="/?c=groupuser" class="submenu menu41"></a>
                 <a href="/?c=groupdoor" class="submenu menu42"></a>
-                <? if( $_SESSION['spider_model'] == MODEL_ELITE || 
-		       $_SESSION['spider_model'] == MODEL_ENTERPRISE|| 
-			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE || 
+                <? if( $_SESSION['spider_model'] == MODEL_ELITE ||
+		       $_SESSION['spider_model'] == MODEL_ENTERPRISE||
+			   $_SESSION['spider_model'] == MODEL_TE_STANDALONE ||
 			   $_SESSION['spider_model'] == MODEL_TE_SERVER) { ?>
                 <? if( TARGET_BOARD != "EVB") { ?>
                 <a href="/?c=groupcamera" class="submenu menu102"></a>
@@ -252,8 +250,8 @@
                 <a href="/?c=groupaccess" class="submenu menu45"></a>
             </div>
 
-            <? if( $_SESSION['spider_model'] == MODEL_ENTERPRISE|| 
-	       $_SESSION['spider_model'] == MODEL_TE_STANDALONE || 
+            <? if( $_SESSION['spider_model'] == MODEL_ENTERPRISE||
+	       $_SESSION['spider_model'] == MODEL_TE_STANDALONE ||
 		   $_SESSION['spider_model'] == MODEL_TE_SERVER ) { ?>
             <div id="submenu16" class="submenubg" data-submenu="submenu16">
                 <a href="/?c=server_client" class="submenu menu48"></a>
