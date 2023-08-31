@@ -12,9 +12,9 @@ class Ipset extends BaseController
 
     public function index()
     {
-        if ($this->input::get('wizard') == '1') {
-            $this->display($vars, 'ipset/ipset', ['header' => 'css', 'footer' => '']);
-        } else { $this->display($vars);}
+        $vars = ['baseController' => $this];
+        $this->display($vars, 'ipset/ipset', ['header' => 'css', 'footer' => '']);
+
     }
 
     // ----------------------------------------------------------------------------------

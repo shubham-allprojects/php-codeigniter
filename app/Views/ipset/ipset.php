@@ -1,13 +1,13 @@
 <div id="location">
-<?
+<?php
 echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
 ?>
-	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
+	<button class="btn_help" onclick="openHelp('ipset', '<?=$lang->_lang?>')">Help</button>
 </div>
 
 <!-- modal content -->
 <div id='confirm-dialog'>
-	<form id="form_send" method="post" action="/?c=<?=$this->class?>&m=_exe" onsubmit="submit_send(); $.modal.close(); return false;">
+	<form id="form_send" method="post" action="/?c=ipset&m=_exe" onsubmit="submit_send(); $.modal.close(); return false;">
 	<div class='header'><span></span></div>
 	<div class='message'></div>
 	<div style="text-align:center">
@@ -24,7 +24,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
 <div id="edit_section" class="hide">
     <h2>:: <?=$lang->menu->ipaddress?></h2>
     <div class="box01">
-        <form id="form_edit1" method="post" action="/?c=<?=$this->class?>&m=update1">
+        <form id="form_edit1" method="post" action="/?c=ipset&m=update1">
 		<input type="hidden" name="confirm_pw" value="">
             <?=Form::hidden("No")?>
             <h3><?=$lang->menu->basic?></h3>
@@ -32,7 +32,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
             <tr>
                 <th width="150"><?=$lang->network->IPType?> *</th>
                 <td width="1">:</td>
-                <td><?=Form::radio('IPType', '', $this->arr_ip_type, '&nbsp;&nbsp;', array('onclick' => 'enable_form_edit1()'))?></td>
+                <td><?=Form::radio('IPType', '', $baseController->arr_ip_type, '&nbsp;&nbsp;', array('onclick' => 'enable_form_edit1()'))?></td>
             </tr>
             <tr>
                 <th><?=$lang->network->IPAddress?> *</th>
@@ -139,7 +139,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
         </table>
         <div class="button_set">
 <? if( $this->is_auth(96, 3) != TRUE) { ?>
-            <button type="button" onclick="alert('<?=$this->lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
+            <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
 <? } else { ?>
             <button type="button" onclick="open_edit(_seq);"><?=$lang->button->edit?></button>
 <? } ?>
@@ -147,6 +147,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
     </div>
 </div>
 
+<?PHP echo view('common/js'); ?>
 <script type="text/javascript">
 function create_list()
 {
@@ -259,7 +260,7 @@ function confirm_send()
 {
 	$('#form_send').find('input[name="confirm_pw"]').val('');
 	$('#form_edit1').find('input[name="confirm_pw"]').val('');
-	confirm_dialog("<?=$this->lang->common->savereboot?>");
+	confirm_dialog("<?=$lang->common->savereboot?>");
 }
 
 function confirm_dialog(message, callback) {
