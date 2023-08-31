@@ -1,15 +1,15 @@
 <div id="location">
-<?
-echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->timesvr;
+<?php
+echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->timesvr;
 ?>
-	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
+	<button class="btn_help" onclick="openHelp('timesvr', '<?=$lang->_lang?>')">Help</button>
 </div>
 
-<div id="edit_section" class="hide">
+<div id="edit_section" class="">
     <h2>:: <?=$lang->menu->systemtimes?></h2>
     <div class="box01">
 
-        <form id="form_edit4" method="post" action="/?c=<?=$this->class?>&m=update4">
+        <form id="form_edit4" method="post" action="/?c=timesvr&m=update4">
         <?=Form::hidden("No")?>
         <?=Form::hidden("IPType")?>
         <?=Form::hidden("DNS1")?>
@@ -91,7 +91,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->timesvr;
 </div>
 
 
-<div id="view_section" class="hide">
+<div id="view_section" class="">
     <h2>:: <?=$lang->menu->systemtimes?></h2>
     <div class="box01">
         <h3><?=$lang->menu->basic?></h3>
@@ -130,17 +130,17 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->timesvr;
 		</table>
 
         <div class="button_set">
-<? if( $this->is_auth(99, 3) != TRUE) { ?>
-            <button type="button" onclick="alert('<?=$this->lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
-<? } else { ?>
+<?php if ($baseController->is_auth(99, 3) != true): ?>
+            <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
+<?php else: ?>
             <button type="button" onclick="open_edit(_seq); init_edit();"><?=$lang->button->edit?></button>
-<? } ?>
+<?php endif;?>
         </div>
     </div>
 </div>
 
 
-
+<?PHP echo view('common/js'); ?>
 <script type="text/javascript">
 function create_list()
 {

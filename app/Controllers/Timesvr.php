@@ -13,7 +13,7 @@ class Timesvr extends BaseController
 
     public function index()
     {
-
+        $vars = ['baseController' => $this];
         $this->display($vars, 'timesvr/timesvr', ['header' => 'css', 'footer' => '']);
 
     }
