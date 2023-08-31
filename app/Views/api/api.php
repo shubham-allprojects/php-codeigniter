@@ -1,8 +1,8 @@
 <div id="location">
-<?
-echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->api;
+<?php
+echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->api;
 ?>
-	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
+	<button class="btn_help" onclick="openHelp('api', '<?=$lang->_lang?>')">Help</button>
 </div>
 
 <!-- modal content -->
@@ -185,19 +185,19 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->api;
         </tr>
         </table>
         <div class="button_set">
-<? if( $this->is_auth(96, 3) != TRUE) { ?>
-            <button type="button" onclick="alert('<?=$this->lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
-<? } else { ?>
+<?php if ($baseController->is_auth(96, 3) != true): ?>
+            <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
+<?php else: ?>
             <button type="button" onclick="open_edit(_seq);"><?=$lang->button->edit?></button>
 			<button type="button" id="force_sync" style="display:none;">Force Sync</button>
 			<button type="button" id="delete_api_data" style="width: 117px;"><?php echo $lang->button->delete_api ?></button>
-<? } ?>
+<?php endif;?>
 
         </div>
     </div>
 </div>
 
-
+<?PHP echo view('common/js'); ?>
 <script type="text/javascript">
 function create_list()
 {

@@ -2,7 +2,7 @@
 <?php
 echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->rmc;
 ?>
-	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
+	<button class="btn_help" onclick="openHelp('rmc', '<?=$lang->_lang?>')">Help</button>
 </div>
 
 <div id="view_section">
@@ -37,7 +37,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->rmc;
 <?php if ($baseController->is_auth(100, 3) != true): ?>
             <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
 <?php else: ?>
-            <button type="button" onclick="location.href='/?c=<?=$this->class?>&m=edit';"><?=$lang->button->edit?></button>
+            <button type="button" onclick="location.href='/?c=rmc&m=edit';"><?=$lang->button->edit?></button>
 <?php endif;?>
         </div>
     </div>
