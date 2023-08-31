@@ -6,7 +6,7 @@ $lang->menu->configuration . '&nbsp;&gt;&nbsp;' . $lang->menu->networks . '&nbsp
 	<button class="btn_help" onclick="openHelp('ftp', '<?=$lang->_lang?>')">Help</button>
 </div>
 
-<div id="edit_section">
+<div id="edit_section" class="">
     <h2>:: <?=$lang->menu->ftp?></h2>
     <div class="box01">
 
@@ -62,7 +62,7 @@ $lang->menu->configuration . '&nbsp;&gt;&nbsp;' . $lang->menu->networks . '&nbsp
 </div>
 
 
-<div id="view_section">
+<div id="view_section" class="">
     <h2>:: <?=$lang->menu->ftp?></h2>
     <div class="box01">
 

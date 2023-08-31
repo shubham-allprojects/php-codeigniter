@@ -1,6 +1,6 @@
 <div id="location">
 <?php
-echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
+echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->ipaddress;
 ?>
 	<button class="btn_help" onclick="openHelp('ipset', '<?=$lang->_lang?>')">Help</button>
 </div>
@@ -21,7 +21,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
 	</form>
 </div>
 
-<div id="edit_section" class="hide">
+<div id="edit_section" class="">
     <h2>:: <?=$lang->menu->ipaddress?></h2>
     <div class="box01">
         <form id="form_edit1" method="post" action="/?c=ipset&m=update1">
@@ -86,7 +86,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
         </div>
 </div>
 
-<div id="view_section" class="hide">
+<div id="view_section" class="">
     <h2>:: <?=$lang->menu->ipaddress?></h2>
     <div class="box01">
         <h3><?=$lang->menu->basic?></h3>
@@ -138,11 +138,11 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress;
         </tr>
         </table>
         <div class="button_set">
-<? if( $this->is_auth(96, 3) != TRUE) { ?>
+<?php if ($baseController->is_auth(96, 3) != true): ?>
             <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
-<? } else { ?>
+<?php else: ?>
             <button type="button" onclick="open_edit(_seq);"><?=$lang->button->edit?></button>
-<? } ?>
+<?php endif;?>
         </div>
     </div>
 </div>

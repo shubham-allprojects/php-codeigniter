@@ -1,15 +1,15 @@
 <div id="location">
-<?
-echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->smtp;
+<?php
+echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->smtp;
 ?>
-	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
+	<button class="btn_help" onclick="openHelp('smtp', '<?=$lang->_lang?>')">Help</button>
 </div>
 
-<div id="edit_section" class="hide">
+<div id="edit_section" class="">
     <h2>:: <?=$lang->menu->smtp?></h2>
     <div class="box01">
 
-        <form id="form_edit4" method="post" action="/?c=<?=$this->class?>&m=update4">
+        <form id="form_edit4" method="post" action="/?c=smtp&m=update4">
         <?=Form::hidden("No")?>
         <?=Form::hidden("mode")?>
         <h3><?=$lang->menu->basic?></h3>
@@ -17,22 +17,22 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->smtp;
         <tr>
             <th width="150"><?=$lang->network->SMTPEnable?> </th>
             <td width="1">:</td>
-            <td><?=Form::checkbox('SMTPEnable', '', FALSE, '1', array('onclick'=>'enable_form_edit4()'))?></td>
+            <td><?=Form::checkbox('SMTPEnable', '', false, '1', array('onclick' => 'enable_form_edit4()'))?></td>
         </tr>
         <tr>
             <th><?=$lang->network->SMTPServer?> </th>
             <td width="1">:</td>
-            <td><?=Form::input('SMTPServer','',array("style"=>"width:300px"))?></td>
+            <td><?=Form::input('SMTPServer', '', array("style" => "width:300px"))?></td>
         </tr>
         <tr>
             <th><?=$lang->network->SMTPNumber?> </th>
             <td width="1">:</td>
-            <td><?=Form::inputnum('SMTPNumber','', array("MAXLENGTH"=>"5"))?> (<?=$lang->menu->default587?>)</td>
+            <td><?=Form::inputnum('SMTPNumber', '', array("MAXLENGTH" => "5"))?> (<?=$lang->menu->default587?>)</td>
         </tr>
         <tr>
             <th><?=$lang->network->SMTPTTL?> </th>
             <td width="1">:</td>
-            <td><?=Form::checkbox('SMTPTTL', '', FALSE, '1')?> Used</td>
+            <td><?=Form::checkbox('SMTPTTL', '', false, '1')?> Used</td>
         </tr>
         <tr>
             <th><?=$lang->network->SMTPID?> </th>
@@ -47,7 +47,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->smtp;
         <tr>
             <th><?=$lang->network->SMTPSendTo?> </th>
             <td width="1">:</td>
-            <td><?=Form::input('SMTPSendTo','',array("style"=>"width:300px"))?> <span id="card_btn"><input size="30" type="button" onclick="$('#form_edit4 input[name=mode]').val('test'); $('#form_edit4').submit();" value='Test' /></span></td>
+            <td><?=Form::input('SMTPSendTo', '', array("style" => "width:300px"))?> <span id="card_btn"><input size="30" type="button" onclick="$('#form_edit4 input[name=mode]').val('test'); $('#form_edit4').submit();" value='Test' /></span></td>
         </tr>
         </table>
 
@@ -61,7 +61,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->smtp;
 </div>
 
 
-<div id="view_section" class="hide">
+<div id="view_section" class="">
     <h2>:: <?=$lang->menu->smtp?></h2>
     <div class="box01">
         <h3><?=$lang->menu->basic?></h3>
@@ -99,15 +99,16 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->smtp;
         </table>
 
         <div class="button_set">
-<? if( $this->is_auth(98, 3) != TRUE) { ?>
-            <button type="button" onclick="alert('<?=$this->lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
-<? } else { ?>
+<?php if ($baseController->is_auth(98, 3) != true): ?>
+            <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
+<?php else: ?>
             <button type="button" onclick="open_edit(_seq);"><?=$lang->button->edit?></button>
-<? } ?>        
+<?php endif;?>
         </div>
     </div>
 </div>
 
+<?PHP echo view('common/js'); ?>
 <script type="text/javascript">
 function create_list()
 {
@@ -152,7 +153,7 @@ function set_edit_network(form)
 
 function enable_form_edit4()
 {
-    if( $("#form_edit4 input[name='SMTPEnable']").attr("checked") )   
+    if( $("#form_edit4 input[name='SMTPEnable']").attr("checked") )
             flag = false;
     else    flag = true;
 

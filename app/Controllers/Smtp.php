@@ -12,6 +12,7 @@ class Smtp extends BaseController
 
     public function index()
     {
+        $vars = ['baseController' => $this];
         $this->display($vars, 'smtp/smtp', ['header' => 'css', 'footer' => '']);
     }
 
