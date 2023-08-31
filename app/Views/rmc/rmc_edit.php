@@ -1,6 +1,6 @@
 <div id="location">
-<?
-echo $lang->menu->configuration.'&nbsp;&gt;&nbsp;'.$lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->rmc;
+<?php
+echo $lang->menu->configuration . '&nbsp;&gt;&nbsp;' . $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->rmc;
 ?>
 	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
 </div>
