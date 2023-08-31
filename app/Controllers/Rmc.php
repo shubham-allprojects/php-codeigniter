@@ -11,7 +11,8 @@ class Rmc extends BaseController
         $vars = array();
         $vars['connect'] = $this->enumtable::$attrOnOff[($this->checkProcess() ? '0' : '1')];
         $vars['properties'] = $this->readProperties();
-        $this->display($vars, 'rmc/rmc_edit', ['header' => 'css', 'footer' => '']);
+        $vars['baseController'] = $this;
+        $this->display($vars, 'rmc/rmc', ['header' => 'css', 'footer' => '']);
     }
 
     public function edit()
@@ -19,7 +20,8 @@ class Rmc extends BaseController
         $vars = array();
         $vars['connect'] = $this->checkProcess();
         $vars['properties'] = $this->readProperties();
-        $this->display($vars, 'rmc_edit');
+        $vars['baseController'] = $this;
+        $this->display($vars, 'rmc/rmc_edit', ['header' => 'css', 'footer' => '']);
     }
 
     public function save()

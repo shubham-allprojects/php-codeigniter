@@ -1,6 +1,6 @@
 <div id="location">
-<?
-echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->rmc;
+<?php
+echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->rmc;
 ?>
 	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
 </div>
@@ -34,11 +34,11 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->rmc;
         </table>
 
         <div class="button_set">
-<? if( $this->is_auth(100, 3) != TRUE) { ?>
-            <button type="button" onclick="alert('<?=$this->lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
-<? } else { ?>
+<?php if ($baseController->is_auth(100, 3) != true): ?>
+            <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
+<?php else: ?>
             <button type="button" onclick="location.href='/?c=<?=$this->class?>&m=edit';"><?=$lang->button->edit?></button>
-<? } ?>
+<?php endif;?>
         </div>
     </div>
 </div>

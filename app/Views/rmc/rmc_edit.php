@@ -51,7 +51,7 @@ input.readonly {
     </div>
 </div>
 
-
+<?PHP echo view('common/js'); ?>
 <script type="text/javascript">
 $(function() {
     $("#form_edit input[name='connect']").bind("change", function() {
