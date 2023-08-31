@@ -1,16 +1,16 @@
 <div id="location">
-<?
-echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ftp;
-$lang->menu->configuration.'&nbsp;&gt;&nbsp;'.$lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ftp;
+<?php
+echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->ftp;
+$lang->menu->configuration . '&nbsp;&gt;&nbsp;' . $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->ftp;
 ?>
-	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
+	<button class="btn_help" onclick="openHelp('ftp', '<?=$lang->_lang?>')">Help</button>
 </div>
 
 <div id="edit_section" class="hide">
     <h2>:: <?=$lang->menu->ftp?></h2>
     <div class="box01">
 
-        <form id="form_edit3" method="post" action="/?c=<?=$this->class?>&m=update3">
+        <form id="form_edit3" method="post" action="/?c=ftp&m=update3">
         <?=Form::hidden("No")?>
         <?=Form::hidden("mode")?>
         <h3><?=$lang->menu->basic?></h3>
@@ -102,7 +102,7 @@ $lang->menu->configuration.'&nbsp;&gt;&nbsp;'.$lang->menu->networks.'&nbsp;&gt;&
 
         <div class="button_set">
 <? if( $this->is_auth(97, 3) != TRUE) { ?>
-            <button type="button" onclick="alert('<?=$this->lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
+            <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
 <? } else { ?>
             <button type="button" onclick="open_edit(_seq);"><?=$lang->button->edit?></button>
 <? } ?>
@@ -110,7 +110,7 @@ $lang->menu->configuration.'&nbsp;&gt;&nbsp;'.$lang->menu->networks.'&nbsp;&gt;&
     </div>
 </div>
 
-
+<?PHP echo view('common/js'); ?>
 <script type="text/javascript">
 function create_list()
 {
