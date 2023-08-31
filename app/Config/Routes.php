@@ -102,6 +102,8 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Time server routes
     $routes->get('timesvr', 'Timesvr::index');
 
+    // Time server routes
+    $routes->get('rmc', 'Rmc::index');
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\api'], function ($routes) {
