@@ -99,6 +99,9 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Smtp routes
     $routes->get('smtp', 'Smtp::index');
 
+    // Time server routes
+    $routes->get('timesvr', 'Timesvr::index');
+
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\api'], function ($routes) {
