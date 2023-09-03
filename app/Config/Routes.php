@@ -92,6 +92,8 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
 
     // Ipset routes
     $routes->get('ipset', 'Ipset::index');
+    $routes->post('/', 'Ipset::update1');
+    $routes->post('/', 'Ipset::save_cert');
 
     // Ftp routes
     $routes->get('ftp', 'Ftp::index');

@@ -200,8 +200,11 @@ function set_edit_network(form)
 function enable_form_edit1()
 {
     if( $("#form_edit1 input:radio[name='IPType']:checked").val() == '1' ) {
+        $("#form_edit1 input[name='Gateway']").val('');
 		flag = false;
-		$("#form_edit1 input[name='Gateway']").val(_current['Gateway']);
+        if(_current){
+            $("#form_edit1 input[name='Gateway']").val(_current['Gateway']);
+        }
 	} else {
 		flag = true;
 		$("#form_edit1 input[name='Gateway']").val('192.168.1.1');

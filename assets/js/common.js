@@ -1,4 +1,4 @@
-
+var _current;
 function contents_height()
 {
 	var h = $(document).height() - $("#gnb").outerHeight() - $("#bottom").outerHeight();

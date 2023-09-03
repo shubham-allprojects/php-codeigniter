@@ -15,7 +15,7 @@ $(document).ready(function() {
     load_list();
 });
 
-// edit data Ã¤¿ì±â
+// edit data Ã¤ï¿½ï¿½ï¿½
 function set_edit()
 {
     set_edit_network('form_edit1');

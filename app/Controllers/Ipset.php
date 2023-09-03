@@ -13,7 +13,7 @@ class Ipset extends BaseController
     public function index()
     {
         $vars = ['baseController' => $this];
-        $this->display($vars, 'ipset/ipset', ['header' => 'css', 'footer' => '']);
+        $this->display($vars, 'ipset/ipset', ['header' => 'header', 'footer' => 'footer']);
 
     }
 
