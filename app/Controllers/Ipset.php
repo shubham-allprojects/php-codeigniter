@@ -292,7 +292,8 @@ class Ipset extends BaseController
         $vars['privatekey'] = substr($content, 0, $pos);
         $vars['certificate'] = substr($content, $pos);
 
-        $this->display($vars, 'ipset_cert', 'none');
+        // $this->display($vars, 'ipset_cert', 'none');
+        $this->display($vars, 'ipset/ipset_cert', ['header' => 'header', 'footer' => 'footer']);
     }
 
     // ----------------------------------------------------------------------------------

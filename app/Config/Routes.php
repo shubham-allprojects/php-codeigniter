@@ -93,13 +93,16 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Ipset routes
     $routes->get('ipset', 'Ipset::index');
     $routes->get('ipset-get', 'Ipset::select');
-    $routes->post('/', 'Ipset::update1');
+    $routes->post('ipset-update', 'Ipset::update1');
     $routes->post('ipset-save-cert', 'Ipset::save_cert');
+
+    // Ipset cert routes
+    $routes->get('ipset-cert', 'Ipset::cert');
 
     // Ftp routes
     $routes->get('ftp', 'Ftp::index');
     $routes->get('ftp-get', 'Ftp::select');
-    $routes->post('/', 'Ftp::update3');
+    $routes->post('ftp-update', 'Ftp::update3');
 
     // Smtp routes
     $routes->get('smtp', 'Smtp::index');

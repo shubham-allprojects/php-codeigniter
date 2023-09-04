@@ -24,7 +24,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->ipaddress;
 <div id="edit_section" class="">
     <h2>:: <?=$lang->menu->ipaddress?></h2>
     <div class="box01">
-        <form id="form_edit1" method="post" action="/?c=ipset&m=update1">
+        <form id="form_edit1" method="post" action="/ipset-update">
 		<input type="hidden" name="confirm_pw" value="">
             <?=Form::hidden("No")?>
             <h3><?=$lang->menu->basic?></h3>
@@ -282,6 +282,6 @@ function confirm_dialog(message, callback) {
 
 function open_cert()
 {
-    window.open('/?c=ipset&m=cert', 'cert-win', 'scrollbars=yes,toolbar=no,resizable=no,width=800,height=600');
+    window.open('/ipset-cert', 'cert-win', 'scrollbars=yes,toolbar=no,resizable=no,width=800,height=600');
 }
 </script>

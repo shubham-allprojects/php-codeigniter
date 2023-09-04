@@ -1,12 +1,12 @@
 <div id="location">
-<?
+<?php 
 echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress.'&nbsp;&gt;&nbsp;'.$lang->menu->ssl_toolbox;
 ?>
-	<button class="btn_help" onclick="openHelp('<?=$this->class?>', '<?=$lang->_lang?>')">Help</button>
+	<button class="btn_help" onclick="openHelp('ipset_cert', '<?=$lang->_lang?>')">Help</button>
 </div>
 <!-- modal content -->
 <div id='confirm-dialog'>
-	<form id="form_send" method="post" action="/?c=<?=$this->class?>&m=_exe" onsubmit="submit_send(); $.modal.close(); show_loading(); return false;">
+	<form id="form_send" method="post" action="/?c=ipset_cert&m=_exe" onsubmit="submit_send(); $.modal.close(); show_loading(); return false;">
 	<div class='header'><span></span></div>
 	<div class='message'></div>
 	<div style="text-align:center">
@@ -24,7 +24,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress.'&nbsp;&gt;
 <div id="edit_section" class="">
     <h2>:: <?=$lang->menu->ipaddress?></h2>
     <div class="box01">
-        <form id="form_cert" method="post" action="/?c=<?=$this->class?>&m=save_cert">
+        <form id="form_cert" method="post" action="/?c=ipset_cert&m=save_cert">
             <input type="hidden" name="confirm_pw" value="">
             <table class="tbl_view">
             <tr>
@@ -55,6 +55,7 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress.'&nbsp;&gt;
         </form>
     </div>
 </div>
+<?PHP echo view('common/js'); ?>
 <script type="text/javascript">
 function submit_send()
 {
@@ -66,7 +67,7 @@ function confirm_send()
 {
 	$('#form_send').find('input[name="confirm_pw"]').val('');
 	$('#form_cert').find('input[name="confirm_pw"]').val('');
-	confirm_dialog("<?=$this->lang->common->savereboot?>");
+	confirm_dialog("<?=$lang->common->savereboot?>");
 }
 
 function confirm_dialog(message, callback) {
