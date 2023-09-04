@@ -12,7 +12,7 @@ class Ftp extends BaseController
 
     public function index()
     {   $vars = ['baseController'=> $this ];
-        $this->display($vars, 'ftp/ftp', ['header' => 'css', 'footer' => '']);
+        $this->display($vars, 'ftp/ftp', ['header' => 'header', 'footer' => 'footer']);
     }
 
     // ----------------------------------------------------------------------------------
