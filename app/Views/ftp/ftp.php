@@ -10,7 +10,7 @@ $lang->menu->configuration . '&nbsp;&gt;&nbsp;' . $lang->menu->networks . '&nbsp
     <h2>:: <?=$lang->menu->ftp?></h2>
     <div class="box01">
 
-        <form id="form_edit3" method="post" action="/?c=ftp&m=update3">
+        <form id="form_edit3" method="post" action="/ftp-update">
         <?=Form::hidden("No")?>
         <?=Form::hidden("mode")?>
         <h3><?=$lang->menu->basic?></h3>
