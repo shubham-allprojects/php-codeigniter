@@ -1,6 +1,6 @@
 <div id="location">
-<?php 
-echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress.'&nbsp;&gt;&nbsp;'.$lang->menu->ssl_toolbox;
+<?php
+echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->ipaddress . '&nbsp;&gt;&nbsp;' . $lang->menu->ssl_toolbox;
 ?>
 	<button class="btn_help" onclick="openHelp('ipset_cert', '<?=$lang->_lang?>')">Help</button>
 </div>
@@ -24,20 +24,26 @@ echo $lang->menu->networks.'&nbsp;&gt;&nbsp;'.$lang->menu->ipaddress.'&nbsp;&gt;
 <div id="edit_section" class="">
     <h2>:: <?=$lang->menu->ipaddress?></h2>
     <div class="box01">
-        <form id="form_cert" method="post" action="/?c=ipset_cert&m=save_cert">
+        <form id="form_cert" method="post" action="/ipset-save_cert">
             <input type="hidden" name="confirm_pw" value="">
             <table class="tbl_view">
             <tr>
-                <td>
-                    <p><?=$lang->network->enter_private_key?>:</p>
-                    <textarea name="privatekey" style="width: 99%; height: 150px;"><?=$privatekey?></textarea>
-                </td>
+
+<td>
+<p><?=$lang->network->enter_private_key?>:</p>
+<?php /*
+<textarea name="privatekey" style="width: 99%; height: 150px;"><?=$privatekey?></textarea> */?>
+</td>
+
             </tr>
             <tr>
-                <td>
-                    <p><?=$lang->network->enter_certificate?>:</p>
-                    <textarea name="certificate" style="width: 99%; height: 150px;"><?=$certificate?></textarea>
-                </td>
+
+<td>
+<p><?=$lang->network->enter_certificate?>:</p>
+<?php /*
+<textarea name="certificate" style="width: 99%; height: 150px;"><?=$certificate?></textarea> */?>
+</td>
+
             </tr>
             </table>
 <!--

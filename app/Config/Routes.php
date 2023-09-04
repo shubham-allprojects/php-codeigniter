@@ -94,7 +94,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('ipset', 'Ipset::index');
     $routes->get('ipset-get', 'Ipset::select');
     $routes->post('ipset-update', 'Ipset::update1');
-    $routes->post('ipset-save-cert', 'Ipset::save_cert');
+    $routes->post('ipset-save_cert', 'Ipset::save_cert');
 
     // Ipset cert routes
     $routes->get('ipset-cert', 'Ipset::cert');

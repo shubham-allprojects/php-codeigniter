@@ -285,13 +285,13 @@ class Ipset extends BaseController
     public function cert()
     {
         //-----BEGIN CERTIFICATE-----
-        $content = file_get_contents('/usr/local/lighttpd/cert/sicunet.crt');
+        // $content = file_get_contents('/usr/local/lighttpd/cert/sicunet.crt');
 
-        $pos = strpos($content, '-----BEGIN CERTIFICATE-----');
+        // $pos = strpos($content, '-----BEGIN CERTIFICATE-----');
 
-        $vars['privatekey'] = substr($content, 0, $pos);
-        $vars['certificate'] = substr($content, $pos);
-
+        // $vars['privatekey'] = substr($content, 0, $pos);
+        // $vars['certificate'] = substr($content, $pos);
+        $vars['baseController'] = $this;
         // $this->display($vars, 'ipset_cert', 'none');
         $this->display($vars, 'ipset/ipset_cert', ['header' => 'header', 'footer' => 'footer']);
     }
