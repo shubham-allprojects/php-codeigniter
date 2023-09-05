@@ -110,7 +110,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Smtp routes
     $routes->get('smtp', 'Smtp::index');
     $routes->get('smtp-get', 'Smtp::select');
-    $routes->post('/', 'Smtp::update4');
+    $routes->post('/smtp-update', 'Smtp::update4');
 
 
     // Time server routes

@@ -9,7 +9,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->smtp;
     <h2>:: <?=$lang->menu->smtp?></h2>
     <div class="box01">
 
-        <form id="form_edit4" method="post" action="/?c=smtp&m=update4">
+        <form id="form_edit4" method="post" action="/smtp-update">
         <?=Form::hidden("No")?>
         <?=Form::hidden("mode")?>
         <h3><?=$lang->menu->basic?></h3>
