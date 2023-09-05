@@ -90,6 +90,9 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->post('access-level-update', 'AccessLevel::update');
     $routes->get('access-level-delete', 'AccessLevel::delete');
 
+    // Help routes
+    $routes->get('help/(:segment)/(:segment)', 'Help::index');
+
     // Ipset routes
     $routes->get('ipset', 'Ipset::index');
     $routes->get('ipset-get', 'Ipset::select');

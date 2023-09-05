@@ -609,7 +609,8 @@ function nullToBlank(val) {
 }
 
 function openHelp(name, lang) {
-  var url = "/?c=help&name=" + name + "&lang=" + lang;
+  // var url = "/?c=help&name=" + name + "&lang=" + lang;
+  var url = "/help/" + name + "/" + lang;
   window.open(
     url,
     "help_win",
