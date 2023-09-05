@@ -8,7 +8,7 @@ class Api extends BaseController
     public function index()
     {
         $vars = ['baseController' => $this];
-        $this->display($vars, 'api/api', ['header' => 'css', 'footer' => '']);
+        $this->display($vars, 'api/api', ['header' => 'header', 'footer' => 'footer']);
     }
 
     // ----------------------------------------------------------------------------------
