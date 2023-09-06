@@ -32,7 +32,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->timesvr;
         <tr>
             <th><?=$lang->network->NTPSyncTime?></th>
             <td width="1">:</td>
-            <td><?=Form::select('NTPSyncTime', '', $this->arr_sync_time)?></td>
+            <td><?=Form::select('NTPSyncTime', '', $baseController->arr_sync_time)?></td>
         </tr>
         <tr>
             <th><?=$lang->network->NTPSyncTimeZone?></th>
@@ -74,7 +74,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->timesvr;
             <th width="150"><?=$lang->addmsg->dst_title?></th>
             <td width="1">:</td>
             <td>
-				<?=Form::radio('DSTEnable', '', $this->arr_plug, '&nbsp;&nbsp;', array('onclick' => 'enable_dst_date();'))?>
+				<?=Form::radio('DSTEnable', '', $baseController->arr_plug, '&nbsp;&nbsp;', array('onclick' => 'enable_dst_date();'))?>
 				<?//=Form::input('DSTStart', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
 				<?//=Form::input('DSTEnd', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
 			</td>
