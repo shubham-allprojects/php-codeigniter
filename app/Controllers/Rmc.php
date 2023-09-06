@@ -67,32 +67,32 @@ class Rmc extends BaseController
 
     public function readProperties()
     {
-        $txtProperties = file_get_contents($this->propertieFile);
+        // $txtProperties = file_get_contents($this->propertieFile);
         $result = array();
-        $lines = split("\n", $txtProperties);
-        $key = "";
-        foreach ($lines as $i => $line) {
-            $line = trim($line);
-            if (empty($line) || (!$isWaitingOtherLine && strpos($line, "#") === 0)) {
-                continue;
-            }
+        // $lines = split("\n", $txtProperties);
+        // $key = "";
+        // foreach ($lines as $i => $line) {
+        //     $line = trim($line);
+        //     if (empty($line) || (!$isWaitingOtherLine && strpos($line, "#") === 0)) {
+        //         continue;
+        //     }
 
-            $key = trim(substr($line, 0, strpos($line, '=')));
-            $value = trim(substr($line, strpos($line, '=') + 1, strlen($line)));
+        //     $key = trim(substr($line, 0, strpos($line, '=')));
+        //     $value = trim(substr($line, strpos($line, '=') + 1, strlen($line)));
 
-            if ($key == 'webtunnel.reflectorURI') {
-                if (substr($value, 0, 8) == 'https://') {
-                    $value = substr($value, 8);
-                } else if (substr($value, 0, 7) == 'http://') {
-                    $value = substr($value, 7);
-                }
-            } else if ($key == 'webtunnel.deviceId') {
-                $value = str_replace('-${system.nodeId}', '', $value);
-            }
+        //     if ($key == 'webtunnel.reflectorURI') {
+        //         if (substr($value, 0, 8) == 'https://') {
+        //             $value = substr($value, 8);
+        //         } else if (substr($value, 0, 7) == 'http://') {
+        //             $value = substr($value, 7);
+        //         }
+        //     } else if ($key == 'webtunnel.deviceId') {
+        //         $value = str_replace('-${system.nodeId}', '', $value);
+        //     }
 
-            $result[$key] = $value;
-            unset($lines[$i]);
-        }
+        //     $result[$key] = $value;
+        //     unset($lines[$i]);
+        // }
 
         return $result;
     }

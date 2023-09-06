@@ -27,17 +27,17 @@ input.readonly {
             <tr>
                 <th width="150"><?=$lang->common->server_url?></th>
                 <td width="1">:</td>
-                <td><input type="text" name="reflectorURI" value="<?=$properties['webtunnel.reflectorURI']?>" style="width: 350px;" /></td>
+                <td><input type="text" name="reflectorURI" <?php /*  value="<?=$properties['webtunnel.reflectorURI']?>"  */ ?> style="width: 350px;" /></td>
             </tr>
             <tr>
                 <th width="150"><?=$lang->common->domain_uuid?></th>
                 <td width="1">:</td>
-                <td><input type="text" name="domain" value="<?=$properties['webtunnel.domain']?>" style="width: 350px;" /></td>
+                <td><input type="text" name="domain" <?php /* value="<?=$properties['webtunnel.domain']?>" */ ?>  style="width: 350px;" /></td>
             </tr>
             <tr>
                 <th width="150"><?=$lang->common->device_id?></th>
                 <td width="1">:</td>
-                <td><input type="text" name="deviceId" value="<?=$properties['webtunnel.deviceId']?>" style="width: 350px;" /></td>
+                <td><input type="text" name="deviceId" <?php /* value="<?=$properties['webtunnel.deviceId']?>" */ ?>  style="width: 350px;" /></td>
             </tr>
             </table>
 

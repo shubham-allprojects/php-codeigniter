@@ -16,29 +16,32 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->rmc;
             <td width="1">:</td>
             <td><?=$connect?></td>
         </tr>
+  
         <tr>
             <th width="150"><?=$lang->common->server_url?></th>
             <td width="1">:</td>
-            <td><?=$properties['webtunnel.reflectorURI']?></td>
+            <?php /* <td><?=$properties['webtunnel.reflectorURI']?></td> */ ?>
         </tr>
         <tr>
             <th width="150"><?=$lang->common->domain_uuid?></th>
             <td width="1">:</td>
-            <td><?=$properties['webtunnel.domain']?></td>
+            <?php /* <td><?=$properties['webtunnel.domain']?></td> */ ?>
         </tr>
         <tr>
             <th width="150"><?=$lang->common->device_id?></th>
             <td width="1">:</td>
-            <td><?=$properties['webtunnel.deviceId']?></td>
+            <?php /* <td><?=$properties['webtunnel.deviceId']?></td> */ ?>
         </tr>
+     
         </table>
 
         <div class="button_set">
 <?php if ($baseController->is_auth(100, 3) != true): ?>
             <button type="button" onclick="alert('<?=$lang->user->error_not_permission?>');"><?=$lang->button->edit?></button>
 <?php else: ?>
-            <button type="button" onclick="location.href='/?c=rmc&m=edit';"><?=$lang->button->edit?></button>
+            <button type="button" onclick="location.href='/rmc-edit';"><?=$lang->button->edit?></button>
 <?php endif;?>
         </div>
     </div>
 </div>
+<?PHP echo view('common/js'); ?>
