@@ -120,6 +120,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Rmc routes
     $routes->get('rmc', 'Rmc::index');
     $routes->get('rmc-edit', 'Rmc::edit');
+    $routes->post('rmc-save', 'Rmc::save');
 
     // Api routes
     $routes->get('api', 'Api::index');

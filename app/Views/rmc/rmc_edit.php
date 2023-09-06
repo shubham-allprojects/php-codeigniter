@@ -15,7 +15,7 @@ input.readonly {
 <div id="edit_section">
     <h2>:: <?=$lang->menu->rmc?></h2>
     <div class="box01">
-        <form id="form_edit" method="post" action="/?c=rmc_edit&m=save">
+        <form id="form_edit" method="post" action="/rmc-save">
 
             <h3><?=$lang->menu->basic?></h3>
             <table class="tbl_view">
@@ -44,7 +44,7 @@ input.readonly {
             <div class="button_set">
                 <button type="button" onclick="$('#form_edit').submit();"><?=$lang->button->save?></button>&nbsp;&nbsp;
                 <button type="button" onclick="this.form.reset(); $(this.form).find('input[name=connect]').change();"><?=$lang->button->reset?></button>&nbsp;&nbsp;
-                <button type="button" onclick="location.href='/?c=rmc_edit';"><?=$lang->button->cancel?></button>
+                <button type="button" onclick="location.href='/rmc-edit';"><?=$lang->button->cancel?></button>
             </div>
 
         </form>

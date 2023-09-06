@@ -56,13 +56,13 @@ class Rmc extends BaseController
 
         $sth = $this->conn->prepare("UPDATE NetworkInfo SET DDNSEnable = ? WHERE No = 1");
         $values = array($connect);
-        $sth->executeSilent($values);
+        // $sth->executeSilent($values);
 
         if ($connect == '1') {
             $this->startProcess();
         }
 
-        $this->util::js("location.href='/?c=rmc';");
+        $this->util::js("location.href='/rmc';");
     }
 
     public function readProperties()
@@ -105,26 +105,26 @@ class Rmc extends BaseController
             $value = $value . '-${system.nodeId}';
         }
 
-        $txtProperties = file_get_contents($this->propertieFile);
-        $result = array();
-        $lines = split("\n", $txtProperties);
-        foreach ($lines as $i => $line) {
-            $line = trim($line);
-            if (empty($line) || (!$isWaitingOtherLine && strpos($line, "#") === 0)) {
-                $result[] = $line;
-                continue;
-            }
+        // $txtProperties = file_get_contents($this->propertieFile);
+        // $result = array();
+        // $lines = split("\n", $txtProperties);
+        // foreach ($lines as $i => $line) {
+        //     $line = trim($line);
+        //     if (empty($line) || (!$isWaitingOtherLine && strpos($line, "#") === 0)) {
+        //         $result[] = $line;
+        //         continue;
+        //     }
 
-            $key = trim(substr($line, 0, strpos($line, '=')));
+        //     $key = trim(substr($line, 0, strpos($line, '=')));
 
-            if ($key == $name) {
-                $result[] = "{$key} = {$value}";
-            } else {
-                $result[] = $line;
-            }
-        }
+        //     if ($key == $name) {
+        //         $result[] = "{$key} = {$value}";
+        //     } else {
+        //         $result[] = $line;
+        //     }
+        // }
 
-        file_put_contents($this->propertieFile, implode("\n", $result));
+        // file_put_contents($this->propertieFile, implode("\n", $result));
     }
 
     public function checkProcess()
