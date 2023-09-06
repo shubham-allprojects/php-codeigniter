@@ -10,7 +10,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->timesvr;
     <h2>:: <?=$lang->menu->systemtimes?></h2>
     <div class="box01">
 
-        <form id="form_edit4" method="post" action="/?c=timesvr&m=update4">
+        <form id="form_edit4" method="post" action="timesvr-update">
         <?=Form::hidden("No")?>
         <?=Form::hidden("IPType")?>
         <?=Form::hidden("DNS1")?>

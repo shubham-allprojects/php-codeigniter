@@ -112,9 +112,10 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('smtp-get', 'Smtp::select');
     $routes->post('/smtp-update', 'Smtp::update4');
 
-
     // Time server routes
     $routes->get('timesvr', 'Timesvr::index');
+    $routes->get('timesvr-select', 'Timesvr::select');
+    $routes->post('timesvr-update', 'Timesvr::update4');
 
     // Rmc routes
     $routes->get('rmc', 'Rmc::index');
