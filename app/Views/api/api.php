@@ -539,7 +539,7 @@ function test_connection()
 
 function submit_save_api_data()
 {
-	var save_data_url = "/?c=<?php echo `api`; ?>&m=save_api_data";
+	var save_data_url = "/api/save_api_data";
 
 	showLoader()
 	$.ajax({
@@ -564,7 +564,7 @@ function submit_save_api_data()
 				$('#property_address').val(property_address);
 				$('#property_website').val(property_website);
 				alert(response.message);
-				window.location.href = "/?c=api";
+				window.location.href = "/api";
 			}
 
         }
@@ -573,7 +573,7 @@ function submit_save_api_data()
 
 function submit_delete_api_data()
 {
-	var delete_api_url = "/?c=<?php echo `api`; ?>&m=delete_api_data";
+	var delete_api_url = "/api/delete_api_data";
 
 	showLoader()
 	$.ajax({
@@ -596,7 +596,7 @@ function submit_delete_api_data()
 }
 
 function dialog_submit(type){
-	var admin_pwd_api_url = "/?c=<?php echo `api`; ?>&m=check_admin_pwd";
+	var admin_pwd_api_url = "/api/check_admin_pwd";
 
 	pwd = $('#'+type).val();
 	showLoader()

@@ -110,7 +110,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     // Smtp routes
     $routes->get('smtp', 'Smtp::index');
     $routes->get('smtp-get', 'Smtp::select');
-    $routes->post('/smtp-update', 'Smtp::update4');
+    $routes->post('smtp-update', 'Smtp::update4');
 
     // Time server routes
     $routes->get('timesvr', 'Timesvr::index');
@@ -124,7 +124,10 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
 
     // Api routes
     $routes->get('api', 'Api::index');
-    
+    $routes->post('api/save_api_data', 'Api::save_api_data');
+    $routes->post('api/check_admin_pwd', 'Api::check_admin_pwd');
+    $routes->post('api/delete_api_data', 'Api::delete_api_data');
+
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\api'], function ($routes) {
