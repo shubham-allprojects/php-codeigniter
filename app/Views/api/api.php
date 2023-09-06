@@ -209,7 +209,7 @@ function create_list()
 $(document).ready(function() {
     load_list();
 
-	var encrypt_url = "/?c=<?php echo `api`; ?>&m=encrypt_data";
+	var encrypt_url = "/api/encrypt_data";
 	$.ajax({
 		url: encrypt_url,
         success: function(response) {
@@ -217,7 +217,7 @@ $(document).ready(function() {
 		}
 	});
 
-	var schedule_url = "/?c=<?php echo `api`; ?>&m=fetch_schedule_data";
+	var schedule_url = "/api/fetch_schedule_data";
 	var schedule_html = '';
 
 	$.ajax({
