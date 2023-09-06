@@ -15,7 +15,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->api;
 		<input type="password" name="force_sync_confirm_pw" id="force_sync_confirm_pw" value="">
 	</div>
 	<div class='buttons'>
-		<button type="button" id="force_sync_modal_button" onclick="dialog_submit('force_sync_confirm_pw');show_loading();" class="yes"><?=$lang->button->ok?></button>
+		<button type="button" id="force_sync_modal_button" onclick="dialog_submit('force_sync_confirm_pw');showLoader();" class="yes"><?=$lang->button->ok?></button>
 		<button type="button" onclick="$.modal.close()"><?=$lang->button->close?></button>
 	</div>
 </div>
@@ -29,7 +29,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->api;
 		<input type="password" name="save_api_confirm_pw" id="save_api_confirm_pw" value="">
 	</div>
 	<div class='buttons'>
-		<button type="button" id="save_api_modal_button" onclick="dialog_submit('save_api_confirm_pw');show_loading();" class="yes"><?=$lang->button->ok?></button>
+		<button type="button" id="save_api_modal_button" onclick="dialog_submit('save_api_confirm_pw');showLoader();" class="yes"><?=$lang->button->ok?></button>
 		<button type="button" onclick="$.modal.close()"><?=$lang->button->close?></button>
 	</div>
 </div>
@@ -43,7 +43,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->api;
 		<input type="password" name="delete_api_confirm_pw" id="delete_api_confirm_pw" value="">
 	</div>
 	<div class='buttons'>
-		<button type="button" id="delete_api_modal_button" onclick="dialog_submit('delete_api_confirm_pw');show_loading();" class="yes"><?=$lang->button->ok?></button>
+		<button type="button" id="delete_api_modal_button" onclick="dialog_submit('delete_api_confirm_pw');showLoader();" class="yes"><?=$lang->button->ok?></button>
 		<button type="button" onclick="$.modal.close()"><?=$lang->button->close?></button>
 	</div>
 </div>
@@ -468,12 +468,12 @@ function submit_force_sync()
 {
 	var force_sync_url = "/?c=<?php echo `api`; ?>&m=force_sync";
 
-	show_loading()
+	showLoader()
 	$.ajax({
 		type: "POST",
 		url: force_sync_url,
         success: function(response) {
-			hide_loading()
+			hideLoader()
 			response = $.parseJSON(response)
 
 			if(response.error == 1){
@@ -506,13 +506,13 @@ function test_connection()
 {
 	var test_connection_url = "/?c=<?php echo `api`; ?>&m=test_api_connection";
 
-	// show_loading()
+	// showLoader()
 	$.ajax({
 		type: "POST",
 		data: $('#form_edit1').serialize(),
 		url: test_connection_url,
         success: function(response) {
-			// hide_loading()
+			hideLoader()
 			response = $.parseJSON(response)
 
 			if(response.error == 1){
@@ -541,13 +541,13 @@ function submit_save_api_data()
 {
 	var save_data_url = "/?c=<?php echo `api`; ?>&m=save_api_data";
 
-	show_loading()
+	showLoader()
 	$.ajax({
 		type: "POST",
 		data: $('#form_edit1').serialize(),
 		url: save_data_url,
         success: function(response) {
-			hide_loading()
+			hideLoader()
 			response = $.parseJSON(response);
 			if(response.error == 1){
 				$('#property_name').val('');
@@ -575,12 +575,12 @@ function submit_delete_api_data()
 {
 	var delete_api_url = "/?c=<?php echo `api`; ?>&m=delete_api_data";
 
-	show_loading()
+	showLoader()
 	$.ajax({
 		type: "POST",
 		url: delete_api_url,
         success: function(response) {
-			hide_loading()
+			hideLoader()
 			response = $.parseJSON(response)
 			//console.log(response);
 
@@ -599,14 +599,14 @@ function dialog_submit(type){
 	var admin_pwd_api_url = "/?c=<?php echo `api`; ?>&m=check_admin_pwd";
 
 	pwd = $('#'+type).val();
-	show_loading()
+	showLoader()
 	if(pwd != ''){
 		$.ajax({
 			type: "POST",
 			data: 'confirm_pw='+pwd,
 			url: admin_pwd_api_url,
 			success: function(response) {
-				hide_loading()
+				hideLoader()
 				response = $.parseJSON(response)
 				if(response.error == 1){
 					alert(response.message);
