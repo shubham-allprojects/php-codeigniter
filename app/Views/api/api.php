@@ -490,7 +490,7 @@ function load_api(){
 	$.ajax({
 		type: "POST",
 		data: $('#form_edit1').serialize(),
-		url: "/?c=<?php echo `api`; ?>&m=is_apiData_present",
+		url: "/api/is_apiData_present",
         success: function(response) {
 			if(response == 0){
 				$("#force_sync").hide();

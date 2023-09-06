@@ -129,6 +129,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->post('api/delete_api_data', 'Api::delete_api_data');
     $routes->post('api/test_api_connection', 'Api::test_api_connection');
     $routes->post('api/force_sync', 'Api::force_sync');
+    $routes->post('api/is_apiData_present', 'Api::is_apiData_present');
 
 });
 
