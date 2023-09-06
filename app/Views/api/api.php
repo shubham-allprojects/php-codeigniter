@@ -466,7 +466,7 @@ function init_edit(){
 
 function submit_force_sync()
 {
-	var force_sync_url = "/?c=<?php echo `api`; ?>&m=force_sync";
+	var force_sync_url = "/api/force_sync";
 
 	showLoader()
 	$.ajax({
