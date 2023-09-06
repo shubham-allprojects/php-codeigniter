@@ -206,6 +206,7 @@ class Ipset extends BaseController
         } else {
             $this->util::alert($this->lang->common->error_update);
         }
+        $this->util::redirect("/ipset");
     }
 
     // ----------------------------------------------------------------------------------
