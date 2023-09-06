@@ -504,7 +504,7 @@ function load_api(){
 
 function test_connection()
 {
-	var test_connection_url = "/?c=<?php echo `api`; ?>&m=test_api_connection";
+	var test_connection_url = "/api/test_api_connection";
 
 	// showLoader()
 	$.ajax({

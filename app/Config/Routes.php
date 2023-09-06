@@ -127,6 +127,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->post('api/save_api_data', 'Api::save_api_data');
     $routes->post('api/check_admin_pwd', 'Api::check_admin_pwd');
     $routes->post('api/delete_api_data', 'Api::delete_api_data');
+    $routes->post('api/test_api_connection', 'Api::test_api_connection');
 
 });
 
