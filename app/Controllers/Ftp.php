@@ -99,7 +99,7 @@ class Ftp extends BaseController
 
             if ($sth->execute($values)) {
                 $this->log::set_log(null, 'update');
-                $this->util::js('update_list("' . $No . '");');
+                // $this->util::js('update_list("' . $No . '");');
                 $this->util::alert($this->lang->common->save_completed);
             } else {
                 $this->util::alert($this->lang->common->error_update);
