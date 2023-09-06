@@ -1,5 +1,6 @@
 <div id="location">
 <?php
+use App\Libraries\EnumTable;
 echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->timesvr;
 ?>
 	<button class="btn_help" onclick="openHelp('timesvr', '<?=$lang->_lang?>')">Help</button>
@@ -59,8 +60,8 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->timesvr;
 
                 <input type="checkbox" id="timezonesync_checkbox" name="timezonesync_check" onchange="time_zone_sync_client();" value="1" checked/>
                 <label>Sync</label>
-				<?//=Form::input('DSTStart', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
-				<?//=Form::input('DSTEnd', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
+				<?php //=Form::input('DSTStart', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
+				<?php //=Form::input('DSTEnd', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
                 <div id="timezonesync_msg" style="margin-left:5px; display:inline;">**(Server and Client(Connected) Timezone and DST will change.)</div>
 
 			</td>
@@ -75,8 +76,8 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->timesvr;
             <td width="1">:</td>
             <td>
 				<?=Form::radio('DSTEnable', '', $baseController->arr_plug, '&nbsp;&nbsp;', array('onclick' => 'enable_dst_date();'))?>
-				<?//=Form::input('DSTStart', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
-				<?//=Form::input('DSTEnd', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
+				<?php //=Form::input('DSTStart', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
+				<?php //=Form::input('DSTEnd', '', array('class'=>'date', 'size'=>10, 'readonly'=>'readonly'))?>
 			</td>
         </tr>
 		</table>
