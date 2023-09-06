@@ -1,5 +1,6 @@
 <div id="location">
 <?php
+use App\Libraries\EnumTable;
 echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->api;
 ?>
 	<button class="btn_help" onclick="openHelp('api', '<?=$lang->_lang?>')">Help</button>
@@ -47,7 +48,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->api;
 	</div>
 </div>
 
-<div id="edit_section" class="hide">
+<div id="edit_section" class="">
     <h2>:: <?=$lang->menu->ipaddress?></h2>
     <div class="box01">
         <form id="form_edit1" method="post" action="">
@@ -143,7 +144,7 @@ echo $lang->menu->networks . '&nbsp;&gt;&nbsp;' . $lang->menu->api;
         </div>
 </div>
 
-<div id="view_section" class="hide">
+<div id="view_section" class="">
     <h2>:: <?=$lang->menu->ipaddress?></h2>
     <div class="box01">
         <h3><?=$lang->menu->basic?></h3>
@@ -208,7 +209,7 @@ function create_list()
 $(document).ready(function() {
     load_list();
 
-	var encrypt_url = "/?c=<?php echo $this->class; ?>&m=encrypt_data";
+	var encrypt_url = "/?c=<?php echo `api`; ?>&m=encrypt_data";
 	$.ajax({
 		url: encrypt_url,
         success: function(response) {
@@ -216,7 +217,7 @@ $(document).ready(function() {
 		}
 	});
 
-	var schedule_url = "/?c=<?php echo $this->class; ?>&m=fetch_schedule_data";
+	var schedule_url = "/?c=<?php echo `api`; ?>&m=fetch_schedule_data";
 	var schedule_html = '';
 
 	$.ajax({
@@ -465,7 +466,7 @@ function init_edit(){
 
 function submit_force_sync()
 {
-	var force_sync_url = "/?c=<?php echo $this->class; ?>&m=force_sync";
+	var force_sync_url = "/?c=<?php echo `api`; ?>&m=force_sync";
 
 	show_loading()
 	$.ajax({
@@ -489,7 +490,7 @@ function load_api(){
 	$.ajax({
 		type: "POST",
 		data: $('#form_edit1').serialize(),
-		url: "/?c=<?php echo $this->class; ?>&m=is_apiData_present",
+		url: "/?c=<?php echo `api`; ?>&m=is_apiData_present",
         success: function(response) {
 			if(response == 0){
 				$("#force_sync").hide();
@@ -503,7 +504,7 @@ function load_api(){
 
 function test_connection()
 {
-	var test_connection_url = "/?c=<?php echo $this->class; ?>&m=test_api_connection";
+	var test_connection_url = "/?c=<?php echo `api`; ?>&m=test_api_connection";
 
 	show_loading()
 	$.ajax({
@@ -538,7 +539,7 @@ function test_connection()
 
 function submit_save_api_data()
 {
-	var save_data_url = "/?c=<?php echo $this->class; ?>&m=save_api_data";
+	var save_data_url = "/?c=<?php echo `api`; ?>&m=save_api_data";
 
 	show_loading()
 	$.ajax({
@@ -572,7 +573,7 @@ function submit_save_api_data()
 
 function submit_delete_api_data()
 {
-	var delete_api_url = "/?c=<?php echo $this->class; ?>&m=delete_api_data";
+	var delete_api_url = "/?c=<?php echo `api`; ?>&m=delete_api_data";
 
 	show_loading()
 	$.ajax({
@@ -595,7 +596,7 @@ function submit_delete_api_data()
 }
 
 function dialog_submit(type){
-	var admin_pwd_api_url = "/?c=<?php echo $this->class; ?>&m=check_admin_pwd";
+	var admin_pwd_api_url = "/?c=<?php echo `api`; ?>&m=check_admin_pwd";
 
 	pwd = $('#'+type).val();
 	show_loading()
