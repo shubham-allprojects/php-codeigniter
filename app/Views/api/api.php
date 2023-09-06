@@ -506,13 +506,13 @@ function test_connection()
 {
 	var test_connection_url = "/?c=<?php echo `api`; ?>&m=test_api_connection";
 
-	show_loading()
+	// show_loading()
 	$.ajax({
 		type: "POST",
 		data: $('#form_edit1').serialize(),
 		url: test_connection_url,
         success: function(response) {
-			hide_loading()
+			// hide_loading()
 			response = $.parseJSON(response)
 
 			if(response.error == 1){

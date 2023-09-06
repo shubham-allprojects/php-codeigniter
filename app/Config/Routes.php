@@ -124,6 +124,7 @@ $routes->group('', ['namespace' => 'App\Controllers'], function ($routes) {
 
     // Api routes
     $routes->get('api', 'Api::index');
+    
 });
 
 $routes->group('api', ['namespace' => 'App\Controllers\api'], function ($routes) {
