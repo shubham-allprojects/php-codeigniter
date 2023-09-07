@@ -164,7 +164,7 @@ class Timesvr extends BaseController
                             if ($action[1] == '0') {
                                 //exec(SPIDER_COMM." send db");
                                 $this->log::set_log(null, 'update');
-                                $this->util::js('update_list("' . $No . '");');
+                                // $this->util::js('update_list("' . $No . '");');
                                 $this->util::alert($this->lang->common->save_completed);
                             } else {
                                 $this->util::alert($this->lang->common->fail_NTP);
@@ -225,12 +225,13 @@ class Timesvr extends BaseController
                     }
                 }
 
-                $this->util::js('update_list("' . $No . '");');
+                // $this->util::js('update_list("' . $No . '");');
                 $this->util::alert($this->lang->common->save_completed);
             } else {
                 $this->util::alert($this->lang->common->error_update);
             }
         }
+        $this->util::redirect("/timesvr");
     }
 
     // ----------------------------------------------------------------------------------

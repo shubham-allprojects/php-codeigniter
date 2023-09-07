@@ -104,7 +104,7 @@ class Smtp extends BaseController
 
                 exec(SPIDER_COMM . " smtp save");
                 //exec(SPIDER_COMM." send db");
-                $this->util::js('update_list("' . $No . '");');
+                // $this->util::js('update_list("' . $No . '");');
                 $this->util::alert($this->lang->common->save_completed);
             } else {
                 $this->util::alert($this->lang->common->error_update);
@@ -115,6 +115,7 @@ class Smtp extends BaseController
                 $this->util::alert($this->lang->addmsg->send_test_mail);
             }
         }
+        $this->util::redirect("/smtp");
     }
 
     // ----------------------------------------------------------------------------------
